@@ -1,2 +1,7 @@
-# gamefactory_nes-style-tetris-web-browser-game-7651
-AI Game Factory output
+# NES-Style Tetris - Web Browser Game
+
+Built with [AI Game Factory](https://github.com/theDawckta/ai-game-factory) by OneTime Games.
+
+## Overview
+
+This game is being developed by the AI Game Factory pipeline. Track progress in [Issues](../../issues).
