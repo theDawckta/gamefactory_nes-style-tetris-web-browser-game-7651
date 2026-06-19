@@ -1,0 +1,69 @@
+/* Game Screen USS Stylesheet */
+
+/* Root element: fully transparent background, horizontal layout */
+#root {
+    -background-color: transparent;
+    -flex-direction: row;
+    -align-items: flex-start;
+    -justify-content: space-between;
+    -width: 100%;
+    -height: 100%;
+    -padding: 10px;
+}
+
+/* Next piece region: left side */
+.next-region {
+    -flex-grow: 0;
+    -flex-direction: column;
+    -align-items: center;
+    -justify-content: flex-start;
+    -width: 120px;
+    -padding: 8px;
+    -background-color: #1A1A2E;
+    -border-width: 2px;
+    -border-color: #4A4A6A;
+    -border-radius: 4px;
+}
+
+/* Center spacer: reserves space for world-space playfield */
+.playfield-spacer {
+    -flex-grow: 1;
+    -min-width: 200px;
+}
+
+/* Stats panel: right side, groups score/level/lines */
+.stats-panel {
+    -flex-grow: 0;
+    -flex-direction: column;
+    -align-items: stretch;
+    -width: 140px;
+    -padding: 8px;
+    -background-color: #1A1A2E;
+    -border-width: 2px;
+    -border-color: #4A4A6A;
+    -border-radius: 4px;
+}
+
+/* Individual stat regions */
+.score-region,
+.level-region,
+.lines-region {
+    -flex-direction: column;
+    -align-items: center;
+    -justify-content: center;
+    -padding: 6px;
+    -margin-bottom: 8px;
+}
+
+.region-label {
+    -unity-font-size: 12;
+    -color: #AAAAAA;
+    -font-weight: bold;
+    -margin-bottom: 2px;
+}
+
+.region-value {
+    -unity-font-size: 18;
+    -color: #FFFFFF;
+    -font-weight: bold;
+}
