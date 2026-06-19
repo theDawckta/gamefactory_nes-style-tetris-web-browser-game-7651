@@ -56,7 +56,7 @@ public class InitialsEntryOverlayPlayModeTests
     {
         if (_go != null)
         {
-            Object.Destroy(_go);
+            UnityEngine.Object.Destroy(_go);
             _go = null;
         }
     }
@@ -138,8 +138,8 @@ public class InitialsEntryOverlayPlayModeTests
         yield return null;
 
         // We can't simulate input in a PlayMode test easily, so verify the event
-        // wiring works by checking the delegate is not null
-        Assert.IsNotNull(_overlay.OnInitialsSubmitted, "OnInitialsSubmitted should be subscribable");
+        // wiring works by confirming we could subscribe to it above
+        // Events cannot be checked with IsNotNull directly
 
         // Verify the overlay is visible
         Assert.IsTrue(_overlay.IsVisible);
