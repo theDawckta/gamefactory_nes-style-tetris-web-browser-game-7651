@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+  <Style src="project://database/Assets/Game/UI/GameScreen.uss">#root</Style>
+  <!-- Next piece preview region: left side -->
+  <ui:VisualElement name="next-region" class="next-region">
+    <ui:Label text="NEXT" class="region-label" />
+  </ui:VisualElement>
+  <!-- Spacer: center area reserved for world-space playfield -->
+  <ui:VisualElement name="playfield-spacer" class="playfield-spacer" />
+  <!-- Right side: grouped stats panel -->
+  <ui:VisualElement name="stats-panel" class="stats-panel">
+    <ui:VisualElement name="score-region" class="score-region">
+      <ui:Label text="SCORE" class="region-label" />
+      <ui:Label text="0" class="region-value" />
+    </ui:VisualElement>
+    <ui:VisualElement name="level-region" class="level-region">
+      <ui:Label text="LEVEL" class="region-label" />
+      <ui:Label text="1" class="region-value" />
+    </ui:VisualElement>
+    <ui:VisualElement name="lines-region" class="lines-region">
+      <ui:Label text="LINES" class="region-label" />
+      <ui:Label text="0" class="region-value" />
+    </ui:VisualElement>
+  </ui:VisualElement>
+</ui:UXML>
