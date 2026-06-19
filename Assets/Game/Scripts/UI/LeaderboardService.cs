@@ -62,6 +62,68 @@ public class LeaderboardService
     }
 
     /// <summary>
+    /// Fetches the leaderboard scores from the server using callbacks.
+    /// Calls onScoresFetched with the retrieved entries on success.
+    /// Calls onScoresError with an error message if the server is unavailable.
+    /// </summary>
+    public static void GetScores(System.Action<LeaderboardEntry[]> onScoresFetched, System.Action<string> onScoresError)
+    {
+        GetScoresAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                onScoresError?.Invoke(task.Exception.InnerException?.Message ?? "Unknown error fetching scores");
+            }
+            else
+            {
+                onScoresFetched?.Invoke(task.Result);
+            }
+        });
+    }
+
+    /// <summary>
+    /// Posts a new score to the server and refreshes the leaderboard.
+    /// Calls onScoresPosted with the updated entries on success.
+    /// Calls onScoresError with an error message if posting fails.
+    /// </summary>
+    public static void PostScore(string name, int score, System.Action<LeaderboardEntry[]> onScoresPosted, System.Action<string> onScoresError)
+    {
+        PostScoreAsync(name, score).ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                onScoresError?.Invoke(task.Exception.InnerException?.Message ?? "Unknown error posting score");
+            }
+            else
+            {
+                onScoresPosted?.Invoke(task.Result);
+            }
+        });
+    }
+
+    private static async Task<LeaderboardEntry[]> PostScoreAsync(string name, int score)
+    {
+        try
+        {
+            using (var client = new HttpClient())
+            {
+                var entry = new LeaderboardEntry(name, score);
+                var json = JsonUtility.ToJson(entry);
+                var content = new System.Net.Http.StringContent(json, System.Text.Encoding.UTF8, "application/json");
+                await client.PostAsync(ServerUrl, content);
+
+                // After posting, fetch the updated scores
+                return await GetScoresAsync();
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning("[LeaderboardService] Could not post score to server: " + ex.Message);
+            throw;
+        }
+    }
+
+    /// <summary>
     /// Internal wrapper for JSON deserialization.
     /// </summary>
     [Serializable]
