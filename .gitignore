@@ -108,3 +108,6 @@ InitTestScene*.unity*
 # Node.js server dependencies and runtime data
 /server/node_modules/
 /server/scores.json
+# Windows reserved device name -- cannot be indexed by git
+nul
+**/nul
