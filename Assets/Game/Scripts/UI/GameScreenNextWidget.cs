@@ -176,7 +176,7 @@ public class GameScreenNextWidget : MonoBehaviour
             {
                 if (_blockSprites != null && _blockSprites.Length > 0)
                 {
-                    _gridImages[row, col].image = _blockSprites[0];
+                    _gridImages[row, col].sprite = _blockSprites[0];
                 }
             }
         }
@@ -193,7 +193,7 @@ public class GameScreenNextWidget : MonoBehaviour
             {
                 if (_blockSprites != null && _blockSprites.Length > 0)
                 {
-                    _gridImages[gridRow, gridCol].image = _blockSprites[spriteIndex];
+                    _gridImages[gridRow, gridCol].sprite = _blockSprites[spriteIndex];
                 }
             }
         }

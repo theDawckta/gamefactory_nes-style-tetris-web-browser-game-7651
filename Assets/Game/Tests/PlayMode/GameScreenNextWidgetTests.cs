@@ -85,12 +85,7 @@ public class GameScreenNextWidgetTests
         var nextRegion = _doc.rootVisualElement.Q<VisualElement>("next-region");
         var gridContainer = nextRegion.Q<VisualElement>("next-grid");
 
-        int imageCount = 0;
-        gridContainer.IterateVisualElements((element, depth, index) =>
-        {
-            if (element is Image)
-                imageCount++;
-        });
+        int imageCount = gridContainer.Query<Image>().ToList().Count;
 
         Assert.AreEqual(16, imageCount, "Should create 16 Image cells (4x4 grid)");
     }
@@ -116,7 +111,7 @@ public class GameScreenNextWidgetTests
         {
             var cell = gridContainer.Q<Image>("next-grid-cell-1-" + col);
             Assert.IsNotNull(cell, "Cell at row 1, col " + col + " should exist");
-            Assert.AreEqual(_testSprites[1], cell.image,
+            Assert.AreEqual(_testSprites[1], cell.sprite,
                 "Cell at row 1, col " + col + " should show I piece sprite");
         }
 
@@ -127,7 +122,7 @@ public class GameScreenNextWidgetTests
             {
                 var cell = gridContainer.Q<Image>("next-grid-cell-" + row + "-" + col);
                 Assert.IsNotNull(cell, "Cell at row " + row + ", col " + col + " should exist");
-                Assert.AreEqual(_testSprites[0], cell.image,
+                Assert.AreEqual(_testSprites[0], cell.sprite,
                     "Empty cell at row " + row + ", col " + col + " should show empty sprite");
             }
         }
@@ -156,7 +151,7 @@ public class GameScreenNextWidgetTests
             {
                 var cell = gridContainer.Q<Image>("next-grid-cell-" + row + "-" + col);
                 Assert.IsNotNull(cell, "Cell at row " + row + ", col " + col + " should exist");
-                Assert.AreEqual(_testSprites[2], cell.image,
+                Assert.AreEqual(_testSprites[2], cell.sprite,
                     "Cell at row " + row + ", col " + col + " should show O piece sprite");
             }
         }
@@ -171,7 +166,7 @@ public class GameScreenNextWidgetTests
 
                 var cell = gridContainer.Q<Image>("next-grid-cell-" + row + "-" + col);
                 Assert.IsNotNull(cell, "Cell at row " + row + ", col " + col + " should exist");
-                Assert.AreEqual(_testSprites[0], cell.image,
+                Assert.AreEqual(_testSprites[0], cell.sprite,
                     "Empty cell at row " + row + ", col " + col + " should show empty sprite");
             }
         }
@@ -198,21 +193,21 @@ public class GameScreenNextWidgetTests
         {
             var cell = gridContainer.Q<Image>("next-grid-cell-1-" + col);
             Assert.IsNotNull(cell, "Cell at row 1, col " + col + " should exist");
-            Assert.AreEqual(_testSprites[3], cell.image,
+            Assert.AreEqual(_testSprites[3], cell.sprite,
                 "Cell at row 1, col " + col + " should show T piece sprite");
         }
 
         // Check row 2: col 1 filled
         var cell2_1 = gridContainer.Q<Image>("next-grid-cell-2-1");
         Assert.IsNotNull(cell2_1, "Cell at row 2, col 1 should exist");
-        Assert.AreEqual(_testSprites[3], cell2_1.image,
+        Assert.AreEqual(_testSprites[3], cell2_1.sprite,
             "Cell at row 2, col 1 should show T piece sprite");
 
         // Check row 2: cols 0,2,3 are empty
         foreach (int col in new[] { 0, 2, 3 })
         {
             var cell = gridContainer.Q<Image>("next-grid-cell-2-" + col);
-            Assert.AreEqual(_testSprites[0], cell.image,
+            Assert.AreEqual(_testSprites[0], cell.sprite,
                 "Empty cell at row 2, col " + col + " should show empty sprite");
         }
 
@@ -222,7 +217,7 @@ public class GameScreenNextWidgetTests
             for (int col = 0; col < 4; col++)
             {
                 var cell = gridContainer.Q<Image>("next-grid-cell-" + row + "-" + col);
-                Assert.AreEqual(_testSprites[0], cell.image,
+                Assert.AreEqual(_testSprites[0], cell.sprite,
                     "Empty cell at row " + row + ", col " + col + " should show empty sprite");
             }
         }
@@ -241,18 +236,18 @@ public class GameScreenNextWidgetTests
 
         // Row 1, col 0 should be I sprite
         var cell = gridContainer.Q<Image>("next-grid-cell-1-0");
-        Assert.AreEqual(_testSprites[1], cell.image, "Should show I piece sprite");
+        Assert.AreEqual(_testSprites[1], cell.sprite, "Should show I piece sprite");
 
         _widget.UpdateNextPiece(PieceType.O);
         yield return null;
 
         // Same cell should now be empty (O is centered at rows 1-2, cols 1-2)
-        Assert.AreEqual(_testSprites[0], cell.image,
+        Assert.AreEqual(_testSprites[0], cell.sprite,
             "Cell should be empty after switching to O piece");
 
         // O piece cell should be filled
         var oCell = gridContainer.Q<Image>("next-grid-cell-1-1");
-        Assert.AreEqual(_testSprites[2], oCell.image,
+        Assert.AreEqual(_testSprites[2], oCell.sprite,
             "Cell at row 1, col 1 should show O piece sprite");
     }
 
