@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+  <Style src="project://database/Assets/Game/UI/StartScreen.uss">#root</Style>
+  <ui:VisualElement name="logo-region" class="logo-region">
+    <ui:Label text="TETRIS" class="logo-label" />
+  </ui:VisualElement>
+  <ui:VisualElement name="leaderboard-region" class="leaderboard-region">
+  </ui:VisualElement>
+  <ui:VisualElement name="prompt-region" class="prompt-region">
+    <ui:Label text="PRESS ENTER OR SPACE TO START" class="prompt-label" />
+  </ui:VisualElement>
+</ui:UXML>
