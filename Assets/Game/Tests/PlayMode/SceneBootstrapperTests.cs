@@ -145,17 +145,17 @@ public class SceneBootstrapperTests
     [TearDown]
     public void TearDown()
     {
-        if (_manager != null) Object.Destroy(_manager);
-        if (_gameplayControllerGo != null) Object.Destroy(_gameplayControllerGo);
-        if (_startScreenGo != null) Object.Destroy(_startScreenGo);
-        if (_gameScreenGo != null) Object.Destroy(_gameScreenGo);
-        if (_gameOverScreenGo != null) Object.Destroy(_gameOverScreenGo);
-        if (_initialsOverlayGo != null) Object.Destroy(_initialsOverlayGo);
-        if (_scoreWidgetGo != null) Object.Destroy(_scoreWidgetGo);
-        if (_levelWidgetGo != null) Object.Destroy(_levelWidgetGo);
-        if (_linesWidgetGo != null) Object.Destroy(_linesWidgetGo);
-        if (_nextWidgetGo != null) Object.Destroy(_nextWidgetGo);
-        if (_leaderboardWidgetGo != null) Object.Destroy(_leaderboardWidgetGo);
+        if (_manager != null) UnityEngine.Object.Destroy(_manager);
+        if (_gameplayControllerGo != null) UnityEngine.Object.Destroy(_gameplayControllerGo);
+        if (_startScreenGo != null) UnityEngine.Object.Destroy(_startScreenGo);
+        if (_gameScreenGo != null) UnityEngine.Object.Destroy(_gameScreenGo);
+        if (_gameOverScreenGo != null) UnityEngine.Object.Destroy(_gameOverScreenGo);
+        if (_initialsOverlayGo != null) UnityEngine.Object.Destroy(_initialsOverlayGo);
+        if (_scoreWidgetGo != null) UnityEngine.Object.Destroy(_scoreWidgetGo);
+        if (_levelWidgetGo != null) UnityEngine.Object.Destroy(_levelWidgetGo);
+        if (_linesWidgetGo != null) UnityEngine.Object.Destroy(_linesWidgetGo);
+        if (_nextWidgetGo != null) UnityEngine.Object.Destroy(_nextWidgetGo);
+        if (_leaderboardWidgetGo != null) UnityEngine.Object.Destroy(_leaderboardWidgetGo);
     }
 
     private VisualElement CreateRegion(string name)
@@ -185,6 +185,27 @@ public class SceneBootstrapperTests
         if (field != null)
         {
             field.SetValue(obj, value);
+        }
+    }
+
+    // Helper to invoke events via reflection (events cannot be read directly)
+    private void InvokeEvent(object target, string eventName)
+    {
+        var field = target.GetType().GetField(eventName, BindingFlags.NonPublic | BindingFlags.Instance);
+        if (field != null)
+        {
+            var handler = (Delegate)field.GetValue(target);
+            handler?.DynamicInvoke();
+        }
+    }
+
+    private void InvokeEventWithParam(object target, string eventName, object[] parameters)
+    {
+        var field = target.GetType().GetField(eventName, BindingFlags.NonPublic | BindingFlags.Instance);
+        if (field != null)
+        {
+            var handler = (Delegate)field.GetValue(target);
+            handler?.DynamicInvoke(parameters);
         }
     }
 
@@ -230,7 +251,7 @@ public class SceneBootstrapperTests
         yield return null;
 
         // Trigger start via the StartScreen event
-        _startScreen.OnStartRequested?.Invoke();
+        InvokeEvent(_startScreen, "OnStartRequested");
         yield return null;
 
         Assert.IsFalse(_startScreen.IsVisible, "StartScreen should be hidden after start");
@@ -245,7 +266,7 @@ public class SceneBootstrapperTests
         // Before start, score should be 0
         int scoreBefore = _gameplayController.CurrentScore;
 
-        _startScreen.OnStartRequested?.Invoke();
+        InvokeEvent(_startScreen, "OnStartRequested");
         yield return null;
 
         // After StartGame(), the controller should have started
@@ -263,11 +284,11 @@ public class SceneBootstrapperTests
         yield return null;
 
         // Start the game first
-        _startScreen.OnStartRequested?.Invoke();
+        InvokeEvent(_startScreen, "OnStartRequested");
         yield return null;
 
         // Trigger a state change manually via the controller's event
-        _gameplayController.OnStateChanged?.Invoke();
+        InvokeEvent(_gameplayController, "OnStateChanged");
         yield return null;
 
         // Verify widgets received updates (they should not throw)
@@ -288,11 +309,11 @@ public class SceneBootstrapperTests
         yield return null;
 
         // Start game first
-        _startScreen.OnStartRequested?.Invoke();
+        InvokeEvent(_startScreen, "OnStartRequested");
         yield return null;
 
         // Trigger game over
-        _gameplayController.OnGameOver?.Invoke(5000);
+        InvokeEventWithParam(_gameplayController, "OnGameOver", new object[] { 5000 });
         yield return null;
 
         Assert.IsFalse(_gameScreen.IsVisible, "GameScreen should be hidden after game over");
@@ -309,15 +330,15 @@ public class SceneBootstrapperTests
         yield return null;
 
         // Start game
-        _startScreen.OnStartRequested?.Invoke();
+        InvokeEvent(_startScreen, "OnStartRequested");
         yield return null;
 
         // Game over
-        _gameplayController.OnGameOver?.Invoke(5000);
+        InvokeEventWithParam(_gameplayController, "OnGameOver", new object[] { 5000 });
         yield return null;
 
         // Continue
-        _gameOverScreen.OnContinueRequested?.Invoke();
+        InvokeEvent(_gameOverScreen, "OnContinueRequested");
         yield return null;
 
         Assert.IsFalse(_gameOverScreen.IsVisible, "GameOverScreen should be hidden after continue");
@@ -339,19 +360,19 @@ public class SceneBootstrapperTests
         Assert.IsFalse(_gameOverScreen.IsVisible);
 
         // 2. Start game
-        _startScreen.OnStartRequested?.Invoke();
+        InvokeEvent(_startScreen, "OnStartRequested");
         yield return null;
         Assert.IsFalse(_startScreen.IsVisible);
         Assert.IsTrue(_gameScreen.IsVisible);
 
         // 3. Game over
-        _gameplayController.OnGameOver?.Invoke(15000);
+        InvokeEventWithParam(_gameplayController, "OnGameOver", new object[] { 15000 });
         yield return null;
         Assert.IsFalse(_gameScreen.IsVisible);
         Assert.IsTrue(_gameOverScreen.IsVisible);
 
         // 4. Continue
-        _gameOverScreen.OnContinueRequested?.Invoke();
+        InvokeEvent(_gameOverScreen, "OnContinueRequested");
         yield return null;
         Assert.IsFalse(_gameOverScreen.IsVisible);
         Assert.IsTrue(_startScreen.IsVisible);

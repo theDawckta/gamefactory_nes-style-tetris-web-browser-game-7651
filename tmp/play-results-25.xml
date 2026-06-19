@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="9" result="Failed(Child)" total="9" passed="3" failed="6" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.055947">
+  <test-suite type="TestSuite" id="1110" name="gamefactory_nes-style-tetris-web-browser-game-7651" fullname="gamefactory_nes-style-tetris-web-browser-game-7651" runstate="Runnable" testcasecount="96" result="Failed" site="Child" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.055947" total="9" passed="3" failed="6" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1108" name="GameTests.PlayMode.dll" fullname="C:/Users/Zeke/Git/ai-game-factory/Tools/workspace/gamefactory_nes-style-tetris-web-browser-game-7651/Library/ScriptAssemblies/GameTests.PlayMode.dll" runstate="Runnable" testcasecount="96" result="Failed" site="Child" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.051150" total="9" passed="3" failed="6" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="31148" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1056" name="InitialsEntryOverlayPlayModeTests" fullname="InitialsEntryOverlayPlayModeTests" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" testcasecount="9" result="Failed" site="Child" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.050002" total="9" passed="3" failed="6" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1062" name="BaseScreen_IsVisible_StartsFalse" fullname="InitialsEntryOverlayPlayModeTests.BaseScreen_IsVisible_StartsFalse" methodname="BaseScreen_IsVisible_StartsFalse" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="1636723484" result="Passed" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.034391" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1064" name="ConfirmRegion_HiddenInitially" fullname="InitialsEntryOverlayPlayModeTests.ConfirmRegion_HiddenInitially" methodname="ConfirmRegion_HiddenInitially" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="1669666955" result="Failed" label="Error" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.002556" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+            <stack-trace><![CDATA[  at InitialsEntryOverlay.UpdateDisplay () [0x00000] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:145 
+  at InitialsEntryOverlay.ShowForScore (System.Int32 score) [0x00032] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:52 
+  at InitialsEntryOverlayPlayModeTests+<ConfirmRegion_HiddenInitially>d__12.MoveNext () [0x00040] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\PlayMode\InitialsEntryOverlayPlayModeTests.cs:183 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@76560ee600cb\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1059" name="Hide_MakesScreenInvisible" fullname="InitialsEntryOverlayPlayModeTests.Hide_MakesScreenInvisible" methodname="Hide_MakesScreenInvisible" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="2137095376" result="Failed" label="Error" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.000816" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+            <stack-trace><![CDATA[  at InitialsEntryOverlay.UpdateDisplay () [0x00000] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:145 
+  at InitialsEntryOverlay.ShowForScore (System.Int32 score) [0x00032] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:52 
+  at InitialsEntryOverlayPlayModeTests+<Hide_MakesScreenInvisible>d__7.MoveNext () [0x00044] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\PlayMode\InitialsEntryOverlayPlayModeTests.cs:103 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@76560ee600cb\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1065" name="LayoutElements_Exist" fullname="InitialsEntryOverlayPlayModeTests.LayoutElements_Exist" methodname="LayoutElements_Exist" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="1918354353" result="Passed" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.001643" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1061" name="OnInitialsSubmitted_FiresWithCorrectValues" fullname="InitialsEntryOverlayPlayModeTests.OnInitialsSubmitted_FiresWithCorrectValues" methodname="OnInitialsSubmitted_FiresWithCorrectValues" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="888739177" result="Failed" label="Error" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.000808" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+            <stack-trace><![CDATA[  at InitialsEntryOverlay.UpdateDisplay () [0x00000] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:145 
+  at InitialsEntryOverlay.ShowForScore (System.Int32 score) [0x00032] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:52 
+  at InitialsEntryOverlayPlayModeTests+<OnInitialsSubmitted_FiresWithCorrectValues>d__9.MoveNext () [0x0007f] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\PlayMode\InitialsEntryOverlayPlayModeTests.cs:137 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@76560ee600cb\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1060" name="Screen_HasNoCanvasComponent" fullname="InitialsEntryOverlayPlayModeTests.Screen_HasNoCanvasComponent" methodname="Screen_HasNoCanvasComponent" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="109368564" result="Passed" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.000873" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1063" name="Show_Hide_Show_CyclesCorrectly" fullname="InitialsEntryOverlayPlayModeTests.Show_Hide_Show_CyclesCorrectly" methodname="Show_Hide_Show_CyclesCorrectly" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="621457212" result="Failed" label="Error" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.000676" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+            <stack-trace><![CDATA[  at InitialsEntryOverlay.UpdateDisplay () [0x00000] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:145 
+  at InitialsEntryOverlay.ShowForScore (System.Int32 score) [0x00032] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:52 
+  at InitialsEntryOverlayPlayModeTests+<Show_Hide_Show_CyclesCorrectly>d__11.MoveNext () [0x00048] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\PlayMode\InitialsEntryOverlayPlayModeTests.cs:165 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@76560ee600cb\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1058" name="ShowForScore_CursorOnSlot0" fullname="InitialsEntryOverlayPlayModeTests.ShowForScore_CursorOnSlot0" methodname="ShowForScore_CursorOnSlot0" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="692494060" result="Failed" label="Error" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.000667" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+            <stack-trace><![CDATA[  at InitialsEntryOverlay.UpdateDisplay () [0x00000] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:145 
+  at InitialsEntryOverlay.ShowForScore (System.Int32 score) [0x00032] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:52 
+  at InitialsEntryOverlayPlayModeTests+<ShowForScore_CursorOnSlot0>d__6.MoveNext () [0x00040] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\PlayMode\InitialsEntryOverlayPlayModeTests.cs:88 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@76560ee600cb\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1057" name="ShowForScore_ResetsToAAA" fullname="InitialsEntryOverlayPlayModeTests.ShowForScore_ResetsToAAA" methodname="ShowForScore_ResetsToAAA" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="677664320" result="Failed" label="Error" start-time="2026-06-19 21:52:31Z" end-time="2026-06-19 21:52:31Z" duration="0.000685" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+            <stack-trace><![CDATA[  at InitialsEntryOverlay.UpdateDisplay () [0x00000] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:145 
+  at InitialsEntryOverlay.ShowForScore (System.Int32 score) [0x00032] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Scripts\UI\InitialsEntryOverlay.cs:52 
+  at InitialsEntryOverlayPlayModeTests+<ShowForScore_ResetsToAAA>d__5.MoveNext () [0x00040] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\PlayMode\InitialsEntryOverlayPlayModeTests.cs:69 
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@76560ee600cb\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+          </failure>
+          <output><![CDATA[Saving results to: C:/Users/Zeke/Git/ai-game-factory/Tools/workspace/gamefactory_nes-style-tetris-web-browser-game-7651/tmp/play-results-25.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

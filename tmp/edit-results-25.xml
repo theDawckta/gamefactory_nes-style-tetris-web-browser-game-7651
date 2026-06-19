@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="16" result="Passed" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.0224503">
+  <test-suite type="TestSuite" id="1000" name="gamefactory_nes-style-tetris-web-browser-game-7651" fullname="gamefactory_nes-style-tetris-web-browser-game-7651" runstate="Runnable" testcasecount="133" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.022450" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1145" name="GameTests.EditMode.dll" fullname="C:/Users/Zeke/Git/ai-game-factory/Tools/workspace/gamefactory_nes-style-tetris-web-browser-game-7651/Library/ScriptAssemblies/GameTests.EditMode.dll" runstate="Runnable" testcasecount="123" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.017693" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="27396" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestFixture" id="1053" name="InitialsEntryOverlayTests" fullname="InitialsEntryOverlayTests" classname="InitialsEntryOverlayTests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.016592" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1058" name="CharacterSet_ContainsAllDigits" fullname="InitialsEntryOverlayTests.CharacterSet_ContainsAllDigits" methodname="CharacterSet_ContainsAllDigits" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="878935665" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.005104" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1057" name="CharacterSet_ContainsAllLetters" fullname="InitialsEntryOverlayTests.CharacterSet_ContainsAllLetters" methodname="CharacterSet_ContainsAllLetters" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="88917167" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000109" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1056" name="CharacterSet_EndsWith9" fullname="InitialsEntryOverlayTests.CharacterSet_EndsWith9" methodname="CharacterSet_EndsWith9" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1737221271" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.001568" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1054" name="CharacterSet_Has36Characters" fullname="InitialsEntryOverlayTests.CharacterSet_Has36Characters" methodname="CharacterSet_Has36Characters" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="696416444" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000389" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1055" name="CharacterSet_StartsWithA" fullname="InitialsEntryOverlayTests.CharacterSet_StartsWithA" methodname="CharacterSet_StartsWithA" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1653544119" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000070" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1063" name="CycleBackward_From0_GivesZ" fullname="InitialsEntryOverlayTests.CycleBackward_From0_GivesZ" methodname="CycleBackward_From0_GivesZ" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="281964603" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000065" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1062" name="CycleBackward_FromA_Gives9" fullname="InitialsEntryOverlayTests.CycleBackward_FromA_Gives9" methodname="CycleBackward_FromA_Gives9" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="607767190" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000053" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1064" name="CycleBackward_FromB_GivesA" fullname="InitialsEntryOverlayTests.CycleBackward_FromB_GivesA" methodname="CycleBackward_FromB_GivesA" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1541320136" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000053" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1061" name="CycleForward_From9_GivesA" fullname="InitialsEntryOverlayTests.CycleForward_From9_GivesA" methodname="CycleForward_From9_GivesA" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1610506451" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000050" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1059" name="CycleForward_FromA_GivesB" fullname="InitialsEntryOverlayTests.CycleForward_FromA_GivesB" methodname="CycleForward_FromA_GivesB" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1911461982" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000046" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1060" name="CycleForward_FromZ_Gives0" fullname="InitialsEntryOverlayTests.CycleForward_FromZ_Gives0" methodname="CycleForward_FromZ_Gives0" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="624644865" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000043" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1067" name="DefaultInitials_AreAAA" fullname="InitialsEntryOverlayTests.DefaultInitials_AreAAA" methodname="DefaultInitials_AreAAA" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="2093974502" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000096" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1065" name="InitialsString_ConstructedCorrectly" fullname="InitialsEntryOverlayTests.InitialsString_ConstructedCorrectly" methodname="InitialsString_ConstructedCorrectly" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1746622383" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000049" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1066" name="InitialsString_WithDigits" fullname="InitialsEntryOverlayTests.InitialsString_WithDigits" methodname="InitialsString_WithDigits" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1632721493" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000040" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1068" name="SlotAdvancement_SequenceIsCorrect" fullname="InitialsEntryOverlayTests.SlotAdvancement_SequenceIsCorrect" methodname="SlotAdvancement_SequenceIsCorrect" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="366836685" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000058" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1069" name="SlotMoveBack_SequenceIsCorrect" fullname="InitialsEntryOverlayTests.SlotMoveBack_SequenceIsCorrect" methodname="SlotMoveBack_SequenceIsCorrect" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="328671855" result="Passed" start-time="2026-06-19 21:52:14Z" end-time="2026-06-19 21:52:14Z" duration="0.000062" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:/Users/Zeke/Git/ai-game-factory/Tools/workspace/gamefactory_nes-style-tetris-web-browser-game-7651/tmp/edit-results-25.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
