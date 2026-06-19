@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+  <Style src="project://database/Assets/Game/UI/InitialsEntryOverlay.uss">#root</Style>
+  <ui:VisualElement name="title-region" class="title-region">
+    <ui:Label name="title-label" text="ENTER YOUR INITIALS" class="title-label" />
+  </ui:VisualElement>
+  <ui:VisualElement name="chars-region" class="chars-region">
+    <ui:Label name="char-0" text="A" class="char-slot" />
+    <ui:Label name="char-1" text="A" class="char-slot" />
+    <ui:Label name="char-2" text="A" class="char-slot" />
+  </ui:VisualElement>
+  <ui:VisualElement name="confirm-region" class="confirm-region" style="display: none;">
+    <ui:Label text="CONFIRM" class="confirm-label" />
+  </ui:VisualElement>
+</ui:UXML>
