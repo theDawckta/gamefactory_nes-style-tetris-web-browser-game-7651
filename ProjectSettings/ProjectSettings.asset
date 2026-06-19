@@ -1,0 +1,436 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!129 &1
+PlayerSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 26
+  productGUID: a5c8e7b1d2f40a34eb9c7d6e5f0a8b2c
+  AndroidProfiler: 0
+  AndroidFilterTouchesWhenObscured: 0
+  AndroidEnableSustainedPerformanceMode: 0
+  defaultCursor: {fileID: 0}
+  cursorHotspot: {x: 0, y: 0}
+  m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
+  m_ShowUnitySplashScreen: 1
+  m_ShowUnitySplashLogo: 1
+  m_SplashScreenOverlayOpacity: 1
+  m_SplashScreenAnimation: 1
+  m_SplashScreenVariation: 
+  m_WindowsDevicePortalAuthenticationPackagePath: 
+  standalone:
+    m_AllowedPlatformAllowlist: []
+    allowD3d11: 1
+    allowD3d12: 0
+    allowOpenGL: 0
+    allowVulkan: 0
+    usePlayerLog: 1
+    virtualTextOverlay: 0
+  wiiu:
+    m_DvdRemoteAllowMenubar: 1
+    m_DvdRemoteAllowTouchScreen: 1
+    m_DvdRemoteAllowTopButton: 1
+    m_DvdRemoteFontSize: 0
+  facebookSdkVersion: 
+  targetSDK: 0
+  TargetPlatform: 13
+  standalonePixelCoordinateSpace: 0
+  androidEnableNativeWindow: 0
+  mobileMTRendering: {r: 0, g: 0, b: 0}
+  m_BuildTargetGroup: 5
+  m_WebsiteRenderModel: 1
+  m_PackedLZMAsize: 0
+  packedLZMA2Size: 0
+  androidAPKExpansionPublicKey: 
+  iosShowActivityIndicatorOnLoad: 1
+  tvosShowActivityIndicatorOnLoad: 1
+  androidShowActivityIndicatorOnLoad: 1
+  tizenShowActivityIndicatorOnLoad: 1
+  iOSLaunchScreenType: 0
+  iOSLaunchScreenPortrait: {fileID: 0}
+  iOSLaunchScreenLandscape: {fileID: 0}
+  iOSLaunchScreenBackgroundColor:
+    serializedVersion: 2
+    rgba: 0
+  iOSLaunchScreenFillPct: 100
+  iOSLaunchScreenSize: 100
+  iOSLaunchScreenCustomXibPath: 
+  iOSLaunchScreeniPadType: 1
+  mobileTouchStickLinuxReturnPressOnRelease: 0
+  iOSLaunchScreeniPadBackground: {fileID: 0}
+  iOSDeviceRequirements: []
+  tvOSDeviceRequirements: []
+  iOSUseHttps: 0
+  appleEnableAutomaticInformationCollection: 1
+  appURLs: []
+  cloudServicesEnabled: {}
+  facebookClanId: 0
+  apiCompatibilityLevelPerBuildTarget: {}
+  activeCloudHandler: 0
+  cloudProjectId: 
+  projectName: ai-game-factory-tetris
+  organizationId: onetimegames
+  cloudEnabled: 0
+  legacyClampBlendShapeWeights: 0
+  virtualTexturingSupport: 0
+  uploadedAudioTouchSupported: 0
+  AndroidVerifyExceptions: 0
+  androidKeyAlgorithm: 1
+  keystoreName: 
+  keyaliasName: 
+  keyProvider: 0
+  AndroidTargetArchitectures: 2
+  protectedGraphicsMemoryLimitedMode: 
+  AndroidSplitArchSupport: 0
+  AndroidEnableArmv9SecurityFeatures: 0
+  AndroidSelectPlatformType: 0
+  AndroidBundleVersionCode: 1
+  AndroidMinifyWithR8: 0
+  AndroidMinifyRelease: 0
+  AndroidMinifyDebug: 0
+  AndroidMinifyLibrary: 0
+  AndroidArchiveSymbolCode: 0
+  AndroidTvCompatibility: 0
+  AndroidAppAbi: 1
+  AndroidEnableBgDownload: 0
+  useDefaultModalPopupsForVideoCachePopup: 1
+  enableInputSupportLinux: 0
+  appBuiltWithAndroidTV: 0
+  AndroidBuildType: 0
+  androidPriorityChanges: 
+  androidChangeAppSize: 0
+  androidUseGradleBuilder: 0
+  androidGradleTemplateFile: 
+  useLegacyRuntimeProxy: 0
+  AndroidPreferredLaunchMode: 1
+  preferredScreenOrientation: 2
+  mobileMTRendering2: {r: 0, g: 0, b: 0}
+  mobileMTRendering3: {r: 0, g: 0, b: 0}
+  m_ColorSpace: 0
+  androidInternetAccessPermission: 1
+  AndroidCreateCrossPlatformApk: 0
+  AndroidCustomKeystore: 
+  AndroidCustomKeyalias: 
+  AndroidTvBannerSplashScreenEnable: 0
+  AndroidAdditionalDependencies: 
+  iOSBundleVersion: 1.0
+  iOSDisplayName: ai-game-factory-tetris
+  iOSBundleIdentifier: com.onetimegames.tetrisnes
+  iOSDeviceCapabilities: []
+  AppleDeveloperTeamID: 
+  iOSManualTargetedDeviceFamily: 1
+  AppleEnableAutomaticSigning: 0
+  appleCloudServicesEntitlements: []
+  AppleExtraFrameworkPaths: []
+  macosXBuildAppBundle: 0
+  MacosxPlatformArchitecture: 3
+  MacosxAppCategory: 
+  macOSAllowFullscreenDisplay: 1
+  MetroPackageName: ai-game-factory-tetris
+  MetroPackageDescription: NES style tetris web browser game
+  MetroPublisherRuntimeIdentifier: 
+  MetroCertificatePath: 
+  MetroCertificatePassword: 
+  MetroCertificateSubjectName: 
+  MetroCertificateIssuerName: 
+  MetroCertificateValidDays: 30
+  metroPackageTileLargeImage: {fileID: 0}
+  metroPackageTileMediumImage: {fileID: 0}
+  metroPackageTileSmallImage: {fileID: 0}
+  metroPackageTileWideImage: {fileID: 0}
+  MetroApplicationArgs: 
+  tileStoreLogo: {fileID: 0}
+  tileSquare150x150Logo: {fileID: 0}
+  tileSquare44x44Logo: {fileID: 0}
+  tileWide310x150Logo: {fileID: 0}
+  splashScreenBackground: {fileID: 0}
+  metroSplashScreenImage: {fileID: 0}
+  metroPhoneSplashScreenImage: {fileID: 0}
+  tileSquare70x70Logo: {fileID: 0}
+  MetroEnableSmartAppResume: 1
+  metroValidationRules: 
+  MetroProductStoreId: 
+  metroPackageIdentityName: 
+  metroPackageVersion: [0, 0, 0, 0]
+  winRTUniversaldSize: 0
+  MetroPackageDisplayName: ai-game-factory-tetris
+  MetroPublisherName: CN=onetimegames
+  metroCapabilities: []
+  metroSecondScreenSupport: 0
+  metroTileShowName: 0
+  metroMiddleWareLane: 0
+  metroRawDlls: 
+  metroBuildMachineArchitecture: 1
+  metroMaxVersion: [0, 0, 0, 0]
+  MetroEnableDirectX: 1
+  MetroSupport4K: 0
+  XboxProductId: 
+  XboxTitleId: 
+  XboxDescription: ai-game-factory-tetris
+  XboxAppLogo36x36: {fileID: 0}
+  XboxAppWideLogo50: {fileID: 0}
+  XboxAppHeroImage128: {fileID: 0}
+  XboxAppMarketplaceTitleDataAssets: []
+  XboxEnableGameDVR: 1
+  XboxPackagingOverrideDir: 
+  XboxProductIdOverride: 
+  XboxAchievementView: 
+  XboxOneTitleDescription: ai-game-factory-tetris
+  XboxOneProductVersion: [0, 0, 0, 0]
+  XboxOnePackagePublisher: CN=onetimegames
+  XboxOneProductNameOverride: 
+  XboxOneProductIdOverride: 
+  XboxOneContentRating: []
+  XboxOneTitleIdOverride: 
+  XboxOneIsContentPackage: 0
+  XboxOneRequiresISP: 0
+  XboxOneUsageRightsOptionsOverride: 
+  XboxOneServicesConfigurationFile: 
+  WebGLExceptionSupport: 0
+  WebGLDataCaching: 0
+  webGLTextHeightMultiplier: 
+  WebGLAudioCompressionFormat: 4
+  WebGLExceptionSupport2: 0
+  WebGLName: ai-game-factory-tetris
+  WSAUniversal10PackageName: 
+  PS3SplashScreen: {fileID: 0}
+  PS3BackgroundImage: {fileID: 0}
+  ps3RemotePlayKeyIds: []
+  PS4NPTPPath: 
+  PS4ScreenshotPath: 
+  PS4PlayerPrefsKey: 
+  PS4ProductPatchPath: 
+  PS4ParentalControl: 0
+  PS4ApplicationType: 0
+  PS4DiskLabelOverride: ai-game-factory-tetris
+  PS4DiskEncryptedDiscId: []
+  PS4PassivePlay: 0
+  XboxOneUseGlobalStorageAsLocalForUMDInstall: 0
+  useDefaultModalPopupsForVideoCachePopup2: 1
+  XboxOneStorageQuota: 0
+  XboxOneXboxLiveSigningType: 0
+  XboxOneTitleDescriptionOverride: 
+  XboxOneContentRatingOverride: []
+  XboxOneTitleIdOverride2: 
+  XboxOneProductIdOverride2: 
+  XboxOneIsContentPackage2: 0
+  XboxOneRequiresISP2: 0
+  WebGLBurstDebugInformationEnabled: 1
+  SwitchForceGamepadReportAsInputType: 1
+  switchAppResourcesNeedCopyValidation: 0
+  switchRequireBroadcastPermission: 0
+  switchSupportedNpadTypes: 3
+  ps5ProductPatchPath: 
+  PS5PlayerPrefsKey: 
+  m_PVR2DGraphics: 0
+  WebGLCanvasSize: 1
+  webGLEnableCodeStripping: 0
+  webGLDebugSymbols: 0
+  webGLExceptionSupportPerBuildTarget: {}
+  webGLExceptionsEnabled: 0
+  WebGLEmbind: 0
+  webGLMemorySize: 256
+  webGLForceLCPScriptingBackend: 0
+  webGLDataCachingSize: 
+  webGLStripAssemblies: 1
+  webGLExceptionSupportPerBuildTarget2: {}
+  webGLWasmGC: 0
+  webGLUseNewLoadingBehavior: 0
+  WebGPUSupportedVersion: 0
+  m_TemplateId: builtin-default
+  m_BuildOptions:
+    EnableHeadlessMode: 0
+  canvasReferenceResolution: 960x720
+  resolutionDialogSetting: 0
+  webGLCompressionFormat: -1
+  WebGLExceptionSupport3: 0
+  webGLMemorySizePerBuildTarget: []
+  cloudProjectIdList: []
+  projectNameFull: ai-game-factory-tetris
+  bundleVersionOverride: 
+  defaultScreenOrientation: 4
+  targetDevice: 2
+  defaultWebPlayerFont: 1
+  useAppleBootstrapAppExtension: 0
+  tvOsDefaultFramingMode: 0
+  tvOSSafeAreaLayoutMode: 0
+  cloudIdList: []
+  AndroidAndroidArmSupport: 0
+  AndroidAndroidSupportedDevices: 
+  AndroidEnableMultidexExtension: 0
+  AndroidEnableManagedDebugger: 0
+  switchNetworkConfiguration: 
+  switchTcpKeepAliveTimeout: 13
+  PS4PassivePlay2: 0
+  AndroidCreateGoogleServicesJSONFile: 0
+  WebGLUseParallelCompilerForWasm: 0
+  webGLMemorySizePerBuildTargetAdditionalSettings: []
+  cloudEnvironmentId: 
+  AndroidCustomNameFilesMap: []
+  iOSCloudRenderingBundleIds: []
+  switchEnableProControllerSupport: 1
+  switchDisableAutoUpdate: 0
+  switchMaxNumberOfButtons: 8
+  switchApplicationStartupMode: 0
+  ps5SharedSaveDataQuota: 0
+  ps5PublisherContentId: 
+  supportedAspectRatiosPerBuildTarget: {}
+  cloudServicesSettingsBasedOnPlayerSettings: []
+  virtualTexturingSupportNativeStreamingAssets: 0
+  androidGamepadSupportType: 0
+  enableFrameTimingStats: 0
+  useDefaultModalPopupsForVideoCachePopup3: 1
+  androidSubmitAnalytics: 1
+  metroTileLogosPerStore: {}
+  switchShouldTerminateIfNoJoycons: 0
+  AppleDeveloperTeamIDOverride: 
+  tvOSGamepadSupportType: 0
+  tvOSShouldShowMicrophoneDialog: 0
+  psnOverlaySettingsEnable: 0
+  useDefaultModalPopupsForVideoCachePopup4: 1
+  XboxOneContentIdOverride: 
+  xboxStoreIdAndAppVersionValidationState: 0
+  AndroidAdditionalResources: []
+  PS4UseMultipleVtSupport: 0
+  macosxScreenMenuBar: 0
+  defaultURLScheme: 
+  WebGLUwpSupportedArchitectures: 1
+  androidGoogleSplitPlaytime: 0
+  tvOSTvServicesApiEnable: 0
+  appleEnableAutomaticInformationCollection2: 1
+  cloudProjectSettings: []
+  webGLUseWasmThreadsPerScriptingBackend: {}
+  WebGLUwpGamepadSupportType: 0
+  enableFrameTimingStatsIOS: 0
+  enableFrameTimingStatsMacOSX: 0
+  metroInputSourcePerBuildTarget: {}
+  MetroDeviceFamily: []
+  cloudRenderingSettings: []
+  switchSupportedNpadStyleSet: -1724389781
+  virtualTexturingSupportNativeStreamingAssetsSwitch: 0
+  XboxOneProductVersionOverrideType: 0
+  AndroidPrebuiltApplicationBinary: 
+  AndroidGooglePlayServicesJsonPathForCloudDeployment: 
+  enableFrameTimingStatsIOS2: 0
+  tvOSGamepadUsageTypePerBuildTarget: {}
+  webGLExceptionSupportPerBuildTarget3: {}
+  tvOSSupportedArchitectures: []
+  webGLMemorySizeMB: 256
+  ps5ApplicationVersionOverride: 
+  PS4NpServicesEnable: 0
+  cloudIdListForPlayerSettings: []
+  metroInputSourcePerTile: {}
+  AndroidPreloadedPlugins: []
+  WebGLUwpGamepadSupportTypePerBuildTarget: {}
+  macosxScreenMenuBar2: 0
+  virtualTexturingSupportNativeStreamingAssetsAndroid: 0
+  tvOSSupportedArchitecturesForPlayerSettings: []
+  MetroInputSourcePerTileForPlayerSettings: {}
+  AndroidPreloadedPluginsForPlayerSettings: []
+--- !u!156 &119
+VersionControlSettings:
+  m_ObjectHideFlags: 0
+  m_Mode: Visible Meta Files
+  m_CollabEditorSettings:
+    inProgressEnabled: 1
+--- !u!174 &13
+PlayerProjectSettings:
+  m_ObjectHideFlags: 0
+  fixedDeltaTime: 0.02
+  maxDeltaTime: 0.1
+  m_ProjectGenerationStage: 1
+  m_AllowAutoScene: 1
+  m_VirtualTexturingSupportNativeStreamingAssets: 0
+  m_SimulationTypeInEditTime: 0
+--- !u!183 &46
+AudioSettings:
+  m_ObjectHideFlags: 0
+  m_VoiceCount: 32
+  m_Toggle: 0
+  m_RolloffScale: 1
+  m_SpeedOfSound: 347.5
+  m_MixerType: 0
+  m_DopplerFactor: 1
+--- !u!63 &198
+MeshRenderingPipelineSettings:
+  kUseCustomRenderer: 0
+  customRendererData: {fileID: 0}
+  m_PipelineAssets: []
+--- !u!205 &47
+GraphicsSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 13
+  m_Deferred:
+    m_Assets: []
+    m_RendererData: {fileID: 0}
+  m_UseRenderingVariants: 0
+  m_BUGITC: 0
+  m_ActiveShaderChannels: 65336
+  m_ShaderChannelsMask:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_DefaultRenderPath: 3
+  m_TierSettings: []
+  m_BakedLightmapsFormat: 3
+  m_RealtimeGI: 1
+  m_DeferredReflections: 1
+  m_ForwardShadows: 1
+  m_ForwardSoftShadowSupport: 1
+  m_TexEnvClampToBorder: 1
+  m_HardwareLevel: 16
+  m_UseForcedHardwareLevel: 0
+  m_PrefersDrawMeshInstanced: 1
+  m_AllowDynamicBatching: 1
+  m_AllowStaticBatching: 1
+--- !u!228 &37598
+EditorSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 12
+  m_SerializationMode: 2
+  m_LineEndingsForNewScripts: 0
+  m_DefaultBehaviorMode: 0
+  m_PrefabRegularEnvironment: {fileID: 0}
+  m_PrefabUIEnvironment: {fileID: 0}
+  m_ProgressiveMeshSimplification: 1
+  m_SpritePackerMode: 0
+  m_SpritePackerCacheSizeKB: 4096
+  m_SpritePackerPaddingPower: 0
+  m_EtcTextureCompressorBehavior: 1
+  m_Etc2FastBasisProfile: 0
+  m_Etc2SlowBasisProfile: 0
+  m_ProgressiveMeshSimplificationEnableAutoProgressSettings: 1
+  m_PrefabModeMasterBehaviourEnabled: 1
+  m_InitializeOnFocusMode: 0
+  m_ProjectGenerationMode: 0
+  m_EnableTextureStreamingInEditMode: 1
+  m_EnableTextureStreamingInPlayMode: 1
+  m_WaitForSceneLoadingAndPreloadingToBlockApplicationQuit: 0
+--- !u!171 &2936405932985714266
+ClusterInputManager:
+  m_ObjectHideFlags: 0
+  m_Inputs: []
+--- !u!239 &1
+SceneTemplateSettings:
+  m_AssetGUIDs:
+    DefaultScene: {fileID: 0}
+    UIElementsEditorWindow: {fileID: 0}
+    UIPanels: {fileID: 0}
+    UIRenderers: {fileID: 0}
+    VisualEffectGraphAsset: {fileID: 0}
+    VFXExpressionFunction: {fileID: 0}
+--- !u!396 &1
+NavMeshProjectSettings:
+  m_ObjectHideFlags: 0
+  settingsGroup: {fileID: 0}
+--- !u!8518 &3481650559871126658
+TestRunnerSettings:
+  m_ObjectHideFlags: 0
+  testMode: 0
+  f13rVersion: 
+  showAllActions: 0
+  cloudProcessing: 0
+--- !u!42 &1
+AssetPipelineSettings:
+  m_ObjectHideFlags: 0
+  m_ImportProxyTimeout: 120
+  m_AssetPipelineV1ProviderFboEnabled: 0
+  m_AssetBundlesUseAssetBundleManifest: 1
