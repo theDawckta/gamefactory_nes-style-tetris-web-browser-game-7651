@@ -236,7 +236,7 @@ public class PlayfieldRenderer : MonoBehaviour
             model = _gameplayController.Playfield;
             activePiece = _gameplayController.ActivePiece;
             // Check if there's a valid active piece by verifying the type is defined
-            hasActivePiece = Enum.IsDefined(typeof(PieceType), activePiece.Type);
+            hasActivePiece = activePiece.Type >= PieceType.I && activePiece.Type <= PieceType.L;
         }
 
         int visibleHeight = GameRules.PLAYFIELD_VISIBLE_HEIGHT;

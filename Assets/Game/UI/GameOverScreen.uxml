@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+  <Style src="project://database/Assets/Game/UI/GameOverScreen.uss">#root</Style>
+  <ui:VisualElement name="gameover-label-region" class="gameover-label-region">
+    <ui:Label text="GAME OVER" class="gameover-label" />
+  </ui:VisualElement>
+  <ui:VisualElement name="score-region" class="score-region">
+    <ui:Label name="score-label" text="SCORE: 0000000" class="score-label" />
+  </ui:VisualElement>
+  <ui:VisualElement name="prompt-region" class="prompt-region">
+    <ui:Label text="PRESS ENTER TO CONTINUE" class="prompt-label" />
+  </ui:VisualElement>
+</ui:UXML>
