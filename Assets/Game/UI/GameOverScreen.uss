@@ -1,0 +1,54 @@
+/* Game Over Screen USS Stylesheet */
+
+/* Root element: semi-transparent dark overlay, full screen layout */
+#root {
+    -background-color: rgba(0, 0, 0, 0.8);
+    -flex-direction: column;
+    -align-items: center;
+    -justify-content: center;
+    -width: 100%;
+    -height: 100%;
+}
+
+/* Game Over label region: upper center area */
+.gameover-label-region {
+    -flex-grow: 1;
+    -align-items: center;
+    -justify-content: center;
+    -flex-direction: column;
+}
+
+.gameover-label {
+    -unity-font-size: 48;
+    -color: #FF0000;
+    -font-weight: bold;
+    -margin-bottom: 20px;
+}
+
+/* Score region: center area */
+.score-region {
+    -flex-grow: 2;
+    -align-items: center;
+    -justify-content: center;
+    -flex-direction: column;
+}
+
+.score-label {
+    -unity-font-size: 24;
+    -color: #FFFFFF;
+    -font-weight: bold;
+}
+
+/* Prompt region: lower area */
+.prompt-region {
+    -flex-grow: 1;
+    -align-items: center;
+    -justify-content: center;
+    -flex-direction: column;
+}
+
+.prompt-label {
+    -unity-font-size: 16;
+    -color: #AAAAAA;
+    -margin-top: 20px;
+}
