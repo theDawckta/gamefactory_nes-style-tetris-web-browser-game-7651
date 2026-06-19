@@ -1,0 +1,76 @@
+/* Initials Entry Overlay USS Stylesheet */
+
+/* Root element: semi-transparent dark overlay, full screen layout */
+#root {
+    -background-color: rgba(0, 0, 0, 0.85);
+    -flex-direction: column;
+    -align-items: center;
+    -justify-content: center;
+    -width: 100%;
+    -height: 100%;
+}
+
+/* Title region: upper area */
+.title-region {
+    -flex-grow: 1;
+    -align-items: center;
+    -justify-content: center;
+    -flex-direction: column;
+}
+
+.title-label {
+    -unity-font-size: 28;
+    -color: #FFCC00;
+    -font-weight: bold;
+}
+
+/* Characters region: center area with 3 char slots side by side */
+.chars-region {
+    -flex-grow: 2;
+    -align-items: center;
+    -justify-content: center;
+    -flex-direction: row;
+    -gap: 20px;
+}
+
+.char-slot {
+    -unity-font-size: 48;
+    -color: #FFFFFF;
+    -font-weight: bold;
+    -width: 60px;
+    -height: 70px;
+    -align-items: center;
+    -justify-content: center;
+    -border-left-width: 2px;
+    -border-right-width: 2px;
+    -border-top-width: 2px;
+    -border-bottom-width: 2px;
+    -border-color: #FFFFFF;
+}
+
+/* Active slot: highlighted with a bottom border (cursor indicator) */
+.char-slot-active {
+    -border-bottom-width: 4px;
+    -border-bottom-color: #FFCC00;
+    -color: #FFCC00;
+}
+
+/* Confirm region: shown below chars when all 3 entered */
+.confirm-region {
+    -flex-grow: 1;
+    -align-items: center;
+    -justify-content: center;
+    -flex-direction: column;
+}
+
+.confirm-label {
+    -unity-font-size: 24;
+    -color: #AAAAAA;
+    -font-weight: bold;
+}
+
+.confirm-region-active {
+    .confirm-label {
+        -color: #FFCC00;
+    }
+}
