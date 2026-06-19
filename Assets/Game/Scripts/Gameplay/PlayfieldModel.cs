@@ -287,7 +287,7 @@ public class PlayfieldModel
     /// <summary>
     /// Returns the flattened cell-offset array for a specific piece type and rotation index.
     /// </summary>
-    private static int[] GetCellOffsets(PieceType type, int rotation)
+    public static int[] GetCellOffsets(PieceType type, int rotation)
     {
         // Clamp rotation to [0, 3].
         int rot = rotation % 4;

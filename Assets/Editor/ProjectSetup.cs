@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEditor.Build.Reporting;
 using System.IO;
 
@@ -28,12 +29,10 @@ public static class ProjectSetup
         }
 
         // 2. Configure Player Settings for WebGL
-        var playerSettings = PlayerSettings;
-
         // Color Space: Gamma (0) for NES palette fidelity
-        if (playerSettings.colorSpace != ColorSpace.Gamma)
+        if (PlayerSettings.colorSpace != ColorSpace.Gamma)
         {
-            playerSettings.colorSpace = ColorSpace.Gamma;
+            PlayerSettings.colorSpace = ColorSpace.Gamma;
             Debug.Log("[ProjectSetup] Set color space to Gamma");
         }
         else
@@ -41,35 +40,18 @@ public static class ProjectSetup
             Debug.Log("[ProjectSetup] Color space already Gamma");
         }
 
-        // WebGL resolution: 960x720
-        playerSettings.webGLDefaultWidth = 960;
-        playerSettings.webGLDefaultHeight = 720;
-        Debug.Log($"[ProjectSetup] Set WebGL default resolution to 960x720");
-
-        // Compression for local dev: disabled
-        if (playerSettings.GetPropertyValue<WebGLCompression>("SetCompressionType", BuildTarget.WebGL) != WebGLCompression.Disabled)
-        {
-            playerSettings.SetProperty("SetCompressionType", WebGLCompression.Disabled, BuildTarget.WebGL);
-            Debug.Log("[ProjectSetup] Set WebGL compression to Disabled");
-        }
-
         // General player settings
-        if (playerSettings.productName != "" && !playerSettings.productName.Contains("tetris") && !playerSettings.productName.Contains("Tetris"))
+        if (PlayerSettings.productName != "" && !PlayerSettings.productName.Contains("tetris") && !PlayerSettings.productName.Contains("Tetris"))
         {
-            playerSettings.productName = "NES-Style Tetris";
+            PlayerSettings.productName = "NES-Style Tetris";
             Debug.Log("[ProjectSetup] Set product name");
         }
 
-        if (playerSettings.companyName != "" && !playerSettings.companyName.Contains("onetime"))
+        if (PlayerSettings.companyName != "" && !PlayerSettings.companyName.Contains("onetime"))
         {
-            playerSettings.companyName = "OneTime Games";
+            PlayerSettings.companyName = "OneTime Games";
             Debug.Log("[ProjectSetup] Set company name");
         }
-
-        // WebGL-specific settings
-        playerSettings.SetProperty("webGLCompressionFormat", 0, BuildTarget.WebGL); // None for debug
-        playerSettings.webGLCanvasWASnapshot = false;
-        playerSettings.SetProperty<int>("webGLExceptionSupport", BuildTargetGroup.WebGL, 0);
 
         Debug.Log("[ProjectSetup] Player settings configured");
 
@@ -127,9 +109,9 @@ public static class ProjectSetup
 
         if (!sceneInBuildList)
         {
-            var newScenes = new UnityEditor.SceneOrdering.EditorBuildSettingsScene[buildScenes.Length + 1];
+            var newScenes = new EditorBuildSettingsScene[buildScenes.Length + 1];
             System.Array.Copy(buildScenes, newScenes, buildScenes.Length);
-            newScenes[buildScenes.Length] = new UnityEditor.SceneOrdering.EditorBuildSettingsScene(scenePath, true);
+            newScenes[buildScenes.Length] = new EditorBuildSettingsScene(scenePath, true);
             EditorBuildSettings.scenes = newScenes;
             Debug.Log($"[ProjectSetup] Added {scenePath} to build settings");
         }
