@@ -1,0 +1,9 @@
+{
+  "name": "GameTests.EditMode",
+  "references": ["com.nestyletetris.game"],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": true,
+  "defineConstraints": []
+}

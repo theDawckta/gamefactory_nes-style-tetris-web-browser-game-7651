@@ -1,0 +1,9 @@
+{
+  "name": "GameTests.PlayMode",
+  "references": ["com.nestyletetris.game"],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": true,
+  "defineConstraints": []
+}
