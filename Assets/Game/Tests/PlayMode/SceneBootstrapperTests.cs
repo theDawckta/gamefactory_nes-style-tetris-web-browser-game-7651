@@ -188,27 +188,6 @@ public class SceneBootstrapperTests
         }
     }
 
-    // Helper to invoke events via reflection (events cannot be read directly)
-    private void InvokeEvent(object target, string eventName)
-    {
-        var field = target.GetType().GetField(eventName, BindingFlags.NonPublic | BindingFlags.Instance);
-        if (field != null)
-        {
-            var handler = (Delegate)field.GetValue(target);
-            handler?.DynamicInvoke();
-        }
-    }
-
-    private void InvokeEventWithParam(object target, string eventName, object[] parameters)
-    {
-        var field = target.GetType().GetField(eventName, BindingFlags.NonPublic | BindingFlags.Instance);
-        if (field != null)
-        {
-            var handler = (Delegate)field.GetValue(target);
-            handler?.DynamicInvoke(parameters);
-        }
-    }
-
     // -----------------------------------------------------------------------
     // Awake tests
     // -----------------------------------------------------------------------
@@ -239,6 +218,132 @@ public class SceneBootstrapperTests
     {
         yield return null;
         Assert.IsTrue(_startScreen.IsVisible, "StartScreen should be shown on Awake");
+    }
+
+    // -----------------------------------------------------------------------
+    // QA Navigation Contract tests
+    // -----------------------------------------------------------------------
+
+    [UnityTest]
+    public IEnumerator QA_StartGame_HidesStartScreenAndShowsGameScreen()
+    {
+        // Disable bootstrapper to prevent Start() from running
+        _manager.SetActive(false);
+        yield return null;
+
+        // Manually set initial state
+        _startScreen.Show();
+        _gameScreen.Hide();
+        _gameOverScreen.Hide();
+        _initialsOverlay.Hide();
+        yield return null;
+
+        Assert.IsTrue(_startScreen.IsVisible, "StartScreen should be visible initially");
+        Assert.IsFalse(_gameScreen.IsVisible, "GameScreen should be hidden initially");
+
+        // Call QA StartGame()
+        _manager.SetActive(true);
+        _bootstrapper.StartGame();
+        yield return null;
+
+        Assert.IsFalse(_startScreen.IsVisible, "StartScreen should be hidden after StartGame");
+        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen should be visible after StartGame");
+    }
+
+    [UnityTest]
+    public IEnumerator QA_GoToGameOver_HidesGameScreenAndShowsGameOverScreen()
+    {
+        // Disable bootstrapper to prevent Start() from running
+        _manager.SetActive(false);
+        yield return null;
+
+        // Manually set state as if game is in progress
+        _startScreen.Hide();
+        _gameScreen.Show();
+        _gameOverScreen.Hide();
+        _initialsOverlay.Hide();
+        _gameplayController.StartGame();
+        yield return null;
+
+        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen should be visible before GoToGameOver");
+        Assert.IsFalse(_gameOverScreen.IsVisible, "GameOverScreen should be hidden before GoToGameOver");
+
+        // Call QA GoToGameOver()
+        _manager.SetActive(true);
+        _bootstrapper.GoToGameOver();
+        yield return null;
+
+        Assert.IsFalse(_gameScreen.IsVisible, "GameScreen should be hidden after GoToGameOver");
+        Assert.IsTrue(_gameOverScreen.IsVisible, "GameOverScreen should be visible after GoToGameOver");
+    }
+
+    [UnityTest]
+    public IEnumerator QA_GoToStart_HidesAllScreensAndShowsStartScreen()
+    {
+        // Disable bootstrapper to prevent Start() from running
+        _manager.SetActive(false);
+        yield return null;
+
+        // Manually set state as if game over is showing
+        _startScreen.Hide();
+        _gameScreen.Hide();
+        _gameOverScreen.ShowWithScore(5000);
+        _initialsOverlay.Hide();
+        yield return null;
+
+        Assert.IsFalse(_startScreen.IsVisible, "StartScreen should be hidden before GoToStart");
+        Assert.IsTrue(_gameOverScreen.IsVisible, "GameOverScreen should be visible before GoToStart");
+
+        // Call QA GoToStart()
+        _manager.SetActive(true);
+        _bootstrapper.GoToStart();
+        yield return null;
+
+        Assert.IsTrue(_startScreen.IsVisible, "StartScreen should be visible after GoToStart");
+        Assert.IsFalse(_gameScreen.IsVisible, "GameScreen should be hidden after GoToStart");
+        Assert.IsFalse(_gameOverScreen.IsVisible, "GameOverScreen should be hidden after GoToStart");
+    }
+
+    [UnityTest]
+    public IEnumerator QA_FullFlow_StartPlayGameOverStart()
+    {
+        // Disable bootstrapper to prevent Start() from running
+        _manager.SetActive(false);
+        yield return null;
+
+        // Manually set initial state
+        _startScreen.Show();
+        _gameScreen.Hide();
+        _gameOverScreen.Hide();
+        _initialsOverlay.Hide();
+        yield return null;
+
+        // Step 1: Verify initial state - Start Screen visible
+        Assert.IsTrue(_startScreen.IsVisible, "Step 1: StartScreen should be visible");
+        Assert.IsFalse(_gameScreen.IsVisible, "Step 1: GameScreen should be hidden");
+        Assert.IsFalse(_gameOverScreen.IsVisible, "Step 1: GameOverScreen should be hidden");
+
+        // Step 2: Start game
+        _manager.SetActive(true);
+        _bootstrapper.StartGame();
+        yield return null;
+        Assert.IsFalse(_startScreen.IsVisible, "Step 2: StartScreen should be hidden");
+        Assert.IsTrue(_gameScreen.IsVisible, "Step 2: GameScreen should be visible");
+        Assert.IsFalse(_gameOverScreen.IsVisible, "Step 2: GameOverScreen should be hidden");
+
+        // Step 3: Game over
+        _bootstrapper.GoToGameOver();
+        yield return null;
+        Assert.IsFalse(_startScreen.IsVisible, "Step 3: StartScreen should be hidden");
+        Assert.IsFalse(_gameScreen.IsVisible, "Step 3: GameScreen should be hidden");
+        Assert.IsTrue(_gameOverScreen.IsVisible, "Step 3: GameOverScreen should be visible");
+
+        // Step 4: Return to start
+        _bootstrapper.GoToStart();
+        yield return null;
+        Assert.IsTrue(_startScreen.IsVisible, "Step 4: StartScreen should be visible");
+        Assert.IsFalse(_gameScreen.IsVisible, "Step 4: GameScreen should be hidden");
+        Assert.IsFalse(_gameOverScreen.IsVisible, "Step 4: GameOverScreen should be hidden");
     }
 
     // -----------------------------------------------------------------------

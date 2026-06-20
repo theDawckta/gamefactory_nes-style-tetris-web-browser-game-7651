@@ -65,6 +65,15 @@ public class SceneBootstrapper : MonoBehaviour
 
     private void Start()
     {
+        EnsureInitialized();
+    }
+
+    /// <summary>
+    /// Ensures event wiring and initial screen state are set up.
+    /// Called by Start() and by QA entry points so they work even if Start() has not yet run.
+    /// </summary>
+    private void EnsureInitialized()
+    {
         if (_initialized) return;
         _initialized = true;
 
@@ -253,6 +262,7 @@ public class SceneBootstrapper : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
+        EnsureInitialized();
         if (startScreen != null) startScreen.Hide();
         if (gameScreen != null) gameScreen.Show();
         if (gameplayController != null) gameplayController.StartGame();
@@ -260,11 +270,17 @@ public class SceneBootstrapper : MonoBehaviour
 
     /// <summary>
     /// QA entry point: triggers game over state.
-    /// Uses GameplayController.TriggerGameOver to fire the game over flow with score 0.
+    /// Hides the game screen, triggers game over on the controller, and shows the game over screen.
+    /// Screen transitions are handled directly here so they work regardless of event wiring.
     /// </summary>
     public void GoToGameOver()
     {
+        EnsureInitialized();
+        if (gameScreen != null) gameScreen.Hide();
         if (gameplayController != null) gameplayController.TriggerGameOver(0);
+        // Show game over screen directly - the OnGameOver event handler also calls ShowWithScore
+        // if WireEvents ran, but we must not rely on that for the QA pipeline.
+        if (gameOverScreen != null) gameOverScreen.ShowWithScore(0);
     }
 
     /// <summary>
@@ -273,6 +289,7 @@ public class SceneBootstrapper : MonoBehaviour
     /// </summary>
     public void GoToStart()
     {
+        EnsureInitialized();
         if (gameScreen != null) gameScreen.Hide();
         if (gameOverScreen != null) gameOverScreen.Hide();
         if (initialsEntryOverlay != null) initialsEntryOverlay.Hide();
