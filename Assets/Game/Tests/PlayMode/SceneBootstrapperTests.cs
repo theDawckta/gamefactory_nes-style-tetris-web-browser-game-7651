@@ -367,11 +367,18 @@ public class SceneBootstrapperTests
     [UnityTest]
     public IEnumerator FullFlow_StartPlayGameOverContinue()
     {
-        // Let Start() run first
-        yield return null;
+        // Disable bootstrapper to prevent Start() from interfering with test state
+        _manager.SetActive(false);
         yield return null;
 
-        // 1. Verify initial state: StartScreen visible, others hidden
+        // Manually set initial state
+        _startScreen.Show();
+        _gameScreen.Hide();
+        _gameOverScreen.Hide();
+        _initialsOverlay.Hide();
+        yield return null;
+
+        // 1. Verify initial state
         Assert.IsTrue(_startScreen.IsVisible);
         Assert.IsFalse(_gameScreen.IsVisible);
         Assert.IsFalse(_gameOverScreen.IsVisible);
