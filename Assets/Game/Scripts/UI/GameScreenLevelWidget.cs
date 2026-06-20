@@ -16,40 +16,18 @@ public class GameScreenLevelWidget : MonoBehaviour
     // The value label inside the level region that shows the numeric level
     private Label _valueLabel;
 
-    /// <summary>
-    /// Whether UI element references have been initialized.
-    /// </summary>
-    private bool _initialized;
-
-    /// <summary>
-    /// Lazily initializes UI element references on first use.
-    /// This defers the query until the visual tree is fully constructed.
-    /// </summary>
-    private void EnsureInitialized()
+    private void Awake()
     {
-        if (_initialized) return;
-        _initialized = true;
-
         var doc = GetComponent<UIDocument>();
         if (doc == null || doc.rootVisualElement == null)
-        {
-            Debug.LogError("[GameScreenLevelWidget] No UIDocument or rootVisualElement found on this GameObject.");
             return;
-        }
 
         _levelRegion = doc.rootVisualElement.Q<VisualElement>("level-region");
         if (_levelRegion == null)
-        {
-            Debug.LogError("[GameScreenLevelWidget] Could not find #level-region element.");
             return;
-        }
 
         // Find the value label by class "region-value" among children
         _valueLabel = _levelRegion.Children().OfType<Label>().FirstOrDefault(l => l.ClassListContains("region-value"));
-        if (_valueLabel == null)
-        {
-            Debug.LogError("[GameScreenLevelWidget] Could not find .region-value label in #level-region.");
-        }
     }
 
     /// <summary>
@@ -58,7 +36,19 @@ public class GameScreenLevelWidget : MonoBehaviour
     /// </summary>
     public void UpdateLevel(int level)
     {
-        EnsureInitialized();
+        // Lazy fallback: if Awake could not find the region, try again now
+        if (_valueLabel == null)
+        {
+            var doc = GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
+            {
+                _levelRegion = doc.rootVisualElement.Q<VisualElement>("level-region");
+                if (_levelRegion != null)
+                {
+                    _valueLabel = _levelRegion.Children().OfType<Label>().FirstOrDefault(l => l.ClassListContains("region-value"));
+                }
+            }
+        }
 
         if (_valueLabel != null)
         {

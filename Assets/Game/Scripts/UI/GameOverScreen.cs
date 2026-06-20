@@ -17,33 +17,28 @@ public class GameOverScreen : BaseScreen
 
     private Label _scoreLabel;
 
-    /// <summary>
-    /// Whether UI element references have been initialized.
-    /// </summary>
-    private bool _initialized;
-
-    /// <summary>
-    /// Initializes UI element references lazily. Called from OnShow() and ShowWithScore()
-    /// to ensure rootVisualElement is available.
-    /// </summary>
-    private void EnsureInitialized()
+    private void Awake()
     {
-        if (_initialized) return;
-        _initialized = true;
-
         var doc = GetComponent<UIDocument>();
-        if (doc == null || doc.rootVisualElement == null) return;
-
-        var root = doc.rootVisualElement;
-        _scoreLabel = root.Q<Label>("score-label");
+        if (doc != null && doc.rootVisualElement != null)
+        {
+            _scoreLabel = doc.rootVisualElement.Q<Label>("score-label");
+        }
     }
 
     /// <summary>
     /// Called by BaseScreen.Show() after the screen is made visible.
+    /// Provides a lazy fallback for when Awake could not initialize.
     /// </summary>
     protected override void OnShow()
     {
-        EnsureInitialized();
+        if (_scoreLabel != null) return;
+
+        var doc = GetComponent<UIDocument>();
+        if (doc != null && doc.rootVisualElement != null)
+        {
+            _scoreLabel = doc.rootVisualElement.Q<Label>("score-label");
+        }
     }
 
     /// <summary>
@@ -53,7 +48,16 @@ public class GameOverScreen : BaseScreen
     public void ShowWithScore(int finalScore)
     {
         Show();
-        EnsureInitialized();
+
+        // Lazy fallback if Awake couldn't initialize
+        if (_scoreLabel == null)
+        {
+            var doc = GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
+            {
+                _scoreLabel = doc.rootVisualElement.Q<Label>("score-label");
+            }
+        }
 
         if (_scoreLabel != null)
         {

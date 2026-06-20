@@ -36,11 +36,6 @@ public class GameScreenNextWidget : MonoBehaviour
     /// </summary>
     private Image[,] _gridImages;
 
-    /// <summary>
-    /// Whether UI element references have been initialized.
-    /// </summary>
-    private bool _initialized;
-
     // -----------------------------------------------------------------------
     // Properties
     // -----------------------------------------------------------------------
@@ -63,31 +58,18 @@ public class GameScreenNextWidget : MonoBehaviour
     }
 
     // -----------------------------------------------------------------------
-    // Initialization
+    // Unity lifecycle
     // -----------------------------------------------------------------------
 
-    /// <summary>
-    /// Lazily initializes UI element references on first use.
-    /// This defers the query until the visual tree is fully constructed.
-    /// </summary>
-    private void EnsureInitialized()
+    private void Awake()
     {
-        if (_initialized) return;
-        _initialized = true;
-
         var doc = GetComponent<UIDocument>();
         if (doc == null || doc.rootVisualElement == null)
-        {
-            Debug.LogError("[GameScreenNextWidget] No UIDocument or rootVisualElement found on this GameObject.");
             return;
-        }
 
         _nextRegion = doc.rootVisualElement.Q<VisualElement>("next-region");
         if (_nextRegion == null)
-        {
-            Debug.LogError("[GameScreenNextWidget] Could not find #next-region element.");
             return;
-        }
 
         CreateGrid();
     }
@@ -150,7 +132,19 @@ public class GameScreenNextWidget : MonoBehaviour
     /// <param name="nextPiece">The piece type to display in the preview.</param>
     public void UpdateNextPiece(PieceType nextPiece)
     {
-        EnsureInitialized();
+        // Lazy fallback: if Awake could not create the grid, try now
+        if (_gridImages == null)
+        {
+            var doc = GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
+            {
+                _nextRegion = doc.rootVisualElement.Q<VisualElement>("next-region");
+                if (_nextRegion != null)
+                {
+                    CreateGrid();
+                }
+            }
+        }
 
         if (_gridImages == null)
             return;

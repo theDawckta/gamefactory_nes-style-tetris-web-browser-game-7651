@@ -26,36 +26,36 @@ public class InitialsEntryOverlay : BaseScreen
     private Label _charLabel2;
     private VisualElement _confirmRegion;
 
-    /// <summary>
-    /// Whether UI element references have been initialized.
-    /// </summary>
-    private bool _initialized;
-
-    /// <summary>
-    /// Initializes UI element references lazily. Called from OnShow() and ShowForScore()
-    /// to ensure rootVisualElement is available.
-    /// </summary>
-    private void EnsureInitialized()
+    private void Awake()
     {
-        if (_initialized) return;
-        _initialized = true;
-
         var doc = GetComponent<UIDocument>();
-        if (doc == null || doc.rootVisualElement == null) return;
-
-        var root = doc.rootVisualElement;
-        _charLabel0 = root.Q<Label>("char-0");
-        _charLabel1 = root.Q<Label>("char-1");
-        _charLabel2 = root.Q<Label>("char-2");
-        _confirmRegion = root.Q<VisualElement>("confirm-region");
+        if (doc != null && doc.rootVisualElement != null)
+        {
+            var root = doc.rootVisualElement;
+            _charLabel0 = root.Q<Label>("char-0");
+            _charLabel1 = root.Q<Label>("char-1");
+            _charLabel2 = root.Q<Label>("char-2");
+            _confirmRegion = root.Q<VisualElement>("confirm-region");
+        }
     }
 
     /// <summary>
     /// Called by BaseScreen.Show() after the screen is made visible.
+    /// Provides a lazy fallback for when Awake could not initialize.
     /// </summary>
     protected override void OnShow()
     {
-        EnsureInitialized();
+        if (_charLabel0 != null) return; // Already initialized in Awake
+
+        var doc = GetComponent<UIDocument>();
+        if (doc != null && doc.rootVisualElement != null)
+        {
+            var root = doc.rootVisualElement;
+            _charLabel0 = root.Q<Label>("char-0");
+            _charLabel1 = root.Q<Label>("char-1");
+            _charLabel2 = root.Q<Label>("char-2");
+            _confirmRegion = root.Q<VisualElement>("confirm-region");
+        }
     }
 
     /// <summary>
@@ -71,7 +71,6 @@ public class InitialsEntryOverlay : BaseScreen
         activeSlot = 0;
 
         Show();
-        EnsureInitialized();
 
         UpdateDisplay();
     }
