@@ -3,7 +3,7 @@
   "references": ["com.nestyletetris.game"],
   "includePlatforms": [],
   "excludePlatforms": [],
-  "optionalUnityReferences": ["TestAssemblies"],
+  "optionalUnityReferences": ["TestAssemblies", "UnityEditor"],
   "autoReferenced": true,
   "defineConstraints": []
 }
