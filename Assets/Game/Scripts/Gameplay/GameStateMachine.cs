@@ -24,18 +24,21 @@ public class GameStateMachine
     public GameState CurrentState
     {
         get { return _state; }
-        set { _state = value; }
+        set { ChangeState(value); }
     }
 
     public event System.Action<GameState> OnStateChanged;
 
     public GameStateMachine()
     {
-        _state = GameState.WaitingForPiece;
+        _state = GameState.Idle;
     }
 
     public void ChangeState(GameState newState)
     {
+        if (_state == newState)
+            return;
+
         _state = newState;
         OnStateChanged?.Invoke(newState);
     }
