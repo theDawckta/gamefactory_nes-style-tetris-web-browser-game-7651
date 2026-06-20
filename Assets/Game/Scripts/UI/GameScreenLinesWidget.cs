@@ -16,12 +16,24 @@ public class GameScreenLinesWidget : MonoBehaviour
     // The value label inside the lines region that shows the numeric lines count
     private Label _valueLabel;
 
-    private void Awake()
+    /// <summary>
+    /// Whether UI element references have been initialized.
+    /// </summary>
+    private bool _initialized;
+
+    /// <summary>
+    /// Lazily initializes UI element references on first use.
+    /// This defers the query until the visual tree is fully constructed.
+    /// </summary>
+    private void EnsureInitialized()
     {
+        if (_initialized) return;
+        _initialized = true;
+
         var doc = GetComponent<UIDocument>();
-        if (doc == null)
+        if (doc == null || doc.rootVisualElement == null)
         {
-            Debug.LogError("[GameScreenLinesWidget] No UIDocument component found on this GameObject.");
+            Debug.LogError("[GameScreenLinesWidget] No UIDocument or rootVisualElement found on this GameObject.");
             return;
         }
 
@@ -46,6 +58,8 @@ public class GameScreenLinesWidget : MonoBehaviour
     /// </summary>
     public void UpdateLines(int lines)
     {
+        EnsureInitialized();
+
         if (_valueLabel != null)
         {
             _valueLabel.text = lines.ToString("D3");

@@ -16,12 +16,24 @@ public class GameScreenLevelWidget : MonoBehaviour
     // The value label inside the level region that shows the numeric level
     private Label _valueLabel;
 
-    private void Awake()
+    /// <summary>
+    /// Whether UI element references have been initialized.
+    /// </summary>
+    private bool _initialized;
+
+    /// <summary>
+    /// Lazily initializes UI element references on first use.
+    /// This defers the query until the visual tree is fully constructed.
+    /// </summary>
+    private void EnsureInitialized()
     {
+        if (_initialized) return;
+        _initialized = true;
+
         var doc = GetComponent<UIDocument>();
-        if (doc == null)
+        if (doc == null || doc.rootVisualElement == null)
         {
-            Debug.LogError("[GameScreenLevelWidget] No UIDocument component found on this GameObject.");
+            Debug.LogError("[GameScreenLevelWidget] No UIDocument or rootVisualElement found on this GameObject.");
             return;
         }
 
@@ -46,6 +58,8 @@ public class GameScreenLevelWidget : MonoBehaviour
     /// </summary>
     public void UpdateLevel(int level)
     {
+        EnsureInitialized();
+
         if (_valueLabel != null)
         {
             _valueLabel.text = level.ToString("D2");

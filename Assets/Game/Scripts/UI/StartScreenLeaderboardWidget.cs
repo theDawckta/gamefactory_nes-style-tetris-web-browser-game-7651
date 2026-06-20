@@ -13,11 +13,22 @@ public class StartScreenLeaderboardWidget : MonoBehaviour
     // The UIDocument root element for accessing #leaderboard-region
     private VisualElement _region;
 
-    private void Awake()
+    /// <summary>
+    /// Whether the region reference has been initialized.
+    /// </summary>
+    private bool _initialized;
+
+    /// <summary>
+    /// Lazily initializes the leaderboard region reference on first use.
+    /// This defers the query until the visual tree is fully constructed.
+    /// </summary>
+    private void EnsureInitialized()
     {
-        // Cache reference to leaderboard region once the visual tree is available
+        if (_initialized) return;
+        _initialized = true;
+
         var doc = GetComponent<UIDocument>();
-        if (doc != null)
+        if (doc != null && doc.rootVisualElement != null)
         {
             _region = doc.rootVisualElement.Q<VisualElement>("leaderboard-region");
         }
@@ -30,6 +41,8 @@ public class StartScreenLeaderboardWidget : MonoBehaviour
     /// </summary>
     public void Refresh(LeaderboardEntry[] entries)
     {
+        EnsureInitialized();
+
         if (_region == null)
         {
             Debug.LogError("[StartScreenLeaderboardWidget] Could not find #leaderboard-region element.");

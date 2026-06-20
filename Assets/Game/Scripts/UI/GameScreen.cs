@@ -30,14 +30,39 @@ public class GameScreen : BaseScreen
     /// </summary>
     private VisualElement _nextRegion;
 
-    private void Awake()
+    /// <summary>
+    /// Whether UI element references have been initialized.
+    /// </summary>
+    private bool _initialized;
+
+    /// <summary>
+    /// Initializes UI element references. Called from OnShow() after the
+    /// GameObject is active and rootVisualElement is available.
+    /// </summary>
+    private void EnsureInitialized()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        if (_initialized) return;
+        _initialized = true;
+
+        var doc = GetComponent<UIDocument>();
+        if (doc == null || doc.rootVisualElement == null) return;
+
+        var root = doc.rootVisualElement;
 
         _scoreRegion = root.Q<VisualElement>("score-region");
         _levelRegion = root.Q<VisualElement>("level-region");
         _linesRegion = root.Q<VisualElement>("lines-region");
         _nextRegion = root.Q<VisualElement>("next-region");
+    }
+
+    /// <summary>
+    /// Called by BaseScreen.Show() after the screen is made visible.
+    /// Initializes UI element references at this point because rootVisualElement
+    /// is only available after SetActive(true).
+    /// </summary>
+    protected override void OnShow()
+    {
+        EnsureInitialized();
     }
 
     /// <summary>

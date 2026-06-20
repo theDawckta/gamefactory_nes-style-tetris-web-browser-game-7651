@@ -91,10 +91,21 @@ public static class AssembleMainScene
         // 12. Wire up SceneBootstrapper references
         WireSceneBootstrapper(gameManager, startScreenUI, gameScreenUI, gameOverScreenUI, initialsEntryUI, blockSprites);
 	
-        // 13. Wire PlayfieldRenderer to GameplayController
+        // 13. Wire PlayfieldRenderer to GameplayController via SerializedObject
         var pr = playfieldRenderer.GetComponent<PlayfieldRenderer>();
         var gc = gameManager.GetComponent<GameplayController>();
-        pr.SetGameplayController(gc);
+        var prSo = new SerializedObject(pr);
+        var gcProp = prSo.FindProperty("_gameplayController");
+        if (gcProp != null)
+        {
+            gcProp.objectReferenceValue = gc;
+            prSo.ApplyModifiedPropertiesWithoutUndo();
+            Debug.Log("[AssembleMainScene] PlayfieldRenderer _gameplayController wired via SerializedObject");
+        }
+        else
+        {
+            Debug.LogWarning("[AssembleMainScene] Could not find _gameplayController property on PlayfieldRenderer");
+        }
 	
         // 14. Add scene to build settings
         AddSceneToBuildSettings(ScenePath);
@@ -625,9 +636,24 @@ public static class AssembleMainScene
         SetSerializedField(so, "leaderboardWidget", startScreenUI.GetComponent<StartScreenLeaderboardWidget>());
         so.ApplyModifiedPropertiesWithoutUndo();
 	
-        // Set block sprites on NextWidget
+        // Set block sprites on NextWidget via SerializedObject for scene persistence
         var nextWidget = gameScreenUI.GetComponent<GameScreenNextWidget>();
-        nextWidget.SetBlockSprites(blockSprites);
+        var nwSo = new SerializedObject(nextWidget);
+        var spritesProp = nwSo.FindProperty("_blockSprites");
+        if (spritesProp != null && spritesProp.isArray)
+        {
+            spritesProp.arraySize = blockSprites.Length;
+            for (int i = 0; i < blockSprites.Length; i++)
+            {
+                spritesProp.GetArrayElementAtIndex(i).objectReferenceValue = blockSprites[i];
+            }
+            nwSo.ApplyModifiedPropertiesWithoutUndo();
+            Debug.Log("[AssembleMainScene] GameScreenNextWidget _blockSprites wired via SerializedObject");
+        }
+        else
+        {
+            Debug.LogWarning("[AssembleMainScene] Could not find _blockSprites property on GameScreenNextWidget");
+        }
 	
         Debug.Log("[AssembleMainScene] Wired SceneBootstrapper references");
     }

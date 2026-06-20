@@ -16,12 +16,24 @@ public class GameScreenScoreWidget : MonoBehaviour
     // The value label inside the score region that shows the numeric score
     private Label _valueLabel;
 
-    private void Awake()
+    /// <summary>
+    /// Whether UI element references have been initialized.
+    /// </summary>
+    private bool _initialized;
+
+    /// <summary>
+    /// Lazily initializes UI element references on first use.
+    /// This defers the query until the visual tree is fully constructed.
+    /// </summary>
+    private void EnsureInitialized()
     {
+        if (_initialized) return;
+        _initialized = true;
+
         var doc = GetComponent<UIDocument>();
-        if (doc == null)
+        if (doc == null || doc.rootVisualElement == null)
         {
-            Debug.LogError("[GameScreenScoreWidget] No UIDocument component found on this GameObject.");
+            Debug.LogError("[GameScreenScoreWidget] No UIDocument or rootVisualElement found on this GameObject.");
             return;
         }
 
@@ -46,6 +58,8 @@ public class GameScreenScoreWidget : MonoBehaviour
     /// </summary>
     public void UpdateScore(int score)
     {
+        EnsureInitialized();
+
         if (_valueLabel != null)
         {
             _valueLabel.text = score.ToString("D7");

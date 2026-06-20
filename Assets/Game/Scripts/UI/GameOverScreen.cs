@@ -17,10 +17,33 @@ public class GameOverScreen : BaseScreen
 
     private Label _scoreLabel;
 
-    private void Awake()
+    /// <summary>
+    /// Whether UI element references have been initialized.
+    /// </summary>
+    private bool _initialized;
+
+    /// <summary>
+    /// Initializes UI element references lazily. Called from OnShow() and ShowWithScore()
+    /// to ensure rootVisualElement is available.
+    /// </summary>
+    private void EnsureInitialized()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        if (_initialized) return;
+        _initialized = true;
+
+        var doc = GetComponent<UIDocument>();
+        if (doc == null || doc.rootVisualElement == null) return;
+
+        var root = doc.rootVisualElement;
         _scoreLabel = root.Q<Label>("score-label");
+    }
+
+    /// <summary>
+    /// Called by BaseScreen.Show() after the screen is made visible.
+    /// </summary>
+    protected override void OnShow()
+    {
+        EnsureInitialized();
     }
 
     /// <summary>
@@ -29,12 +52,13 @@ public class GameOverScreen : BaseScreen
     /// <param name="finalScore">The final score to display (zero-padded to 7 digits).</param>
     public void ShowWithScore(int finalScore)
     {
+        Show();
+        EnsureInitialized();
+
         if (_scoreLabel != null)
         {
             _scoreLabel.text = "SCORE: " + finalScore.ToString("D7");
         }
-
-        Show();
     }
 
     private void Update()
