@@ -440,26 +440,10 @@ public static class AssembleMainScene
         so.FindProperty("sourceAsset").objectReferenceValue = uxml;
         so.ApplyModifiedPropertiesWithoutUndo();
 	
-        // Wire m_ParentUI - for ScreenSpaceOverlay, set to the MainCamera
-        // For WorldSpace, this would be the document's own Transform
-        var parentUIProp = so.FindProperty("m_ParentUI");
-        if (parentUIProp != null)
-        {
-            parentUIProp.objectReferenceValue = mainCamera;
-            so.ApplyModifiedPropertiesWithoutUndo();
-            Debug.Log("[AssembleMainScene] StartScreenUI m_ParentUI: " + (parentUIProp.objectReferenceValue != null ? "set" : "NULL (VisualElement type)"));
-        }
-	
-        // Add BoxCollider for m_WorldSpaceCollider
-        var boxCollider = go.AddComponent<BoxCollider>();
-        var worldSpaceColliderProp = so.FindProperty("m_WorldSpaceCollider");
-        if (worldSpaceColliderProp != null)
-        {
-            worldSpaceColliderProp.objectReferenceValue = boxCollider;
-            so.ApplyModifiedPropertiesWithoutUndo();
-            Debug.Log("[AssembleMainScene] StartScreenUI m_WorldSpaceCollider set: " + (worldSpaceColliderProp.objectReferenceValue != null));
-        }
-	
+        // NOTE: m_ParentUI and m_WorldSpaceCollider are only for WorldSpace mode.
+        // For ScreenSpaceOverlay mode (our setup), they must remain null.
+        // Do NOT assign Camera or BoxCollider -- wrong types cause silent failures.
+
         // Verify sourceAsset
         var srcAsset = so.FindProperty("sourceAsset").objectReferenceValue;
         Debug.Log("[AssembleMainScene] StartScreenUI sourceAsset: " + (srcAsset != null ? srcAsset.name : "NULL"));
@@ -487,25 +471,9 @@ public static class AssembleMainScene
         docSo.FindProperty("sourceAsset").objectReferenceValue = uxml;
         docSo.ApplyModifiedPropertiesWithoutUndo();
 	
-        // Wire m_ParentUI
-        var parentUIProp = docSo.FindProperty("m_ParentUI");
-        if (parentUIProp != null)
-        {
-            parentUIProp.objectReferenceValue = mainCamera;
-            docSo.ApplyModifiedPropertiesWithoutUndo();
-            Debug.Log("[AssembleMainScene] GameScreenUI m_ParentUI: " + (parentUIProp.objectReferenceValue != null ? "set" : "NULL (VisualElement type)"));
-        }
-	
-        // Add BoxCollider for m_WorldSpaceCollider
-        var boxCollider = go.AddComponent<BoxCollider>();
-        var worldSpaceColliderProp = docSo.FindProperty("m_WorldSpaceCollider");
-        if (worldSpaceColliderProp != null)
-        {
-            worldSpaceColliderProp.objectReferenceValue = boxCollider;
-            docSo.ApplyModifiedPropertiesWithoutUndo();
-            Debug.Log("[AssembleMainScene] GameScreenUI m_WorldSpaceCollider set: " + (worldSpaceColliderProp.objectReferenceValue != null));
-        }
-	
+        // NOTE: m_ParentUI and m_WorldSpaceCollider are only for WorldSpace mode.
+        // For ScreenSpaceOverlay mode, they must remain null.
+
         // Verify sourceAsset
         var srcAsset = docSo.FindProperty("sourceAsset").objectReferenceValue;
         Debug.Log("[AssembleMainScene] GameScreenUI sourceAsset: " + (srcAsset != null ? srcAsset.name : "NULL"));
@@ -536,25 +504,9 @@ public static class AssembleMainScene
         docSo.FindProperty("sourceAsset").objectReferenceValue = uxml;
         docSo.ApplyModifiedPropertiesWithoutUndo();
 	
-        // Wire m_ParentUI
-        var parentUIProp = docSo.FindProperty("m_ParentUI");
-        if (parentUIProp != null)
-        {
-            parentUIProp.objectReferenceValue = mainCamera;
-            docSo.ApplyModifiedPropertiesWithoutUndo();
-            Debug.Log("[AssembleMainScene] GameOverScreenUI m_ParentUI: " + (parentUIProp.objectReferenceValue != null ? "set" : "NULL (VisualElement type)"));
-        }
-	
-        // Add BoxCollider for m_WorldSpaceCollider
-        var boxCollider = go.AddComponent<BoxCollider>();
-        var worldSpaceColliderProp = docSo.FindProperty("m_WorldSpaceCollider");
-        if (worldSpaceColliderProp != null)
-        {
-            worldSpaceColliderProp.objectReferenceValue = boxCollider;
-            docSo.ApplyModifiedPropertiesWithoutUndo();
-            Debug.Log("[AssembleMainScene] GameOverScreenUI m_WorldSpaceCollider set: " + (worldSpaceColliderProp.objectReferenceValue != null));
-        }
-	
+        // NOTE: m_ParentUI and m_WorldSpaceCollider are only for WorldSpace mode.
+        // For ScreenSpaceOverlay mode, they must remain null.
+
         // Verify sourceAsset
         var srcAsset = docSo.FindProperty("sourceAsset").objectReferenceValue;
         Debug.Log("[AssembleMainScene] GameOverScreenUI sourceAsset: " + (srcAsset != null ? srcAsset.name : "NULL"));
@@ -581,25 +533,9 @@ public static class AssembleMainScene
         docSo.FindProperty("sourceAsset").objectReferenceValue = uxml;
         docSo.ApplyModifiedPropertiesWithoutUndo();
 	
-        // Wire m_ParentUI
-        var parentUIProp = docSo.FindProperty("m_ParentUI");
-        if (parentUIProp != null)
-        {
-            parentUIProp.objectReferenceValue = mainCamera;
-            docSo.ApplyModifiedPropertiesWithoutUndo();
-            Debug.Log("[AssembleMainScene] InitialsEntryUI m_ParentUI: " + (parentUIProp.objectReferenceValue != null ? "set" : "NULL (VisualElement type)"));
-        }
-	
-        // Add BoxCollider for m_WorldSpaceCollider
-        var boxCollider = go.AddComponent<BoxCollider>();
-        var worldSpaceColliderProp = docSo.FindProperty("m_WorldSpaceCollider");
-        if (worldSpaceColliderProp != null)
-        {
-            worldSpaceColliderProp.objectReferenceValue = boxCollider;
-            docSo.ApplyModifiedPropertiesWithoutUndo();
-            Debug.Log("[AssembleMainScene] InitialsEntryUI m_WorldSpaceCollider set: " + (worldSpaceColliderProp.objectReferenceValue != null));
-        }
-	
+        // NOTE: m_ParentUI and m_WorldSpaceCollider are only for WorldSpace mode.
+        // For ScreenSpaceOverlay mode, they must remain null.
+
         // Verify sourceAsset
         var srcAsset = docSo.FindProperty("sourceAsset").objectReferenceValue;
         Debug.Log("[AssembleMainScene] InitialsEntryUI sourceAsset: " + (srcAsset != null ? srcAsset.name : "NULL"));
