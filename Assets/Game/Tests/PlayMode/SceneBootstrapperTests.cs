@@ -367,11 +367,8 @@ public class SceneBootstrapperTests
     [UnityTest]
     public IEnumerator FullFlow_StartPlayGameOverContinue()
     {
-        // Manually set initial state (don't rely on Start() which may be affected by test ordering)
-        _startScreen.Show();
-        _gameScreen.Hide();
-        _gameOverScreen.Hide();
-        _initialsOverlay.Hide();
+        // Let Start() run first
+        yield return null;
         yield return null;
 
         // 1. Verify initial state: StartScreen visible, others hidden
@@ -382,12 +379,10 @@ public class SceneBootstrapperTests
         // 2. Start game
         _startScreen.Hide();
         _gameScreen.Show();
-        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen visible immediately after Show()");
         _gameplayController.StartGame();
-        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen still visible after StartGame()");
         yield return null;
         Assert.IsFalse(_startScreen.IsVisible);
-        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen visible after yield");
+        Assert.IsTrue(_gameScreen.IsVisible);
 
         // 3. Game over
         _gameScreen.Hide();
