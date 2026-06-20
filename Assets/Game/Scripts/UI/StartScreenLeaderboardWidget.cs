@@ -75,7 +75,7 @@ public class StartScreenLeaderboardWidget : MonoBehaviour
             if (entry != null && !string.IsNullOrEmpty(entry.Name))
             {
                 // Pad to exactly 3 characters if shorter
-                nameText = entry.Name.PadRight(3, ' ');
+                nameText = entry.Name.PadRight(6, ' ');
             }
             else
             {

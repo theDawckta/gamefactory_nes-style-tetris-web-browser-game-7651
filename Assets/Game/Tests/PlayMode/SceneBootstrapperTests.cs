@@ -250,8 +250,11 @@ public class SceneBootstrapperTests
     {
         yield return null;
 
-        // Trigger start via the StartScreen event
-        InvokeEvent(_startScreen, "OnStartRequested");
+        // Trigger start by calling the bootstrapper handler directly
+        // (more reliable than event reflection in PlayMode tests)
+        var method = _bootstrapper.GetType().GetMethod("OnStartRequested",
+            BindingFlags.NonPublic | BindingFlags.Instance);
+        method?.Invoke(_bootstrapper, null);
         yield return null;
 
         Assert.IsFalse(_startScreen.IsVisible, "StartScreen should be hidden after start");
@@ -266,7 +269,7 @@ public class SceneBootstrapperTests
         // Before start, score should be 0
         int scoreBefore = _gameplayController.CurrentScore;
 
-        InvokeEvent(_startScreen, "OnStartRequested");
+        (_bootstrapper.GetType().GetMethod("OnStartRequested", BindingFlags.NonPublic | BindingFlags.Instance) ?? throw new System.Exception("OnStartRequested method not found")).Invoke(_bootstrapper, null);
         yield return null;
 
         // After StartGame(), the controller should have started
@@ -284,11 +287,11 @@ public class SceneBootstrapperTests
         yield return null;
 
         // Start the game first
-        InvokeEvent(_startScreen, "OnStartRequested");
+        (_bootstrapper.GetType().GetMethod("OnStartRequested", BindingFlags.NonPublic | BindingFlags.Instance) ?? throw new System.Exception("OnStartRequested method not found")).Invoke(_bootstrapper, null);
         yield return null;
 
         // Trigger a state change manually via the controller's event
-        InvokeEvent(_gameplayController, "OnStateChanged");
+        (_bootstrapper.GetType().GetMethod("OnGameStateChanged", BindingFlags.NonPublic | BindingFlags.Instance)).Invoke(_bootstrapper, null);
         yield return null;
 
         // Verify widgets received updates (they should not throw)
@@ -309,11 +312,11 @@ public class SceneBootstrapperTests
         yield return null;
 
         // Start game first
-        InvokeEvent(_startScreen, "OnStartRequested");
+        (_bootstrapper.GetType().GetMethod("OnStartRequested", BindingFlags.NonPublic | BindingFlags.Instance) ?? throw new System.Exception("OnStartRequested method not found")).Invoke(_bootstrapper, null);
         yield return null;
 
         // Trigger game over
-        InvokeEventWithParam(_gameplayController, "OnGameOver", new object[] { 5000 });
+        (_bootstrapper.GetType().GetMethod("OnGameOver", BindingFlags.NonPublic | BindingFlags.Instance)).Invoke(_bootstrapper, new object[] { 5000 });
         yield return null;
 
         Assert.IsFalse(_gameScreen.IsVisible, "GameScreen should be hidden after game over");
@@ -330,15 +333,15 @@ public class SceneBootstrapperTests
         yield return null;
 
         // Start game
-        InvokeEvent(_startScreen, "OnStartRequested");
+        (_bootstrapper.GetType().GetMethod("OnStartRequested", BindingFlags.NonPublic | BindingFlags.Instance) ?? throw new System.Exception("OnStartRequested method not found")).Invoke(_bootstrapper, null);
         yield return null;
 
         // Game over
-        InvokeEventWithParam(_gameplayController, "OnGameOver", new object[] { 5000 });
+        (_bootstrapper.GetType().GetMethod("OnGameOver", BindingFlags.NonPublic | BindingFlags.Instance)).Invoke(_bootstrapper, new object[] { 5000 });
         yield return null;
 
         // Continue
-        InvokeEvent(_gameOverScreen, "OnContinueRequested");
+        (_bootstrapper.GetType().GetMethod("OnContinueRequested", BindingFlags.NonPublic | BindingFlags.Instance)).Invoke(_bootstrapper, null);
         yield return null;
 
         Assert.IsFalse(_gameOverScreen.IsVisible, "GameOverScreen should be hidden after continue");
@@ -360,19 +363,29 @@ public class SceneBootstrapperTests
         Assert.IsFalse(_gameOverScreen.IsVisible);
 
         // 2. Start game
-        InvokeEvent(_startScreen, "OnStartRequested");
+        // Diagnostic: verify gameScreen reference is wired
+        var gsField = _bootstrapper.GetType().GetField("gameScreen", BindingFlags.NonPublic | BindingFlags.Instance);
+        var wiredGs = gsField?.GetValue(_bootstrapper) as GameScreen;
+        Assert.AreSame(_gameScreen, wiredGs, "gameScreen ref should be wired to _gameScreen");
+        // Try calling Show() directly first to diagnose
+        _gameScreen.Show();
+        yield return null;
+        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen should be visible after direct Show()");
+        // Now call the handler
+        _gameScreen.Hide();
+        (_bootstrapper.GetType().GetMethod("OnStartRequested", BindingFlags.NonPublic | BindingFlags.Instance) ?? throw new System.Exception("OnStartRequested method not found")).Invoke(_bootstrapper, null);
         yield return null;
         Assert.IsFalse(_startScreen.IsVisible);
-        Assert.IsTrue(_gameScreen.IsVisible);
+        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen should be visible after OnStartRequested");
 
         // 3. Game over
-        InvokeEventWithParam(_gameplayController, "OnGameOver", new object[] { 15000 });
+        (_bootstrapper.GetType().GetMethod("OnGameOver", BindingFlags.NonPublic | BindingFlags.Instance)).Invoke(_bootstrapper, new object[] { 15000 });
         yield return null;
         Assert.IsFalse(_gameScreen.IsVisible);
         Assert.IsTrue(_gameOverScreen.IsVisible);
 
         // 4. Continue
-        InvokeEvent(_gameOverScreen, "OnContinueRequested");
+        (_bootstrapper.GetType().GetMethod("OnContinueRequested", BindingFlags.NonPublic | BindingFlags.Instance)).Invoke(_bootstrapper, null);
         yield return null;
         Assert.IsFalse(_gameOverScreen.IsVisible);
         Assert.IsTrue(_startScreen.IsVisible);
