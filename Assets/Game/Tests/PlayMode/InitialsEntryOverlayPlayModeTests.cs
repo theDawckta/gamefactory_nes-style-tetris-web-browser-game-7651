@@ -184,7 +184,7 @@ public class InitialsEntryOverlayPlayModeTests
         yield return null;
 
         var confirmRegion = _doc.rootVisualElement.Q<VisualElement>("confirm-region");
-        Assert.AreEqual(DisplayStyle.None, confirmRegion.style.display, "Confirm region should be hidden initially");
+        Assert.AreEqual(DisplayStyle.None, confirmRegion.style.display.value, "Confirm region should be hidden initially");
     }
 
     [UnityTest]

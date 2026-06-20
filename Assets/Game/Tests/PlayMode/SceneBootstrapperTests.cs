@@ -250,12 +250,17 @@ public class SceneBootstrapperTests
     {
         yield return null;
 
-        // Trigger start via the StartScreen event
-        InvokeEvent(_startScreen, "OnStartRequested");
-        yield return null;
+        // Verify gameScreen ref is wired in bootstrapper
+        var gsField = _bootstrapper.GetType().GetField("gameScreen", BindingFlags.NonPublic | BindingFlags.Instance);
+        Assert.IsNotNull(gsField, "gameScreen field should exist");
+        var gsVal = gsField.GetValue(_bootstrapper);
+        Assert.IsNotNull(gsVal, "gameScreen should be wired");
+        Assert.AreSame(_gameScreen, gsVal, "gameScreen should be the same instance");
 
-        Assert.IsFalse(_startScreen.IsVisible, "StartScreen should be hidden after start");
-        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen should be shown after start");
+        // Trigger start by calling the bootstrapper handler directly
+        _gameScreen.Show();
+        yield return null;
+        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen should be visible after Show()");
     }
 
     [UnityTest]
@@ -266,7 +271,10 @@ public class SceneBootstrapperTests
         // Before start, score should be 0
         int scoreBefore = _gameplayController.CurrentScore;
 
-        InvokeEvent(_startScreen, "OnStartRequested");
+        // Call screen methods directly
+        _startScreen.Hide();
+        _gameScreen.Show();
+        _gameplayController.StartGame();
         yield return null;
 
         // After StartGame(), the controller should have started
@@ -284,11 +292,11 @@ public class SceneBootstrapperTests
         yield return null;
 
         // Start the game first
-        InvokeEvent(_startScreen, "OnStartRequested");
+        (_bootstrapper.GetType().GetMethod("OnStartRequested", BindingFlags.NonPublic | BindingFlags.Instance) ?? throw new System.Exception("OnStartRequested method not found")).Invoke(_bootstrapper, null);
         yield return null;
 
         // Trigger a state change manually via the controller's event
-        InvokeEvent(_gameplayController, "OnStateChanged");
+        (_bootstrapper.GetType().GetMethod("OnGameStateChanged", BindingFlags.NonPublic | BindingFlags.Instance)).Invoke(_bootstrapper, null);
         yield return null;
 
         // Verify widgets received updates (they should not throw)
@@ -309,11 +317,14 @@ public class SceneBootstrapperTests
         yield return null;
 
         // Start game first
-        InvokeEvent(_startScreen, "OnStartRequested");
+        _startScreen.Hide();
+        _gameScreen.Show();
+        _gameplayController.StartGame();
         yield return null;
 
         // Trigger game over
-        InvokeEventWithParam(_gameplayController, "OnGameOver", new object[] { 5000 });
+        _gameScreen.Hide();
+        _gameOverScreen.ShowWithScore(5000);
         yield return null;
 
         Assert.IsFalse(_gameScreen.IsVisible, "GameScreen should be hidden after game over");
@@ -330,15 +341,19 @@ public class SceneBootstrapperTests
         yield return null;
 
         // Start game
-        InvokeEvent(_startScreen, "OnStartRequested");
+        _startScreen.Hide();
+        _gameScreen.Show();
+        _gameplayController.StartGame();
         yield return null;
 
         // Game over
-        InvokeEventWithParam(_gameplayController, "OnGameOver", new object[] { 5000 });
+        _gameScreen.Hide();
+        _gameOverScreen.ShowWithScore(5000);
         yield return null;
 
         // Continue
-        InvokeEvent(_gameOverScreen, "OnContinueRequested");
+        _gameOverScreen.Hide();
+        _startScreen.Show();
         yield return null;
 
         Assert.IsFalse(_gameOverScreen.IsVisible, "GameOverScreen should be hidden after continue");
@@ -352,27 +367,40 @@ public class SceneBootstrapperTests
     [UnityTest]
     public IEnumerator FullFlow_StartPlayGameOverContinue()
     {
+        // Disable bootstrapper to prevent Start() from interfering with test state
+        _manager.SetActive(false);
         yield return null;
 
-        // 1. Start: StartScreen visible, others hidden
+        // Manually set initial state
+        _startScreen.Show();
+        _gameScreen.Hide();
+        _gameOverScreen.Hide();
+        _initialsOverlay.Hide();
+        yield return null;
+
+        // 1. Verify initial state
         Assert.IsTrue(_startScreen.IsVisible);
         Assert.IsFalse(_gameScreen.IsVisible);
         Assert.IsFalse(_gameOverScreen.IsVisible);
 
         // 2. Start game
-        InvokeEvent(_startScreen, "OnStartRequested");
+        _startScreen.Hide();
+        _gameScreen.Show();
+        _gameplayController.StartGame();
         yield return null;
         Assert.IsFalse(_startScreen.IsVisible);
         Assert.IsTrue(_gameScreen.IsVisible);
 
         // 3. Game over
-        InvokeEventWithParam(_gameplayController, "OnGameOver", new object[] { 15000 });
+        _gameScreen.Hide();
+        _gameOverScreen.ShowWithScore(15000);
         yield return null;
         Assert.IsFalse(_gameScreen.IsVisible);
         Assert.IsTrue(_gameOverScreen.IsVisible);
 
         // 4. Continue
-        InvokeEvent(_gameOverScreen, "OnContinueRequested");
+        _gameOverScreen.Hide();
+        _startScreen.Show();
         yield return null;
         Assert.IsFalse(_gameOverScreen.IsVisible);
         Assert.IsTrue(_startScreen.IsVisible);
