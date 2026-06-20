@@ -105,9 +105,6 @@ public class GameplayController : MonoBehaviour
 
         // Wire up state machine events
         _stateMachine.OnStateChanged += OnStateMachineStateChanged;
-
-        // Start in Idle state
-        _stateMachine.CurrentState = GameStateMachine.GameState.Idle;
     }
 
     /// <summary>

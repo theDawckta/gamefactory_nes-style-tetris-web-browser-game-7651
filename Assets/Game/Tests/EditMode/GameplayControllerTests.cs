@@ -222,10 +222,10 @@ public class GameplayControllerTests
     // =========================================================================
 
     [Test]
-    public void GameStateMachine_DefaultState_IsWaitingForPiece()
+    public void GameStateMachine_DefaultState_IsIdle()
     {
         var machine = new GameStateMachine();
-        Assert.AreEqual(GameStateMachine.GameState.WaitingForPiece, machine.CurrentState);
+        Assert.AreEqual(GameStateMachine.GameState.Idle, machine.CurrentState);
     }
 
     [Test]
@@ -241,10 +241,10 @@ public class GameplayControllerTests
             receivedState = state;
         };
 
-        machine.ChangeState(GameStateMachine.GameState.Idle);
+        machine.ChangeState(GameStateMachine.GameState.Spawning);
 
         Assert.IsTrue(eventFired, "OnStateChanged should fire");
-        Assert.AreEqual(GameStateMachine.GameState.Idle, receivedState);
+        Assert.AreEqual(GameStateMachine.GameState.Spawning, receivedState);
     }
 
     [Test]
@@ -294,8 +294,6 @@ public class GameplayControllerTests
             PieceController.OnPieceLocked += OnPieceLocked;
             PieceController.OnSpawnFailed += OnSpawnFailed;
             StateMachine.OnStateChanged += OnStateChanged;
-
-            StateMachine.CurrentState = GameStateMachine.GameState.Idle;
         }
 
         public void StartGame()
