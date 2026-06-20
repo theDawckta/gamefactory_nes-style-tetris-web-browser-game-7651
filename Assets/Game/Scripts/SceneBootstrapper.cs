@@ -277,10 +277,11 @@ public class SceneBootstrapper : MonoBehaviour
     {
         EnsureInitialized();
         if (gameScreen != null) gameScreen.Hide();
-        if (gameplayController != null) gameplayController.TriggerGameOver(0);
-        // Show game over screen directly - the OnGameOver event handler also calls ShowWithScore
-        // if WireEvents ran, but we must not rely on that for the QA pipeline.
-        if (gameOverScreen != null) gameOverScreen.ShowWithScore(0);
+        if (gameplayController != null) gameplayController.TriggerGameOver();
+        // Show game over screen directly with the current score - the OnGameOver event handler
+        // also calls ShowWithScore if WireEvents ran, but we must not rely on that for QA.
+        int score = (gameplayController != null) ? gameplayController.CurrentScore : 0;
+        if (gameOverScreen != null) gameOverScreen.ShowWithScore(score);
     }
 
     /// <summary>

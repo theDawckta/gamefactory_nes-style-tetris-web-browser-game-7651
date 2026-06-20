@@ -134,13 +134,12 @@ public class GameplayController : MonoBehaviour
     }
 
     /// <summary>
-    /// Forces the game to end with the given score.
-    /// Transitions to "GameOver" state and fires OnGameOver.
+    /// Forces the game to end using the current accumulated score.
+    /// Transitions to "GameOver" state and fires OnGameOver with the final score.
     /// Used by the QA pipeline to capture the game over screen.
     /// </summary>
-    public void TriggerGameOver(int score)
+    public void TriggerGameOver()
     {
-        _currentScore = score;
         _stateMachine.ChangeState(GameStateMachine.GameState.GameOver);
     }
 
@@ -194,9 +193,13 @@ public class GameplayController : MonoBehaviour
         PieceType nextType = _randomizer.Next();
         _pieceController.SpawnPiece(nextType);
 
-        // OnSpawnFailed is raised synchronously by SpawnPiece if blocked
-        // If we reach here, spawn succeeded -- transition to Playing
-        _stateMachine.ChangeState(GameStateMachine.GameState.Playing);
+        // OnSpawnFailed is raised synchronously by SpawnPiece if blocked,
+        // which changes state to GameOver. Only transition to Playing if
+        // spawn succeeded (state is still Spawning).
+        if (_stateMachine.CurrentState == GameStateMachine.GameState.Spawning)
+        {
+            _stateMachine.ChangeState(GameStateMachine.GameState.Playing);
+        }
     }
 
     /// <summary>

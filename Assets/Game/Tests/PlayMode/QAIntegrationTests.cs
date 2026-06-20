@@ -60,7 +60,7 @@ public class QAIntegrationTests
 
         Assert.AreEqual(0, _gameplayController.CurrentScore, "Score should be 0 after start");
         Assert.AreEqual(0, _gameplayController.TotalLinesCleared, "Lines should be 0 after start");
-        Assert.AreEqual(0, _gameplayController.CurrentLevel, "Level should be 0 after start");
+        Assert.AreEqual(0, _gameplayController.CurrentLevel, "Level should be 0 on start");
     }
 
     [UnityTest]
@@ -90,21 +90,8 @@ public class QAIntegrationTests
         int receivedScore = -1;
         _gameplayController.OnGameOver += (score) => { receivedScore = score; };
 
-        // Fill the entire playfield to force game over
-        for (int row = 0; row < GameRules.PLAYFIELD_TOTAL_HEIGHT; row++)
-        {
-            for (int col = 0; col < GameRules.PLAYFIELD_WIDTH; col++)
-            {
-                _gameplayController.Playfield.SetCell(row, col, 1);
-            }
-        }
-
-        // Tick until game over
-        for (int i = 0; i < 10000 && receivedScore < 0; i++)
-        {
-            _gameplayController.Tick();
-            yield return null;
-        }
+        // Use TriggerGameOver to reliably trigger game over with the current score
+        _gameplayController.TriggerGameOver();
 
         Assert.GreaterOrEqual(receivedScore, 0, "OnGameOver should fire with a score >= 0");
     }

@@ -317,7 +317,11 @@ public class GameplayControllerTests
                     break;
                 case GameStateMachine.GameState.Spawning:
                     PieceController.SpawnPiece(Randomizer.Next());
-                    StateMachine.ChangeState(GameStateMachine.GameState.Playing);
+                    // Only transition to Playing if spawn succeeded (state is still Spawning)
+                    if (StateMachine.CurrentState == GameStateMachine.GameState.Spawning)
+                    {
+                        StateMachine.ChangeState(GameStateMachine.GameState.Playing);
+                    }
                     break;
                 case GameStateMachine.GameState.Playing:
                     PieceController.Tick(CurrentLevel, leftHeld, rightHeld, rotatePressed, softDropHeld);
