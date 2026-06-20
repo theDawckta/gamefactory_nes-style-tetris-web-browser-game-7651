@@ -15,8 +15,13 @@ using UnityEngine.UIElements;
 public static class AssembleMainScene
 {
     private const string ScenePath = "Assets/Game/Scenes/Main.unity";
-    private const string PanelSettingsPath = "Assets/Game/UI/PanelSettings.asset";
     private const string SpritesPath = "Assets/Game/Art/Sprites";
+
+    // Per-screen PanelSettings paths
+    private const string StartScreenPanelSettingsPath = "Assets/Game/UI/StartScreenPanelSettings.asset";
+    private const string GameScreenPanelSettingsPath = "Assets/Game/UI/GameScreenPanelSettings.asset";
+    private const string GameOverScreenPanelSettingsPath = "Assets/Game/UI/GameOverScreenPanelSettings.asset";
+    private const string InitialsEntryPanelSettingsPath = "Assets/Game/UI/InitialsEntryOverlayPanelSettings.asset";
 
     [MenuItem("Tools/Assemble Main Scene %&m")]
     public static void RunAndExit()
@@ -28,14 +33,20 @@ public static class AssembleMainScene
         EnsureDirectory("Assets/Game/UI");
         EnsureDirectory(SpritesPath);
 
-        // 2. Create shared PanelSettings asset
+        // 2. Create shared PanelSettings (fallback)
         CreateSharedPanelSettings();
 
-        // 3. Create sprite assets
+        // 3. Create per-screen PanelSettings if they don't exist
+        EnsurePanelSettings(StartScreenPanelSettingsPath, "StartScreenPanelSettings", 0);
+        EnsurePanelSettings(GameScreenPanelSettingsPath, "GameScreenPanelSettings", 1);
+        EnsurePanelSettings(GameOverScreenPanelSettingsPath, "GameOverScreenPanelSettings", 2);
+        EnsurePanelSettings(InitialsEntryPanelSettingsPath, "InitialsEntryOverlayPanelSettings", 3);
+
+        // 4. Create sprite assets
         Sprite[] blockSprites = CreateBlockSprites();
         Sprite borderSprite = CreateBorderSprite();
 
-        // 4. Create or open the Main scene
+        // 5. Create or open the Main scene
         Scene scene;
         if (File.Exists(ScenePath))
         {
@@ -49,60 +60,53 @@ public static class AssembleMainScene
             Debug.Log("[AssembleMainScene] Created new scene: " + ScenePath);
         }
 
-        // 5. Remove any existing camera
-        var cam = UnityEngine.Object.FindObjectOfType<Camera>();
+        // 6. Remove any existing camera
+        var cam = UnityEngine.Object.FindFirstObjectByType<Camera>();
         if (cam != null)
         {
             UnityEngine.Object.DestroyImmediate(cam.gameObject);
         }
 
-        // 6. Create MainCamera
-        CreateCamera();
+        // 7. Create MainCamera
+        Camera mainCamera = CreateCamera();
 
-        // 7. Create GameManager with SceneBootstrapper, GameplayController
+        // 8. Create GameManager with SceneBootstrapper, GameplayController
         GameObject gameManager = CreateGameManager();
 
-        // 8. Create PlayfieldRenderer
+        // 9. Create PlayfieldRenderer
         GameObject playfieldRenderer = CreatePlayfieldRenderer(blockSprites, borderSprite);
 
-        // 9. Create UI screen GameObjects
-        var panelSettings = AssetDatabase.LoadAssetAtPath<PanelSettings>(PanelSettingsPath);
-        GameObject startScreenUI = CreateStartScreenUI(panelSettings);
-        GameObject gameScreenUI = CreateGameScreenUI(panelSettings);
-        GameObject gameOverScreenUI = CreateGameOverScreenUI(panelSettings);
-        GameObject initialsEntryUI = CreateInitialsEntryUI(panelSettings);
+        // 10. Load per-screen PanelSettings
+        PanelSettings startPanelSettings = AssetDatabase.LoadAssetAtPath<PanelSettings>(StartScreenPanelSettingsPath);
+        PanelSettings gamePanelSettings = AssetDatabase.LoadAssetAtPath<PanelSettings>(GameScreenPanelSettingsPath);
+        PanelSettings gameOverPanelSettings = AssetDatabase.LoadAssetAtPath<PanelSettings>(GameOverScreenPanelSettingsPath);
+        PanelSettings initialsPanelSettings = AssetDatabase.LoadAssetAtPath<PanelSettings>(InitialsEntryPanelSettingsPath);
 
-        // 10. Wire up SceneBootstrapper references
+        // 11. Create UI screen GameObjects
+        GameObject startScreenUI = CreateStartScreenUI(startPanelSettings, mainCamera);
+        GameObject gameScreenUI = CreateGameScreenUI(gamePanelSettings, mainCamera);
+        GameObject gameOverScreenUI = CreateGameOverScreenUI(gameOverPanelSettings, mainCamera);
+        GameObject initialsEntryUI = CreateInitialsEntryUI(initialsPanelSettings, mainCamera);
+
+        // 12. Wire up SceneBootstrapper references
         WireSceneBootstrapper(gameManager, startScreenUI, gameScreenUI, gameOverScreenUI, initialsEntryUI, blockSprites);
 
-        // 11. Wire PlayfieldRenderer to GameplayController
+        // 13. Wire PlayfieldRenderer to GameplayController
         var pr = playfieldRenderer.GetComponent<PlayfieldRenderer>();
         var gc = gameManager.GetComponent<GameplayController>();
         pr.SetGameplayController(gc);
 
-        // 12. Add scene to build settings
+        // 14. Add scene to build settings
         AddSceneToBuildSettings(ScenePath);
 
-        // 13. Save everything
+        // 15. Save everything
         EditorSceneManager.SaveScene(scene);
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
         Debug.Log("[AssembleMainScene] Scene assembly complete!");
 
-        // 14. Delete this editor script and exit
-        DeleteSelf();
-
         EditorApplication.Exit(0);
-    }
-
-    private static void DeleteSelf()
-    {
-        string scriptPath = "Assets/Editor/AssembleMainScene.cs";
-        string metaPath = scriptPath + ".meta";
-        if (File.Exists(metaPath)) File.Delete(metaPath);
-        File.Delete(scriptPath);
-        AssetDatabase.Refresh();
     }
 
     // -----------------------------------------------------------------------
@@ -119,15 +123,16 @@ public static class AssembleMainScene
     }
 
     // -----------------------------------------------------------------------
-    // Shared PanelSettings
+    // Shared PanelSettings (fallback)
     // -----------------------------------------------------------------------
 
     private static void CreateSharedPanelSettings()
     {
-        var existing = AssetDatabase.LoadAssetAtPath<PanelSettings>(PanelSettingsPath);
+        string panelSettingsPath = "Assets/Game/UI/PanelSettings.asset";
+        var existing = AssetDatabase.LoadAssetAtPath<PanelSettings>(panelSettingsPath);
         if (existing != null)
         {
-            Debug.Log("[AssembleMainScene] PanelSettings already exists at " + PanelSettingsPath);
+            Debug.Log("[AssembleMainScene] Shared PanelSettings already exists at " + panelSettingsPath);
             return;
         }
 
@@ -138,9 +143,38 @@ public static class AssembleMainScene
         so.FindProperty("m_SortingOrder").intValue = 0;
         so.ApplyModifiedPropertiesWithoutUndo();
 
-        AssetDatabase.CreateAsset(panelSettings, PanelSettingsPath);
+        AssetDatabase.CreateAsset(panelSettings, panelSettingsPath);
         AssetDatabase.SaveAssets();
-        Debug.Log("[AssembleMainScene] Created shared PanelSettings at " + PanelSettingsPath);
+        Debug.Log("[AssembleMainScene] Created shared PanelSettings at " + panelSettingsPath);
+    }
+
+    // -----------------------------------------------------------------------
+    // Per-screen PanelSettings
+    // -----------------------------------------------------------------------
+
+    private static void EnsurePanelSettings(string path, string name, int sortOrder)
+    {
+        var existing = AssetDatabase.LoadAssetAtPath<PanelSettings>(path);
+        if (existing != null)
+        {
+            // Update sort order
+            var so = new SerializedObject(existing);
+            so.FindProperty("m_SortingOrder").intValue = sortOrder;
+            so.ApplyModifiedPropertiesWithoutUndo();
+            Debug.Log("[AssembleMainScene] Updated PanelSettings " + name + " sort order to " + sortOrder);
+            return;
+        }
+
+        var panelSettings = ScriptableObject.CreateInstance<PanelSettings>();
+        panelSettings.name = name;
+
+        var psSo = new SerializedObject(panelSettings);
+        psSo.FindProperty("m_SortingOrder").intValue = sortOrder;
+        psSo.ApplyModifiedPropertiesWithoutUndo();
+
+        AssetDatabase.CreateAsset(panelSettings, path);
+        AssetDatabase.SaveAssets();
+        Debug.Log("[AssembleMainScene] Created PanelSettings " + name + " at " + path + " with sort order " + sortOrder);
     }
 
     // -----------------------------------------------------------------------
@@ -314,7 +348,7 @@ public static class AssembleMainScene
     // Camera
     // -----------------------------------------------------------------------
 
-    private static void CreateCamera()
+    private static Camera CreateCamera()
     {
         var camGO = new GameObject("MainCamera");
         var cam = camGO.AddComponent<Camera>();
@@ -324,6 +358,7 @@ public static class AssembleMainScene
         cam.backgroundColor = Color.black;
 
         Debug.Log("[AssembleMainScene] Created MainCamera");
+        return cam;
     }
 
     // -----------------------------------------------------------------------
@@ -349,17 +384,28 @@ public static class AssembleMainScene
         var go = new GameObject("PlayfieldRenderer");
         var pr = go.AddComponent<PlayfieldRenderer>();
 
-        pr.SetBlockSprites(blockSprites);
-
-        // Set border sprite via reflection (it's private)
-        var borderField = typeof(PlayfieldRenderer).GetField("_borderSprite",
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        if (borderField != null)
+        // Set block sprites via SerializedObject for proper scene serialization
+        var prSo = new SerializedObject(pr);
+        var blockSpritesProp = prSo.FindProperty("_blockSprites");
+        if (blockSpritesProp != null && blockSpritesProp.isArray)
         {
-            borderField.SetValue(pr, borderSprite);
+            blockSpritesProp.arraySize = blockSprites.Length;
+            for (int i = 0; i < blockSprites.Length; i++)
+            {
+                blockSpritesProp.GetArrayElementAtIndex(i).objectReferenceValue = blockSprites[i];
+            }
         }
 
-        Debug.Log("[AssembleMainScene] Created PlayfieldRenderer");
+        // Set border sprite via SerializedObject for proper scene serialization
+        var borderProp = prSo.FindProperty("_borderSprite");
+        if (borderProp != null)
+        {
+            borderProp.objectReferenceValue = borderSprite;
+        }
+
+        prSo.ApplyModifiedPropertiesWithoutUndo();
+
+        Debug.Log("[AssembleMainScene] Created PlayfieldRenderer with " + (borderSprite != null ? "border" : "NO border") + " sprite");
         return go;
     }
 
@@ -367,24 +413,43 @@ public static class AssembleMainScene
     // UI Screens
     // -----------------------------------------------------------------------
 
-    private static GameObject CreateStartScreenUI(PanelSettings panelSettings)
+    private static GameObject CreateStartScreenUI(PanelSettings panelSettings, Camera mainCamera)
     {
         var go = new GameObject("StartScreenUI");
         var doc = go.AddComponent<UIDocument>();
 
+        // Set PanelSettings
         var so = new SerializedObject(doc);
         so.FindProperty("m_PanelSettings").objectReferenceValue = panelSettings;
         so.ApplyModifiedPropertiesWithoutUndo();
 
-        var psSo = new SerializedObject(panelSettings);
-        psSo.FindProperty("m_SortingOrder").intValue = 0;
-        psSo.ApplyModifiedPropertiesWithoutUndo();
-
+        // Set visual tree asset
         var uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Game/UI/StartScreen.uxml");
         so = new SerializedObject(doc);
         so.FindProperty("sourceAsset").objectReferenceValue = uxml;
         so.ApplyModifiedPropertiesWithoutUndo();
 
+        // Wire m_ParentUI - for ScreenSpaceOverlay, set to the MainCamera
+        // For WorldSpace, this would be the document's own Transform
+        var parentUIProp = so.FindProperty("m_ParentUI");
+        if (parentUIProp != null)
+        {
+            parentUIProp.objectReferenceValue = mainCamera;
+            so.ApplyModifiedPropertiesWithoutUndo();
+            Debug.Log("[AssembleMainScene] StartScreenUI m_ParentUI: " + (parentUIProp.objectReferenceValue != null ? "set" : "NULL (VisualElement type)"));
+        }
+
+        // Add BoxCollider for m_WorldSpaceCollider
+        var boxCollider = go.AddComponent<BoxCollider>();
+        var worldSpaceColliderProp = so.FindProperty("m_WorldSpaceCollider");
+        if (worldSpaceColliderProp != null)
+        {
+            worldSpaceColliderProp.objectReferenceValue = boxCollider;
+            so.ApplyModifiedPropertiesWithoutUndo();
+            Debug.Log("[AssembleMainScene] StartScreenUI m_WorldSpaceCollider set: " + (worldSpaceColliderProp.objectReferenceValue != null));
+        }
+
+        // Verify sourceAsset
         var srcAsset = so.FindProperty("sourceAsset").objectReferenceValue;
         Debug.Log("[AssembleMainScene] StartScreenUI sourceAsset: " + (srcAsset != null ? srcAsset.name : "NULL"));
 
@@ -395,25 +460,43 @@ public static class AssembleMainScene
         return go;
     }
 
-    private static GameObject CreateGameScreenUI(PanelSettings panelSettings)
+    private static GameObject CreateGameScreenUI(PanelSettings panelSettings, Camera mainCamera)
     {
         var go = new GameObject("GameScreenUI");
         var doc = go.AddComponent<UIDocument>();
 
-        var so = new SerializedObject(doc);
-        so.FindProperty("m_PanelSettings").objectReferenceValue = panelSettings;
-        so.ApplyModifiedPropertiesWithoutUndo();
+        // Set PanelSettings
+        var docSo = new SerializedObject(doc);
+        docSo.FindProperty("m_PanelSettings").objectReferenceValue = panelSettings;
+        docSo.ApplyModifiedPropertiesWithoutUndo();
 
-        var psSo = new SerializedObject(panelSettings);
-        psSo.FindProperty("m_SortingOrder").intValue = 1;
-        psSo.ApplyModifiedPropertiesWithoutUndo();
-
+        // Set visual tree asset
         var uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Game/UI/GameScreen.uxml");
-        so = new SerializedObject(doc);
-        so.FindProperty("sourceAsset").objectReferenceValue = uxml;
-        so.ApplyModifiedPropertiesWithoutUndo();
+        docSo = new SerializedObject(doc);
+        docSo.FindProperty("sourceAsset").objectReferenceValue = uxml;
+        docSo.ApplyModifiedPropertiesWithoutUndo();
 
-        var srcAsset = so.FindProperty("sourceAsset").objectReferenceValue;
+        // Wire m_ParentUI
+        var parentUIProp = docSo.FindProperty("m_ParentUI");
+        if (parentUIProp != null)
+        {
+            parentUIProp.objectReferenceValue = mainCamera;
+            docSo.ApplyModifiedPropertiesWithoutUndo();
+            Debug.Log("[AssembleMainScene] GameScreenUI m_ParentUI: " + (parentUIProp.objectReferenceValue != null ? "set" : "NULL (VisualElement type)"));
+        }
+
+        // Add BoxCollider for m_WorldSpaceCollider
+        var boxCollider = go.AddComponent<BoxCollider>();
+        var worldSpaceColliderProp = docSo.FindProperty("m_WorldSpaceCollider");
+        if (worldSpaceColliderProp != null)
+        {
+            worldSpaceColliderProp.objectReferenceValue = boxCollider;
+            docSo.ApplyModifiedPropertiesWithoutUndo();
+            Debug.Log("[AssembleMainScene] GameScreenUI m_WorldSpaceCollider set: " + (worldSpaceColliderProp.objectReferenceValue != null));
+        }
+
+        // Verify sourceAsset
+        var srcAsset = docSo.FindProperty("sourceAsset").objectReferenceValue;
         Debug.Log("[AssembleMainScene] GameScreenUI sourceAsset: " + (srcAsset != null ? srcAsset.name : "NULL"));
 
         go.AddComponent<GameScreen>();
@@ -426,25 +509,43 @@ public static class AssembleMainScene
         return go;
     }
 
-    private static GameObject CreateGameOverScreenUI(PanelSettings panelSettings)
+    private static GameObject CreateGameOverScreenUI(PanelSettings panelSettings, Camera mainCamera)
     {
         var go = new GameObject("GameOverScreenUI");
         var doc = go.AddComponent<UIDocument>();
 
-        var so = new SerializedObject(doc);
-        so.FindProperty("m_PanelSettings").objectReferenceValue = panelSettings;
-        so.ApplyModifiedPropertiesWithoutUndo();
+        // Set PanelSettings
+        var docSo = new SerializedObject(doc);
+        docSo.FindProperty("m_PanelSettings").objectReferenceValue = panelSettings;
+        docSo.ApplyModifiedPropertiesWithoutUndo();
 
-        var psSo = new SerializedObject(panelSettings);
-        psSo.FindProperty("m_SortingOrder").intValue = 2;
-        psSo.ApplyModifiedPropertiesWithoutUndo();
-
+        // Set visual tree asset
         var uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Game/UI/GameOverScreen.uxml");
-        so = new SerializedObject(doc);
-        so.FindProperty("sourceAsset").objectReferenceValue = uxml;
-        so.ApplyModifiedPropertiesWithoutUndo();
+        docSo = new SerializedObject(doc);
+        docSo.FindProperty("sourceAsset").objectReferenceValue = uxml;
+        docSo.ApplyModifiedPropertiesWithoutUndo();
 
-        var srcAsset = so.FindProperty("sourceAsset").objectReferenceValue;
+        // Wire m_ParentUI
+        var parentUIProp = docSo.FindProperty("m_ParentUI");
+        if (parentUIProp != null)
+        {
+            parentUIProp.objectReferenceValue = mainCamera;
+            docSo.ApplyModifiedPropertiesWithoutUndo();
+            Debug.Log("[AssembleMainScene] GameOverScreenUI m_ParentUI: " + (parentUIProp.objectReferenceValue != null ? "set" : "NULL (VisualElement type)"));
+        }
+
+        // Add BoxCollider for m_WorldSpaceCollider
+        var boxCollider = go.AddComponent<BoxCollider>();
+        var worldSpaceColliderProp = docSo.FindProperty("m_WorldSpaceCollider");
+        if (worldSpaceColliderProp != null)
+        {
+            worldSpaceColliderProp.objectReferenceValue = boxCollider;
+            docSo.ApplyModifiedPropertiesWithoutUndo();
+            Debug.Log("[AssembleMainScene] GameOverScreenUI m_WorldSpaceCollider set: " + (worldSpaceColliderProp.objectReferenceValue != null));
+        }
+
+        // Verify sourceAsset
+        var srcAsset = docSo.FindProperty("sourceAsset").objectReferenceValue;
         Debug.Log("[AssembleMainScene] GameOverScreenUI sourceAsset: " + (srcAsset != null ? srcAsset.name : "NULL"));
 
         go.AddComponent<GameOverScreen>();
@@ -453,25 +554,43 @@ public static class AssembleMainScene
         return go;
     }
 
-    private static GameObject CreateInitialsEntryUI(PanelSettings panelSettings)
+    private static GameObject CreateInitialsEntryUI(PanelSettings panelSettings, Camera mainCamera)
     {
         var go = new GameObject("InitialsEntryUI");
         var doc = go.AddComponent<UIDocument>();
 
-        var so = new SerializedObject(doc);
-        so.FindProperty("m_PanelSettings").objectReferenceValue = panelSettings;
-        so.ApplyModifiedPropertiesWithoutUndo();
+        // Set PanelSettings
+        var docSo = new SerializedObject(doc);
+        docSo.FindProperty("m_PanelSettings").objectReferenceValue = panelSettings;
+        docSo.ApplyModifiedPropertiesWithoutUndo();
 
-        var psSo = new SerializedObject(panelSettings);
-        psSo.FindProperty("m_SortingOrder").intValue = 3;
-        psSo.ApplyModifiedPropertiesWithoutUndo();
-
+        // Set visual tree asset
         var uxml = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Game/UI/InitialsEntryOverlay.uxml");
-        so = new SerializedObject(doc);
-        so.FindProperty("sourceAsset").objectReferenceValue = uxml;
-        so.ApplyModifiedPropertiesWithoutUndo();
+        docSo = new SerializedObject(doc);
+        docSo.FindProperty("sourceAsset").objectReferenceValue = uxml;
+        docSo.ApplyModifiedPropertiesWithoutUndo();
 
-        var srcAsset = so.FindProperty("sourceAsset").objectReferenceValue;
+        // Wire m_ParentUI
+        var parentUIProp = docSo.FindProperty("m_ParentUI");
+        if (parentUIProp != null)
+        {
+            parentUIProp.objectReferenceValue = mainCamera;
+            docSo.ApplyModifiedPropertiesWithoutUndo();
+            Debug.Log("[AssembleMainScene] InitialsEntryUI m_ParentUI: " + (parentUIProp.objectReferenceValue != null ? "set" : "NULL (VisualElement type)"));
+        }
+
+        // Add BoxCollider for m_WorldSpaceCollider
+        var boxCollider = go.AddComponent<BoxCollider>();
+        var worldSpaceColliderProp = docSo.FindProperty("m_WorldSpaceCollider");
+        if (worldSpaceColliderProp != null)
+        {
+            worldSpaceColliderProp.objectReferenceValue = boxCollider;
+            docSo.ApplyModifiedPropertiesWithoutUndo();
+            Debug.Log("[AssembleMainScene] InitialsEntryUI m_WorldSpaceCollider set: " + (worldSpaceColliderProp.objectReferenceValue != null));
+        }
+
+        // Verify sourceAsset
+        var srcAsset = docSo.FindProperty("sourceAsset").objectReferenceValue;
         Debug.Log("[AssembleMainScene] InitialsEntryUI sourceAsset: " + (srcAsset != null ? srcAsset.name : "NULL"));
 
         go.AddComponent<InitialsEntryOverlay>();

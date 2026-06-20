@@ -15,9 +15,6 @@ public class SceneBootstrapper : MonoBehaviour
     [SerializeField, Tooltip("Reference to the GameplayController component.")]
     private GameplayController gameplayController;
 
-    [SerializeField, Tooltip("Reference to the LeaderboardService component.")]
-    private LeaderboardService leaderboardService;
-
     [SerializeField, Tooltip("Reference to the StartScreen component.")]
     private StartScreen startScreen;
 
