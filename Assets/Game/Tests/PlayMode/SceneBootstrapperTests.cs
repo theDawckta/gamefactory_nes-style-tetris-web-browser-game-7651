@@ -271,7 +271,10 @@ public class SceneBootstrapperTests
         // Before start, score should be 0
         int scoreBefore = _gameplayController.CurrentScore;
 
-        (_bootstrapper.GetType().GetMethod("OnStartRequested", BindingFlags.NonPublic | BindingFlags.Instance) ?? throw new System.Exception("OnStartRequested method not found")).Invoke(_bootstrapper, null);
+        // Call bootstrapper handler directly via reflection
+        var m = _bootstrapper.GetType().GetMethod("OnStartRequested", BindingFlags.NonPublic | BindingFlags.Instance);
+        Assert.IsNotNull(m, "OnStartRequested method should exist");
+        m.Invoke(_bootstrapper, null);
         yield return null;
 
         // After StartGame(), the controller should have started
