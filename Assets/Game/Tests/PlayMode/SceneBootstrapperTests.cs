@@ -382,10 +382,12 @@ public class SceneBootstrapperTests
         // 2. Start game
         _startScreen.Hide();
         _gameScreen.Show();
+        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen visible immediately after Show()");
         _gameplayController.StartGame();
+        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen still visible after StartGame()");
         yield return null;
         Assert.IsFalse(_startScreen.IsVisible);
-        Assert.IsTrue(_gameScreen.IsVisible);
+        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen visible after yield");
 
         // 3. Game over
         _gameScreen.Hide();
