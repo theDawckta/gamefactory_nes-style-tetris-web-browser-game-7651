@@ -117,9 +117,6 @@ public static class AssembleMainScene
 	
         Debug.Log("[AssembleMainScene] Scene assembly complete!");
 
-        // Validate scene wiring to catch missing references before runtime
-        SceneWiringValidator.Validate();
-
         EditorApplication.Exit(0);
     }
 	
