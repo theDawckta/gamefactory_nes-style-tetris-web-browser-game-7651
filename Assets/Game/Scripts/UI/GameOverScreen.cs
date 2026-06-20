@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 /// <summary>
@@ -72,7 +73,7 @@ public class GameOverScreen : BaseScreen
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        if ((Keyboard.current?.enterKey?.wasPressedThisFrame ?? false) || (Keyboard.current?.spaceKey?.wasPressedThisFrame ?? false))
         {
             OnContinueRequested?.Invoke();
         }
