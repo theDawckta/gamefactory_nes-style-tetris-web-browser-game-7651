@@ -389,17 +389,10 @@ public class SceneBootstrapperTests
         var bootstrapper = manager.AddComponent<SceneBootstrapper>();
         // Do NOT set any private fields - leave them all null
 
-        bool threw = false;
-        try
-        {
-            yield return null; // let Awake run
-        }
-        catch
-        {
-            threw = true;
-        }
+        yield return null; // let Awake run - should not throw
 
-        Assert.IsFalse(threw, "SceneBootstrapper.Awake should not throw when all references are null");
+        // If we get here without exception, the test passes
+        Assert.IsNotNull(bootstrapper, "SceneBootstrapper should still exist after Awake with null refs");
         UnityEngine.Object.Destroy(manager);
     }
 

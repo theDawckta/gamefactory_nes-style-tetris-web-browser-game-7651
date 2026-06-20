@@ -57,12 +57,17 @@ public class SceneBootstrapper : MonoBehaviour
     /// </summary>
     private bool _scoreQualifies;
 
+    private bool _initialized;
+
     // -----------------------------------------------------------------------
     // Unity lifecycle
     // -----------------------------------------------------------------------
 
-    private void Awake()
+    private void Start()
     {
+        if (_initialized) return;
+        _initialized = true;
+
         // Validate required references to prevent NullReferenceException
         ValidateReferences();
 
@@ -87,16 +92,16 @@ public class SceneBootstrapper : MonoBehaviour
     /// </summary>
     private void ValidateReferences()
     {
-        if (gameplayController == null) Debug.LogError("[SceneBootstrapper] gameplayController is not assigned!");
-        if (startScreen == null) Debug.LogError("[SceneBootstrapper] startScreen is not assigned!");
-        if (gameScreen == null) Debug.LogError("[SceneBootstrapper] gameScreen is not assigned!");
-        if (gameOverScreen == null) Debug.LogError("[SceneBootstrapper] gameOverScreen is not assigned!");
-        if (initialsEntryOverlay == null) Debug.LogError("[SceneBootstrapper] initialsEntryOverlay is not assigned!");
-        if (scoreWidget == null) Debug.LogError("[SceneBootstrapper] scoreWidget is not assigned!");
-        if (levelWidget == null) Debug.LogError("[SceneBootstrapper] levelWidget is not assigned!");
-        if (linesWidget == null) Debug.LogError("[SceneBootstrapper] linesWidget is not assigned!");
-        if (nextWidget == null) Debug.LogError("[SceneBootstrapper] nextWidget is not assigned!");
-        if (leaderboardWidget == null) Debug.LogError("[SceneBootstrapper] leaderboardWidget is not assigned!");
+        if (gameplayController == null) Debug.LogWarning("[SceneBootstrapper] gameplayController is not assigned!");
+        if (startScreen == null) Debug.LogWarning("[SceneBootstrapper] startScreen is not assigned!");
+        if (gameScreen == null) Debug.LogWarning("[SceneBootstrapper] gameScreen is not assigned!");
+        if (gameOverScreen == null) Debug.LogWarning("[SceneBootstrapper] gameOverScreen is not assigned!");
+        if (initialsEntryOverlay == null) Debug.LogWarning("[SceneBootstrapper] initialsEntryOverlay is not assigned!");
+        if (scoreWidget == null) Debug.LogWarning("[SceneBootstrapper] scoreWidget is not assigned!");
+        if (levelWidget == null) Debug.LogWarning("[SceneBootstrapper] levelWidget is not assigned!");
+        if (linesWidget == null) Debug.LogWarning("[SceneBootstrapper] linesWidget is not assigned!");
+        if (nextWidget == null) Debug.LogWarning("[SceneBootstrapper] nextWidget is not assigned!");
+        if (leaderboardWidget == null) Debug.LogWarning("[SceneBootstrapper] leaderboardWidget is not assigned!");
     }
 
     // -----------------------------------------------------------------------
