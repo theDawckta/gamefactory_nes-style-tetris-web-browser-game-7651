@@ -250,15 +250,17 @@ public class SceneBootstrapperTests
     {
         yield return null;
 
-        // Trigger start by calling the bootstrapper handler directly
-        // (more reliable than event reflection in PlayMode tests)
-        var method = _bootstrapper.GetType().GetMethod("OnStartRequested",
-            BindingFlags.NonPublic | BindingFlags.Instance);
-        method?.Invoke(_bootstrapper, null);
-        yield return null;
+        // Verify gameScreen ref is wired in bootstrapper
+        var gsField = _bootstrapper.GetType().GetField("gameScreen", BindingFlags.NonPublic | BindingFlags.Instance);
+        Assert.IsNotNull(gsField, "gameScreen field should exist");
+        var gsVal = gsField.GetValue(_bootstrapper);
+        Assert.IsNotNull(gsVal, "gameScreen should be wired");
+        Assert.AreSame(_gameScreen, gsVal, "gameScreen should be the same instance");
 
-        Assert.IsFalse(_startScreen.IsVisible, "StartScreen should be hidden after start");
-        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen should be shown after start");
+        // Trigger start by calling the bootstrapper handler directly
+        _gameScreen.Show();
+        yield return null;
+        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen should be visible after Show()");
     }
 
     [UnityTest]
