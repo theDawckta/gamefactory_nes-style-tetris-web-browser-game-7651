@@ -1,0 +1,1109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="111" result="Failed(Child)" total="111" passed="96" failed="15" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:08Z" duration="0.7317688">
+  <test-suite type="TestSuite" id="1127" name="gamefactory_nes-style-tetris-web-browser-game-7651" fullname="gamefactory_nes-style-tetris-web-browser-game-7651" runstate="Runnable" testcasecount="111" result="Failed" site="Child" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:08Z" duration="0.731769" total="111" passed="96" failed="15" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1124" name="GameTests.PlayMode.dll" fullname="C:/Users/Zeke/Git/ai-game-factory/Tools/workspace/gamefactory_nes-style-tetris-web-browser-game-7651/Library/ScriptAssemblies/GameTests.PlayMode.dll" runstate="Runnable" testcasecount="111" result="Failed" site="Child" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:08Z" duration="0.724720" total="111" passed="96" failed="15" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="304" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1044" name="GameplayControllerPlayModeTests" fullname="GameplayControllerPlayModeTests" classname="GameplayControllerPlayModeTests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.083063" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1045" name="GameplayController_Awake_InitializesInIdleState" fullname="GameplayControllerPlayModeTests.GameplayController_Awake_InitializesInIdleState" methodname="GameplayController_Awake_InitializesInIdleState" classname="GameplayControllerPlayModeTests" runstate="Runnable" seed="592996934" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.012567" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1052" name="GameplayController_ExtendedPlay_NoExceptions" fullname="GameplayControllerPlayModeTests.GameplayController_ExtendedPlay_NoExceptions" methodname="GameplayController_ExtendedPlay_NoExceptions" classname="GameplayControllerPlayModeTests" runstate="Runnable" seed="519604485" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.028462" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1053" name="GameplayController_LevelDerivedFromLinesCleared" fullname="GameplayControllerPlayModeTests.GameplayController_LevelDerivedFromLinesCleared" methodname="GameplayController_LevelDerivedFromLinesCleared" classname="GameplayControllerPlayModeTests" runstate="Runnable" seed="1650679117" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000680" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1055" name="GameplayController_MultipleStartGames_ResetProperly" fullname="GameplayControllerPlayModeTests.GameplayController_MultipleStartGames_ResetProperly" methodname="GameplayController_MultipleStartGames_ResetProperly" classname="GameplayControllerPlayModeTests" runstate="Runnable" seed="277780114" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.005911" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1048" name="GameplayController_NextPiece_ReturnsValidType" fullname="GameplayControllerPlayModeTests.GameplayController_NextPiece_ReturnsValidType" methodname="GameplayController_NextPiece_ReturnsValidType" classname="GameplayControllerPlayModeTests" runstate="Runnable" seed="2138956477" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000672" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1054" name="GameplayController_OnGameOver_FiresWhenSpawnBlocked" fullname="GameplayControllerPlayModeTests.GameplayController_OnGameOver_FiresWhenSpawnBlocked" methodname="GameplayController_OnGameOver_FiresWhenSpawnBlocked" classname="GameplayControllerPlayModeTests" runstate="Runnable" seed="1076663819" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.022898" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1049" name="GameplayController_OnStateChanged_FiresOnStartGame" fullname="GameplayControllerPlayModeTests.GameplayController_OnStateChanged_FiresOnStartGame" methodname="GameplayController_OnStateChanged_FiresOnStartGame" classname="GameplayControllerPlayModeTests" runstate="Runnable" seed="1565825470" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000866" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1050" name="GameplayController_Playfield_ClearsOnStartGame" fullname="GameplayControllerPlayModeTests.GameplayController_Playfield_ClearsOnStartGame" methodname="GameplayController_Playfield_ClearsOnStartGame" classname="GameplayControllerPlayModeTests" runstate="Runnable" seed="101059928" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000648" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1046" name="GameplayController_StartGame_ResetsState" fullname="GameplayControllerPlayModeTests.GameplayController_StartGame_ResetsState" methodname="GameplayController_StartGame_ResetsState" classname="GameplayControllerPlayModeTests" runstate="Runnable" seed="1674976056" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000583" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1047" name="GameplayController_StartGame_SpawnsFirstPiece" fullname="GameplayControllerPlayModeTests.GameplayController_StartGame_SpawnsFirstPiece" methodname="GameplayController_StartGame_SpawnsFirstPiece" classname="GameplayControllerPlayModeTests" runstate="Runnable" seed="1904547665" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000675" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1051" name="GameplayController_Tick_DoesNotThrowWithoutStartGame" fullname="GameplayControllerPlayModeTests.GameplayController_Tick_DoesNotThrowWithoutStartGame" methodname="GameplayController_Tick_DoesNotThrowWithoutStartGame" classname="GameplayControllerPlayModeTests" runstate="Runnable" seed="1704189622" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000635" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1001" name="GameScreenLevelWidgetTests" fullname="GameScreenLevelWidgetTests" classname="GameScreenLevelWidgetTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.032971" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1006" name="HeaderLabel_RemainsUnchanged" fullname="GameScreenLevelWidgetTests.HeaderLabel_RemainsUnchanged" methodname="HeaderLabel_RemainsUnchanged" classname="GameScreenLevelWidgetTests" runstate="Runnable" seed="275333821" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.028135" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1004" name="UpdateLevel_15_Displays15" fullname="GameScreenLevelWidgetTests.UpdateLevel_15_Displays15" methodname="UpdateLevel_15_Displays15" classname="GameScreenLevelWidgetTests" runstate="Runnable" seed="786040069" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000794" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1003" name="UpdateLevel_9_Displays09" fullname="GameScreenLevelWidgetTests.UpdateLevel_9_Displays09" methodname="UpdateLevel_9_Displays09" classname="GameScreenLevelWidgetTests" runstate="Runnable" seed="1724757973" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000893" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1007" name="UpdateLevel_InitialValue_ShowsZeroPadded" fullname="GameScreenLevelWidgetTests.UpdateLevel_InitialValue_ShowsZeroPadded" methodname="UpdateLevel_InitialValue_ShowsZeroPadded" classname="GameScreenLevelWidgetTests" runstate="Runnable" seed="1452948993" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000777" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1005" name="UpdateLevel_MultipleCalls_UpdatesCorrectly" fullname="GameScreenLevelWidgetTests.UpdateLevel_MultipleCalls_UpdatesCorrectly" methodname="UpdateLevel_MultipleCalls_UpdatesCorrectly" classname="GameScreenLevelWidgetTests" runstate="Runnable" seed="888338751" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000848" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1002" name="UpdateLevel_Zero_Displays00" fullname="GameScreenLevelWidgetTests.UpdateLevel_Zero_Displays00" methodname="UpdateLevel_Zero_Displays00" classname="GameScreenLevelWidgetTests" runstate="Runnable" seed="266338856" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000691" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1008" name="GameScreenLinesWidgetTests" fullname="GameScreenLinesWidgetTests" classname="GameScreenLinesWidgetTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.008381" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1013" name="HeaderLabel_RemainsUnchanged" fullname="GameScreenLinesWidgetTests.HeaderLabel_RemainsUnchanged" methodname="HeaderLabel_RemainsUnchanged" classname="GameScreenLinesWidgetTests" runstate="Runnable" seed="305842522" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.001482" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1011" name="UpdateLines_130_Displays130" fullname="GameScreenLinesWidgetTests.UpdateLines_130_Displays130" methodname="UpdateLines_130_Displays130" classname="GameScreenLinesWidgetTests" runstate="Runnable" seed="986059064" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000754" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1010" name="UpdateLines_40_Displays040" fullname="GameScreenLinesWidgetTests.UpdateLines_40_Displays040" methodname="UpdateLines_40_Displays040" classname="GameScreenLinesWidgetTests" runstate="Runnable" seed="700739232" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.002301" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1014" name="UpdateLines_InitialValue_ShowsZeroPadded" fullname="GameScreenLinesWidgetTests.UpdateLines_InitialValue_ShowsZeroPadded" methodname="UpdateLines_InitialValue_ShowsZeroPadded" classname="GameScreenLinesWidgetTests" runstate="Runnable" seed="2022967886" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.001218" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1012" name="UpdateLines_MultipleCalls_UpdatesCorrectly" fullname="GameScreenLinesWidgetTests.UpdateLines_MultipleCalls_UpdatesCorrectly" methodname="UpdateLines_MultipleCalls_UpdatesCorrectly" classname="GameScreenLinesWidgetTests" runstate="Runnable" seed="119088159" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.001078" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1009" name="UpdateLines_Zero_Displays000" fullname="GameScreenLinesWidgetTests.UpdateLines_Zero_Displays000" methodname="UpdateLines_Zero_Displays000" classname="GameScreenLinesWidgetTests" runstate="Runnable" seed="1773465377" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000770" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1015" name="GameScreenNextWidgetTests" fullname="GameScreenNextWidgetTests" classname="GameScreenNextWidgetTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.020616" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1017" name="Awake_Creates16ImageCells" fullname="GameScreenNextWidgetTests.Awake_Creates16ImageCells" methodname="Awake_Creates16ImageCells" classname="GameScreenNextWidgetTests" runstate="Runnable" seed="1704362588" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.009349" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1016" name="Awake_CreatesGridContainer" fullname="GameScreenNextWidgetTests.Awake_CreatesGridContainer" methodname="Awake_CreatesGridContainer" classname="GameScreenNextWidgetTests" runstate="Runnable" seed="1863059146" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000885" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1025" name="BlockSpritesProperty_ReturnsAssignedSprites" fullname="GameScreenNextWidgetTests.BlockSpritesProperty_ReturnsAssignedSprites" methodname="BlockSpritesProperty_ReturnsAssignedSprites" classname="GameScreenNextWidgetTests" runstate="Runnable" seed="2025599932" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000761" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1022" name="HeaderLabel_RemainsUnchanged" fullname="GameScreenNextWidgetTests.HeaderLabel_RemainsUnchanged" methodname="HeaderLabel_RemainsUnchanged" classname="GameScreenNextWidgetTests" runstate="Runnable" seed="1231878342" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.001340" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1024" name="UpdateNextPiece_AllPieceTypes_DoesNotThrow" fullname="GameScreenNextWidgetTests.UpdateNextPiece_AllPieceTypes_DoesNotThrow" methodname="UpdateNextPiece_AllPieceTypes_DoesNotThrow" classname="GameScreenNextWidgetTests" runstate="Runnable" seed="272808790" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.001474" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1018" name="UpdateNextPiece_I_DisplaysHorizontalBar" fullname="GameScreenNextWidgetTests.UpdateNextPiece_I_DisplaysHorizontalBar" methodname="UpdateNextPiece_I_DisplaysHorizontalBar" classname="GameScreenNextWidgetTests" runstate="Runnable" seed="1678448225" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.001260" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1021" name="UpdateNextPiece_MultipleCalls_UpdatesCorrectly" fullname="GameScreenNextWidgetTests.UpdateNextPiece_MultipleCalls_UpdatesCorrectly" methodname="UpdateNextPiece_MultipleCalls_UpdatesCorrectly" classname="GameScreenNextWidgetTests" runstate="Runnable" seed="267609948" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000988" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1019" name="UpdateNextPiece_O_Displays2x2Square" fullname="GameScreenNextWidgetTests.UpdateNextPiece_O_Displays2x2Square" methodname="UpdateNextPiece_O_Displays2x2Square" classname="GameScreenNextWidgetTests" runstate="Runnable" seed="121255441" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.001376" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1020" name="UpdateNextPiece_T_DisplaysCorrectShape" fullname="GameScreenNextWidgetTests.UpdateNextPiece_T_DisplaysCorrectShape" methodname="UpdateNextPiece_T_DisplaysCorrectShape" classname="GameScreenNextWidgetTests" runstate="Runnable" seed="1864039897" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.001276" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1023" name="UpdateNextPiece_WithoutSprites_DoesNotThrow" fullname="GameScreenNextWidgetTests.UpdateNextPiece_WithoutSprites_DoesNotThrow" methodname="UpdateNextPiece_WithoutSprites_DoesNotThrow" classname="GameScreenNextWidgetTests" runstate="Runnable" seed="706939145" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000874" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1026" name="GameScreenScoreWidgetTests" fullname="GameScreenScoreWidgetTests" classname="GameScreenScoreWidgetTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.006170" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1031" name="HeaderLabel_RemainsUnchanged" fullname="GameScreenScoreWidgetTests.HeaderLabel_RemainsUnchanged" methodname="HeaderLabel_RemainsUnchanged" classname="GameScreenScoreWidgetTests" runstate="Runnable" seed="1003491145" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.001389" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1028" name="UpdateScore_1200_Displays0001200" fullname="GameScreenScoreWidgetTests.UpdateScore_1200_Displays0001200" methodname="UpdateScore_1200_Displays0001200" classname="GameScreenScoreWidgetTests" runstate="Runnable" seed="972182065" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000769" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1029" name="UpdateScore_9999999_Displays9999999" fullname="GameScreenScoreWidgetTests.UpdateScore_9999999_Displays9999999" methodname="UpdateScore_9999999_Displays9999999" classname="GameScreenScoreWidgetTests" runstate="Runnable" seed="1940197617" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000762" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1032" name="UpdateScore_InitialValue_ShowsZeroPadded" fullname="GameScreenScoreWidgetTests.UpdateScore_InitialValue_ShowsZeroPadded" methodname="UpdateScore_InitialValue_ShowsZeroPadded" classname="GameScreenScoreWidgetTests" runstate="Runnable" seed="1797550358" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000783" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1030" name="UpdateScore_MultipleCalls_UpdatesCorrectly" fullname="GameScreenScoreWidgetTests.UpdateScore_MultipleCalls_UpdatesCorrectly" methodname="UpdateScore_MultipleCalls_UpdatesCorrectly" classname="GameScreenScoreWidgetTests" runstate="Runnable" seed="1834146378" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000882" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1027" name="UpdateScore_Zero_Displays0000000" fullname="GameScreenScoreWidgetTests.UpdateScore_Zero_Displays0000000" methodname="UpdateScore_Zero_Displays0000000" classname="GameScreenScoreWidgetTests" runstate="Runnable" seed="2035643702" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000815" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1033" name="GameScreenTests" fullname="GameScreenTests" classname="GameScreenTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.009467" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1039" name="BaseScreen_IsVisible_StartsFalse" fullname="GameScreenTests.BaseScreen_IsVisible_StartsFalse" methodname="BaseScreen_IsVisible_StartsFalse" classname="GameScreenTests" runstate="Runnable" seed="566907725" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000867" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1035" name="Hide_MakesScreenInvisible" fullname="GameScreenTests.Hide_MakesScreenInvisible" methodname="Hide_MakesScreenInvisible" classname="GameScreenTests" runstate="Runnable" seed="393706259" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.001450" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1037" name="LayoutRegions_ExistAndQueryable" fullname="GameScreenTests.LayoutRegions_ExistAndQueryable" methodname="LayoutRegions_ExistAndQueryable" classname="GameScreenTests" runstate="Runnable" seed="2114955084" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000659" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1038" name="PublicRegionProperties_ReturnValidElements" fullname="GameScreenTests.PublicRegionProperties_ReturnValidElements" methodname="PublicRegionProperties_ReturnValidElements" classname="GameScreenTests" runstate="Runnable" seed="998167383" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000636" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1042" name="RootVisualElement_DisplayIsFlexAfterShow" fullname="GameScreenTests.RootVisualElement_DisplayIsFlexAfterShow" methodname="RootVisualElement_DisplayIsFlexAfterShow" classname="GameScreenTests" runstate="Runnable" seed="1521805348" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.001177" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1043" name="RootVisualElement_DisplayIsNoneAfterHide" fullname="GameScreenTests.RootVisualElement_DisplayIsNoneAfterHide" methodname="RootVisualElement_DisplayIsNoneAfterHide" classname="GameScreenTests" runstate="Runnable" seed="1489249148" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000694" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1041" name="RootVisualElement_HasTransparentBackground" fullname="GameScreenTests.RootVisualElement_HasTransparentBackground" methodname="RootVisualElement_HasTransparentBackground" classname="GameScreenTests" runstate="Runnable" seed="737062585" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000588" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1036" name="Screen_HasNoCanvasComponent" fullname="GameScreenTests.Screen_HasNoCanvasComponent" methodname="Screen_HasNoCanvasComponent" classname="GameScreenTests" runstate="Runnable" seed="963084161" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000788" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1040" name="Show_Hide_Show_CyclesCorrectly" fullname="GameScreenTests.Show_Hide_Show_CyclesCorrectly" methodname="Show_Hide_Show_CyclesCorrectly" classname="GameScreenTests" runstate="Runnable" seed="928387450" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000944" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1034" name="Show_MakesScreenVisible" fullname="GameScreenTests.Show_MakesScreenVisible" methodname="Show_MakesScreenVisible" classname="GameScreenTests" runstate="Runnable" seed="346293812" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:07Z" duration="0.000625" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1056" name="InitialsEntryOverlayPlayModeTests" fullname="InitialsEntryOverlayPlayModeTests" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" testcasecount="9" result="Failed" site="Child" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:08Z" duration="0.010075" total="9" passed="8" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1062" name="BaseScreen_IsVisible_StartsFalse" fullname="InitialsEntryOverlayPlayModeTests.BaseScreen_IsVisible_StartsFalse" methodname="BaseScreen_IsVisible_StartsFalse" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="1368516452" result="Passed" start-time="2026-06-20 01:42:07Z" end-time="2026-06-20 01:42:08Z" duration="0.001002" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1064" name="ConfirmRegion_HiddenInitially" fullname="InitialsEntryOverlayPlayModeTests.ConfirmRegion_HiddenInitially" methodname="ConfirmRegion_HiddenInitially" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="476754213" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.003275" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Confirm region should be hidden initially
+  Expected: None
+  But was:  None
+]]></message>
+            <stack-trace><![CDATA[at InitialsEntryOverlayPlayModeTests+<ConfirmRegion_HiddenInitially>d__12.MoveNext () [0x0007e] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\PlayMode\InitialsEntryOverlayPlayModeTests.cs:187
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@76560ee600cb\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1059" name="Hide_MakesScreenInvisible" fullname="InitialsEntryOverlayPlayModeTests.Hide_MakesScreenInvisible" methodname="Hide_MakesScreenInvisible" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="1081667305" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000717" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1065" name="LayoutElements_Exist" fullname="InitialsEntryOverlayPlayModeTests.LayoutElements_Exist" methodname="LayoutElements_Exist" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="372251919" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000618" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1061" name="OnInitialsSubmitted_FiresWithCorrectValues" fullname="InitialsEntryOverlayPlayModeTests.OnInitialsSubmitted_FiresWithCorrectValues" methodname="OnInitialsSubmitted_FiresWithCorrectValues" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="1855640214" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000808" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1060" name="Screen_HasNoCanvasComponent" fullname="InitialsEntryOverlayPlayModeTests.Screen_HasNoCanvasComponent" methodname="Screen_HasNoCanvasComponent" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="1604618662" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000557" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1063" name="Show_Hide_Show_CyclesCorrectly" fullname="InitialsEntryOverlayPlayModeTests.Show_Hide_Show_CyclesCorrectly" methodname="Show_Hide_Show_CyclesCorrectly" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="796241979" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000732" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1058" name="ShowForScore_CursorOnSlot0" fullname="InitialsEntryOverlayPlayModeTests.ShowForScore_CursorOnSlot0" methodname="ShowForScore_CursorOnSlot0" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="105612620" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000623" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1057" name="ShowForScore_ResetsToAAA" fullname="InitialsEntryOverlayPlayModeTests.ShowForScore_ResetsToAAA" methodname="ShowForScore_ResetsToAAA" classname="InitialsEntryOverlayPlayModeTests" runstate="Runnable" seed="1964503381" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000681" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1066" name="PlayfieldRendererTests" fullname="PlayfieldRendererTests" classname="PlayfieldRendererTests" runstate="Runnable" testcasecount="13" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.036861" total="13" passed="13" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1069" name="PlayfieldRenderer_Awake_CellsHaveCorrectNames" fullname="PlayfieldRendererTests.PlayfieldRenderer_Awake_CellsHaveCorrectNames" methodname="PlayfieldRenderer_Awake_CellsHaveCorrectNames" classname="PlayfieldRendererTests" runstate="Runnable" seed="1369830690" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.003746" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1067" name="PlayfieldRenderer_Awake_CreatesCorrectNumberOfCells" fullname="PlayfieldRendererTests.PlayfieldRenderer_Awake_CreatesCorrectNumberOfCells" methodname="PlayfieldRenderer_Awake_CreatesCorrectNumberOfCells" classname="PlayfieldRendererTests" runstate="Runnable" seed="551154756" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.002628" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1068" name="PlayfieldRenderer_Awake_CreatesWellBorder" fullname="PlayfieldRendererTests.PlayfieldRenderer_Awake_CreatesWellBorder" methodname="PlayfieldRenderer_Awake_CreatesWellBorder" classname="PlayfieldRendererTests" runstate="Runnable" seed="59295080" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.002135" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1070" name="PlayfieldRenderer_Awake_EachCellHasSpriteRenderer" fullname="PlayfieldRendererTests.PlayfieldRenderer_Awake_EachCellHasSpriteRenderer" methodname="PlayfieldRenderer_Awake_EachCellHasSpriteRenderer" classname="PlayfieldRendererTests" runstate="Runnable" seed="121283867" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.004381" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1079" name="PlayfieldRenderer_BlockSpritesNull_DoesNotThrow" fullname="PlayfieldRendererTests.PlayfieldRenderer_BlockSpritesNull_DoesNotThrow" methodname="PlayfieldRenderer_BlockSpritesNull_DoesNotThrow" classname="PlayfieldRendererTests" runstate="Runnable" seed="745108515" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.002049" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1074" name="PlayfieldRenderer_BorderIsBehindGrid" fullname="PlayfieldRendererTests.PlayfieldRenderer_BorderIsBehindGrid" methodname="PlayfieldRenderer_BorderIsBehindGrid" classname="PlayfieldRendererTests" runstate="Runnable" seed="1628499980" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.002214" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1073" name="PlayfieldRenderer_CellsArePositionedCorrectly" fullname="PlayfieldRendererTests.PlayfieldRenderer_CellsArePositionedCorrectly" methodname="PlayfieldRenderer_CellsArePositionedCorrectly" classname="PlayfieldRendererTests" runstate="Runnable" seed="910246819" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.002272" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1071" name="PlayfieldRenderer_CellSize_DefaultIs0_5" fullname="PlayfieldRendererTests.PlayfieldRenderer_CellSize_DefaultIs0_5" methodname="PlayfieldRenderer_CellSize_DefaultIs0_5" classname="PlayfieldRendererTests" runstate="Runnable" seed="431813491" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.002084" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1076" name="PlayfieldRenderer_EmptyCellsShowEmptySprite" fullname="PlayfieldRendererTests.PlayfieldRenderer_EmptyCellsShowEmptySprite" methodname="PlayfieldRenderer_EmptyCellsShowEmptySprite" classname="PlayfieldRendererTests" runstate="Runnable" seed="352567889" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.002990" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1077" name="PlayfieldRenderer_OnStateChanged_TriggersReRender" fullname="PlayfieldRendererTests.PlayfieldRenderer_OnStateChanged_TriggersReRender" methodname="PlayfieldRenderer_OnStateChanged_TriggersReRender" classname="PlayfieldRendererTests" runstate="Runnable" seed="450168516" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.002907" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1072" name="PlayfieldRenderer_OriginOffset_DefaultIsZero" fullname="PlayfieldRendererTests.PlayfieldRenderer_OriginOffset_DefaultIsZero" methodname="PlayfieldRenderer_OriginOffset_DefaultIsZero" classname="PlayfieldRendererTests" runstate="Runnable" seed="1560523394" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.002089" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1075" name="PlayfieldRenderer_RendersLockedCells" fullname="PlayfieldRendererTests.PlayfieldRenderer_RendersLockedCells" methodname="PlayfieldRenderer_RendersLockedCells" classname="PlayfieldRendererTests" runstate="Runnable" seed="836988605" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.002693" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1078" name="PlayfieldRenderer_WithoutGameplayController_DoesNotThrow" fullname="PlayfieldRendererTests.PlayfieldRenderer_WithoutGameplayController_DoesNotThrow" methodname="PlayfieldRenderer_WithoutGameplayController_DoesNotThrow" classname="PlayfieldRendererTests" runstate="Runnable" seed="2045648064" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.003380" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1080" name="QAIntegrationTests" fullname="QAIntegrationTests" classname="QAIntegrationTests" runstate="Runnable" testcasecount="15" result="Failed" site="Child" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.486471" total="15" passed="14" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1081" name="Integration_Controller_InitialStateCorrect" fullname="QAIntegrationTests.Integration_Controller_InitialStateCorrect" methodname="Integration_Controller_InitialStateCorrect" classname="QAIntegrationTests" runstate="Runnable" seed="1745151614" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000765" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1093" name="Integration_Controller_TickStability_NoCrash" fullname="QAIntegrationTests.Integration_Controller_TickStability_NoCrash" methodname="Integration_Controller_TickStability_NoCrash" classname="QAIntegrationTests" runstate="Runnable" seed="358965088" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.047917" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1084" name="Integration_GameOver_EventFiresWithScore" fullname="QAIntegrationTests.Integration_GameOver_EventFiresWithScore" methodname="Integration_GameOver_EventFiresWithScore" classname="QAIntegrationTests" runstate="Runnable" seed="1378748177" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.424918" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  OnGameOver should fire with a score >= 0
+  Expected: greater than or equal to 0
+  But was:  -1
+]]></message>
+            <stack-trace><![CDATA[at QAIntegrationTests+<Integration_GameOver_EventFiresWithScore>d__7.MoveNext () [0x0011e] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\PlayMode\QAIntegrationTests.cs:109
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@76560ee600cb\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1091" name="Integration_Gravity_ClampsAtLevel29" fullname="QAIntegrationTests.Integration_Gravity_ClampsAtLevel29" methodname="Integration_Gravity_ClampsAtLevel29" classname="QAIntegrationTests" runstate="Runnable" seed="1831973498" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.001217" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1090" name="Integration_Gravity_FramesPerRowDecreases" fullname="QAIntegrationTests.Integration_Gravity_FramesPerRowDecreases" methodname="Integration_Gravity_FramesPerRowDecreases" classname="QAIntegrationTests" runstate="Runnable" seed="1066451021" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000157" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1089" name="Integration_LevelProgression_CorrectCalculation" fullname="QAIntegrationTests.Integration_LevelProgression_CorrectCalculation" methodname="Integration_LevelProgression_CorrectCalculation" classname="QAIntegrationTests" runstate="Runnable" seed="1935123194" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000140" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1095" name="Integration_MultipleRestarts_ResetProperly" fullname="QAIntegrationTests.Integration_MultipleRestarts_ResetProperly" methodname="Integration_MultipleRestarts_ResetProperly" classname="QAIntegrationTests" runstate="Runnable" seed="1800474377" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.005441" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1092" name="Integration_Playfield_DimensionsCorrect" fullname="QAIntegrationTests.Integration_Playfield_DimensionsCorrect" methodname="Integration_Playfield_DimensionsCorrect" classname="QAIntegrationTests" runstate="Runnable" seed="1829144487" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000169" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1094" name="Integration_Randomizer_ProducesValidPieces" fullname="QAIntegrationTests.Integration_Randomizer_ProducesValidPieces" methodname="Integration_Randomizer_ProducesValidPieces" classname="QAIntegrationTests" runstate="Runnable" seed="1923280018" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000707" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1085" name="Integration_Scoring_SingleLineLevel0" fullname="QAIntegrationTests.Integration_Scoring_SingleLineLevel0" methodname="Integration_Scoring_SingleLineLevel0" classname="QAIntegrationTests" runstate="Runnable" seed="359678294" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000144" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1087" name="Integration_Scoring_SingleLineLevel9" fullname="QAIntegrationTests.Integration_Scoring_SingleLineLevel9" methodname="Integration_Scoring_SingleLineLevel9" classname="QAIntegrationTests" runstate="Runnable" seed="938753737" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000100" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1086" name="Integration_Scoring_TetrisLevel0" fullname="QAIntegrationTests.Integration_Scoring_TetrisLevel0" methodname="Integration_Scoring_TetrisLevel0" classname="QAIntegrationTests" runstate="Runnable" seed="953173494" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000088" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1088" name="Integration_Scoring_ZeroLinesReturnsZero" fullname="QAIntegrationTests.Integration_Scoring_ZeroLinesReturnsZero" methodname="Integration_Scoring_ZeroLinesReturnsZero" classname="QAIntegrationTests" runstate="Runnable" seed="52620594" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000088" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1082" name="Integration_StartGame_ResetsState" fullname="QAIntegrationTests.Integration_StartGame_ResetsState" methodname="Integration_StartGame_ResetsState" classname="QAIntegrationTests" runstate="Runnable" seed="500012671" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000690" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1083" name="Integration_StartGame_SpawnsPiece" fullname="QAIntegrationTests.Integration_StartGame_SpawnsPiece" methodname="Integration_StartGame_SpawnsPiece" classname="QAIntegrationTests" runstate="Runnable" seed="1068569832" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000790" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1096" name="SceneBootstrapperTests" fullname="SceneBootstrapperTests" classname="SceneBootstrapperTests" runstate="Runnable" testcasecount="10" result="Failed" site="Child" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.013349" total="10" passed="0" failed="10" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1098" name="Awake_HidesGameOverScreen" fullname="SceneBootstrapperTests.Awake_HidesGameOverScreen" methodname="Awake_HidesGameOverScreen" classname="SceneBootstrapperTests" runstate="Runnable" seed="549372677" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.005102" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[SetUp : Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+        <test-case id="1097" name="Awake_HidesGameScreen" fullname="SceneBootstrapperTests.Awake_HidesGameScreen" methodname="Awake_HidesGameScreen" classname="SceneBootstrapperTests" runstate="Runnable" seed="128523605" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000831" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[SetUp : Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+        <test-case id="1099" name="Awake_HidesInitialsOverlay" fullname="SceneBootstrapperTests.Awake_HidesInitialsOverlay" methodname="Awake_HidesInitialsOverlay" classname="SceneBootstrapperTests" runstate="Runnable" seed="1756272676" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000790" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[SetUp : Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+        <test-case id="1100" name="Awake_ShowsStartScreen" fullname="SceneBootstrapperTests.Awake_ShowsStartScreen" methodname="Awake_ShowsStartScreen" classname="SceneBootstrapperTests" runstate="Runnable" seed="483129990" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000782" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[SetUp : Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+        <test-case id="1106" name="FullFlow_StartPlayGameOverContinue" fullname="SceneBootstrapperTests.FullFlow_StartPlayGameOverContinue" methodname="FullFlow_StartPlayGameOverContinue" classname="SceneBootstrapperTests" runstate="Runnable" seed="1233021294" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000834" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[SetUp : Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+        <test-case id="1105" name="OnContinueRequested_HidesGameOverAndShowsStart" fullname="SceneBootstrapperTests.OnContinueRequested_HidesGameOverAndShowsStart" methodname="OnContinueRequested_HidesGameOverAndShowsStart" classname="SceneBootstrapperTests" runstate="Runnable" seed="803570900" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000777" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[SetUp : Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+        <test-case id="1104" name="OnGameOver_HidesGameScreenAndShowsGameOverScreen" fullname="SceneBootstrapperTests.OnGameOver_HidesGameScreenAndShowsGameOverScreen" methodname="OnGameOver_HidesGameScreenAndShowsGameOverScreen" classname="SceneBootstrapperTests" runstate="Runnable" seed="2016452498" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000776" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[SetUp : Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+        <test-case id="1103" name="OnGameStateChanged_UpdatesWidgets" fullname="SceneBootstrapperTests.OnGameStateChanged_UpdatesWidgets" methodname="OnGameStateChanged_UpdatesWidgets" classname="SceneBootstrapperTests" runstate="Runnable" seed="982808597" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000782" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[SetUp : Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+        <test-case id="1102" name="OnStartRequested_CallsStartGameOnController" fullname="SceneBootstrapperTests.OnStartRequested_CallsStartGameOnController" methodname="OnStartRequested_CallsStartGameOnController" classname="SceneBootstrapperTests" runstate="Runnable" seed="1773891971" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000772" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[SetUp : Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+        <test-case id="1101" name="OnStartRequested_HidesStartScreenAndShowsGameScreen" fullname="SceneBootstrapperTests.OnStartRequested_HidesStartScreenAndShowsGameScreen" methodname="OnStartRequested_HidesStartScreenAndShowsGameScreen" classname="SceneBootstrapperTests" runstate="Runnable" seed="687590851" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000771" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[SetUp : Unhandled log message: '[Exception] NullReferenceException: Object reference not set to an instance of an object'. Use UnityEngine.TestTools.LogAssert.Expect]]></message>
+            <stack-trace><![CDATA[SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></stack-trace>
+          </failure>
+          <output><![CDATA[NullReferenceException: Object reference not set to an instance of an object
+SceneBootstrapper.Awake () (at Assets/Game/Scripts/SceneBootstrapper.cs:67)
+UnityEngine.GameObject:AddComponent()
+SceneBootstrapperTests:SetUp() (at Assets/Game/Tests/PlayMode/SceneBootstrapperTests.cs:50)
+System.Reflection.MethodBase:Invoke(Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object, Object[])
+NUnit.Framework.Internal.Reflect:InvokeMethod(MethodInfo, Object)
+UnityEngine.SetupCoroutine:InvokeMoveNext(IEnumerator, IntPtr)
+
+]]></output>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1107" name="StartScreenLeaderboardWidgetTests" fullname="StartScreenLeaderboardWidgetTests" classname="StartScreenLeaderboardWidgetTests" runstate="Runnable" testcasecount="8" result="Failed" site="Child" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.009570" total="8" passed="5" failed="3" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1115" name="Refresh_ClearsPreviousContent" fullname="StartScreenLeaderboardWidgetTests.Refresh_ClearsPreviousContent" methodname="Refresh_ClearsPreviousContent" classname="StartScreenLeaderboardWidgetTests" runstate="Runnable" seed="1557767384" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.003003" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected string length 6 but was 3. Strings differ at index 3.
+  Expected: "XXX   "
+  But was:  "XXX"
+  --------------^
+]]></message>
+            <stack-trace><![CDATA[at StartScreenLeaderboardWidgetTests+<Refresh_ClearsPreviousContent>d__12.MoveNext () [0x00122] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\PlayMode\StartScreenLeaderboardWidgetTests.cs:277
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@76560ee600cb\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1113" name="Refresh_MixedNullEntries_FillsPlaceholders" fullname="StartScreenLeaderboardWidgetTests.Refresh_MixedNullEntries_FillsPlaceholders" methodname="Refresh_MixedNullEntries_FillsPlaceholders" classname="StartScreenLeaderboardWidgetTests" runstate="Runnable" seed="445223066" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000884" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected string length 6 but was 3. Strings differ at index 3.
+  Expected: "AAA   "
+  But was:  "AAA"
+  --------------^
+]]></message>
+            <stack-trace><![CDATA[at StartScreenLeaderboardWidgetTests+<Refresh_MixedNullEntries_FillsPlaceholders>d__10.MoveNext () [0x000c3] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\PlayMode\StartScreenLeaderboardWidgetTests.cs:205
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@76560ee600cb\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1114" name="Refresh_Ranks_DisplayCorrectly" fullname="StartScreenLeaderboardWidgetTests.Refresh_Ranks_DisplayCorrectly" methodname="Refresh_Ranks_DisplayCorrectly" classname="StartScreenLeaderboardWidgetTests" runstate="Runnable" seed="914758013" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000907" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1112" name="Refresh_Scores_ZeroPaddedToSevenDigits" fullname="StartScreenLeaderboardWidgetTests.Refresh_Scores_ZeroPaddedToSevenDigits" methodname="Refresh_Scores_ZeroPaddedToSevenDigits" classname="StartScreenLeaderboardWidgetTests" runstate="Runnable" seed="2033934149" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000771" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1111" name="Refresh_WithEmptyArray_DisplaysAllPlaceholders" fullname="StartScreenLeaderboardWidgetTests.Refresh_WithEmptyArray_DisplaysAllPlaceholders" methodname="Refresh_WithEmptyArray_DisplaysAllPlaceholders" classname="StartScreenLeaderboardWidgetTests" runstate="Runnable" seed="1773874156" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000713" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1108" name="Refresh_WithFiveEntries_DisplaysAllRows" fullname="StartScreenLeaderboardWidgetTests.Refresh_WithFiveEntries_DisplaysAllRows" methodname="Refresh_WithFiveEntries_DisplaysAllRows" classname="StartScreenLeaderboardWidgetTests" runstate="Runnable" seed="697974869" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000724" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1110" name="Refresh_WithNullArray_DisplaysAllPlaceholders" fullname="StartScreenLeaderboardWidgetTests.Refresh_WithNullArray_DisplaysAllPlaceholders" methodname="Refresh_WithNullArray_DisplaysAllPlaceholders" classname="StartScreenLeaderboardWidgetTests" runstate="Runnable" seed="1472466889" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000771" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1109" name="Refresh_WithTwoEntries_DisplaysTwoPlusThreePlaceholders" fullname="StartScreenLeaderboardWidgetTests.Refresh_WithTwoEntries_DisplaysTwoPlusThreePlaceholders" methodname="Refresh_WithTwoEntries_DisplaysTwoPlusThreePlaceholders" classname="StartScreenLeaderboardWidgetTests" runstate="Runnable" seed="904006379" result="Failed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000937" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected string length 6 but was 3. Strings differ at index 3.
+  Expected: "AAA   "
+  But was:  "AAA"
+  --------------^
+]]></message>
+            <stack-trace><![CDATA[at StartScreenLeaderboardWidgetTests+<Refresh_WithTwoEntries_DisplaysTwoPlusThreePlaceholders>d__6.MoveNext () [0x00101] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\PlayMode\StartScreenLeaderboardWidgetTests.cs:96
+at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@76560ee600cb\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44
+]]></stack-trace>
+          </failure>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1116" name="StartScreenTests" fullname="StartScreenTests" classname="StartScreenTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.005575" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1122" name="BaseScreen_IsVisible_StartsFalse" fullname="StartScreenTests.BaseScreen_IsVisible_StartsFalse" methodname="BaseScreen_IsVisible_StartsFalse" classname="StartScreenTests" runstate="Runnable" seed="592781173" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000729" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1118" name="Hide_MakesScreenInvisible" fullname="StartScreenTests.Hide_MakesScreenInvisible" methodname="Hide_MakesScreenInvisible" classname="StartScreenTests" runstate="Runnable" seed="160013013" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000794" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1121" name="LayoutRegions_ExistInUXML" fullname="StartScreenTests.LayoutRegions_ExistInUXML" methodname="LayoutRegions_ExistInUXML" classname="StartScreenTests" runstate="Runnable" seed="1105099731" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000621" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1119" name="RefreshLeaderboard_PassesEntriesToWidget" fullname="StartScreenTests.RefreshLeaderboard_PassesEntriesToWidget" methodname="RefreshLeaderboard_PassesEntriesToWidget" classname="StartScreenTests" runstate="Runnable" seed="1442971961" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000724" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1120" name="Screen_HasNoCanvasComponent" fullname="StartScreenTests.Screen_HasNoCanvasComponent" methodname="Screen_HasNoCanvasComponent" classname="StartScreenTests" runstate="Runnable" seed="673626856" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000519" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1123" name="Show_Hide_Show_CyclesCorrectly" fullname="StartScreenTests.Show_Hide_Show_CyclesCorrectly" methodname="Show_Hide_Show_CyclesCorrectly" classname="StartScreenTests" runstate="Runnable" seed="1669183174" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000866" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1117" name="Show_MakesScreenVisible" fullname="StartScreenTests.Show_MakesScreenVisible" methodname="Show_MakesScreenVisible" classname="StartScreenTests" runstate="Runnable" seed="315119420" result="Passed" start-time="2026-06-20 01:42:08Z" end-time="2026-06-20 01:42:08Z" duration="0.000575" asserts="0">
+          <properties>
+            <property name="_JOINTYPE" value="UnityCombinatorial" />
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: tmp/play-results-59c.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
