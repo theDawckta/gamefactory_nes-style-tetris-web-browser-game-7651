@@ -137,6 +137,17 @@ public class GameplayController : MonoBehaviour
     }
 
     /// <summary>
+    /// Forces the game to end with the given score.
+    /// Transitions to "GameOver" state and fires OnGameOver.
+    /// Used by the QA pipeline to capture the game over screen.
+    /// </summary>
+    public void TriggerGameOver(int score)
+    {
+        _currentScore = score;
+        _stateMachine.ChangeState(GameStateMachine.GameState.GameOver);
+    }
+
+    /// <summary>
     /// Main tick called from Update(). Processes the current state and input.
     /// </summary>
     public void Tick()
