@@ -363,17 +363,10 @@ public class SceneBootstrapperTests
         Assert.IsFalse(_gameOverScreen.IsVisible);
 
         // 2. Start game
-        // Diagnostic: verify gameScreen reference is wired
-        var gsField = _bootstrapper.GetType().GetField("gameScreen", BindingFlags.NonPublic | BindingFlags.Instance);
-        var wiredGs = gsField?.GetValue(_bootstrapper) as GameScreen;
-        Assert.AreSame(_gameScreen, wiredGs, "gameScreen ref should be wired to _gameScreen");
-        // Try calling Show() directly first to diagnose
-        _gameScreen.Show();
-        yield return null;
-        Assert.IsTrue(_gameScreen.IsVisible, "GameScreen should be visible after direct Show()");
-        // Now call the handler
-        _gameScreen.Hide();
-        (_bootstrapper.GetType().GetMethod("OnStartRequested", BindingFlags.NonPublic | BindingFlags.Instance) ?? throw new System.Exception("OnStartRequested method not found")).Invoke(_bootstrapper, null);
+        // Verify bootstrapper has gameScreen wired
+        var gsRef = _bootstrapper.GetType().GetField("gameScreen", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(_bootstrapper);
+        Assert.IsNotNull(gsRef, "Bootstrapper gameScreen ref should not be null");
+        (_bootstrapper.GetType().GetMethod("OnStartRequested", BindingFlags.NonPublic | BindingFlags.Instance)).Invoke(_bootstrapper, null);
         yield return null;
         Assert.IsFalse(_startScreen.IsVisible);
         Assert.IsTrue(_gameScreen.IsVisible, "GameScreen should be visible after OnStartRequested");
