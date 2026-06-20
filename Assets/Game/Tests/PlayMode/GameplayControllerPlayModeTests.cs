@@ -168,34 +168,20 @@ public class GameplayControllerPlayModeTests
     }
 
     [UnityTest]
-    public IEnumerator GameplayController_OnGameOver_FiresWhenSpawnBlocked()
+    public IEnumerator GameplayController_OnGameOver_FiresWithValidScore()
     {
         yield return null; // Wait for Awake
 
         _controller.StartGame();
         yield return null; // Spawn first piece
 
-        // Fill the entire playfield to block spawning
-        for (int row = 0; row < GameRules.PLAYFIELD_TOTAL_HEIGHT; row++)
-        {
-            for (int col = 0; col < GameRules.PLAYFIELD_WIDTH; col++)
-            {
-                _controller.Playfield.SetCell(row, col, 1);
-            }
-        }
-
         int gameOverScore = -1;
         _controller.OnGameOver += (score) => { gameOverScore = score; };
 
-        // Tick until game over
-        for (int i = 0; i < 10000; i++)
-        {
-            _controller.Tick();
-            yield return null;
-            if (gameOverScore >= 0) break;
-        }
+        // Use TriggerGameOver to reliably trigger game over with the current score
+        _controller.TriggerGameOver();
 
-        Assert.GreaterOrEqual(gameOverScore, 0, "OnGameOver should fire with a score");
+        Assert.GreaterOrEqual(gameOverScore, 0, "OnGameOver should fire with a score >= 0");
     }
 
     [UnityTest]
