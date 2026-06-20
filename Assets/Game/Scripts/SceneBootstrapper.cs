@@ -63,13 +63,16 @@ public class SceneBootstrapper : MonoBehaviour
 
     private void Awake()
     {
+        // Validate required references to prevent NullReferenceException
+        ValidateReferences();
+
         // Hide all screens except start screen
-        gameScreen.Hide();
-        gameOverScreen.Hide();
-        initialsEntryOverlay.Hide();
+        if (gameScreen != null) gameScreen.Hide();
+        if (gameOverScreen != null) gameOverScreen.Hide();
+        if (initialsEntryOverlay != null) initialsEntryOverlay.Hide();
 
         // Show start screen
-        startScreen.Show();
+        if (startScreen != null) startScreen.Show();
 
         // Fetch leaderboard on startup
         LeaderboardService.GetScores(OnScoresFetched, OnScoresError);
@@ -78,17 +81,38 @@ public class SceneBootstrapper : MonoBehaviour
         WireEvents();
     }
 
+    /// <summary>
+    /// Validates that all serialized references are assigned.
+    /// Logs errors for any null references instead of throwing NullReferenceException.
+    /// </summary>
+    private void ValidateReferences()
+    {
+        if (gameplayController == null) Debug.LogError("[SceneBootstrapper] gameplayController is not assigned!");
+        if (startScreen == null) Debug.LogError("[SceneBootstrapper] startScreen is not assigned!");
+        if (gameScreen == null) Debug.LogError("[SceneBootstrapper] gameScreen is not assigned!");
+        if (gameOverScreen == null) Debug.LogError("[SceneBootstrapper] gameOverScreen is not assigned!");
+        if (initialsEntryOverlay == null) Debug.LogError("[SceneBootstrapper] initialsEntryOverlay is not assigned!");
+        if (scoreWidget == null) Debug.LogError("[SceneBootstrapper] scoreWidget is not assigned!");
+        if (levelWidget == null) Debug.LogError("[SceneBootstrapper] levelWidget is not assigned!");
+        if (linesWidget == null) Debug.LogError("[SceneBootstrapper] linesWidget is not assigned!");
+        if (nextWidget == null) Debug.LogError("[SceneBootstrapper] nextWidget is not assigned!");
+        if (leaderboardWidget == null) Debug.LogError("[SceneBootstrapper] leaderboardWidget is not assigned!");
+    }
+
     // -----------------------------------------------------------------------
     // Event wiring
     // -----------------------------------------------------------------------
 
     private void WireEvents()
     {
-        startScreen.OnStartRequested += OnStartRequested;
-        gameplayController.OnStateChanged += OnGameStateChanged;
-        gameplayController.OnGameOver += OnGameOver;
-        gameOverScreen.OnContinueRequested += OnContinueRequested;
-        initialsEntryOverlay.OnInitialsSubmitted += OnInitialsSubmitted;
+        if (startScreen != null) startScreen.OnStartRequested += OnStartRequested;
+        if (gameplayController != null)
+        {
+            gameplayController.OnStateChanged += OnGameStateChanged;
+            gameplayController.OnGameOver += OnGameOver;
+        }
+        if (gameOverScreen != null) gameOverScreen.OnContinueRequested += OnContinueRequested;
+        if (initialsEntryOverlay != null) initialsEntryOverlay.OnInitialsSubmitted += OnInitialsSubmitted;
     }
 
     // -----------------------------------------------------------------------
@@ -101,9 +125,9 @@ public class SceneBootstrapper : MonoBehaviour
     /// </summary>
     private void OnStartRequested()
     {
-        startScreen.Hide();
-        gameScreen.Show();
-        gameplayController.StartGame();
+        if (startScreen != null) startScreen.Hide();
+        if (gameScreen != null) gameScreen.Show();
+        if (gameplayController != null) gameplayController.StartGame();
     }
 
     /// <summary>
@@ -112,10 +136,11 @@ public class SceneBootstrapper : MonoBehaviour
     /// </summary>
     private void OnGameStateChanged()
     {
-        scoreWidget.UpdateScore(gameplayController.CurrentScore);
-        levelWidget.UpdateLevel(gameplayController.CurrentLevel);
-        linesWidget.UpdateLines(gameplayController.TotalLinesCleared);
-        nextWidget.UpdateNextPiece(gameplayController.NextPiece);
+        if (gameplayController == null) return;
+        if (scoreWidget != null) scoreWidget.UpdateScore(gameplayController.CurrentScore);
+        if (levelWidget != null) levelWidget.UpdateLevel(gameplayController.CurrentLevel);
+        if (linesWidget != null) linesWidget.UpdateLines(gameplayController.TotalLinesCleared);
+        if (nextWidget != null) nextWidget.UpdateNextPiece(gameplayController.NextPiece);
     }
 
     /// <summary>
@@ -128,8 +153,8 @@ public class SceneBootstrapper : MonoBehaviour
         _pendingScore = score;
         _scoreQualifies = false;
 
-        gameScreen.Hide();
-        gameOverScreen.ShowWithScore(score);
+        if (gameScreen != null) gameScreen.Hide();
+        if (gameOverScreen != null) gameOverScreen.ShowWithScore(score);
 
         // Fetch leaderboard to check qualification
         LeaderboardService.GetScores(
@@ -154,7 +179,7 @@ public class SceneBootstrapper : MonoBehaviour
         if (qualifies)
         {
             _scoreQualifies = true;
-            initialsEntryOverlay.ShowForScore(score);
+            if (initialsEntryOverlay != null) initialsEntryOverlay.ShowForScore(score);
         }
         else
         {
@@ -168,8 +193,8 @@ public class SceneBootstrapper : MonoBehaviour
     /// </summary>
     private void OnContinueRequested()
     {
-        gameOverScreen.Hide();
-        startScreen.Show();
+        if (gameOverScreen != null) gameOverScreen.Hide();
+        if (startScreen != null) startScreen.Show();
         LeaderboardService.GetScores(OnScoresFetched, OnScoresError);
     }
 
@@ -180,8 +205,8 @@ public class SceneBootstrapper : MonoBehaviour
     private void OnInitialsSubmitted(string name, int score)
     {
         LeaderboardService.PostScore(name, score, OnScoresPosted, OnScoresError);
-        gameOverScreen.Hide();
-        initialsEntryOverlay.Hide();
+        if (gameOverScreen != null) gameOverScreen.Hide();
+        if (initialsEntryOverlay != null) initialsEntryOverlay.Hide();
     }
 
     /// <summary>
@@ -191,7 +216,7 @@ public class SceneBootstrapper : MonoBehaviour
     private void OnScoresPosted(LeaderboardEntry[] entries)
     {
         OnScoresFetched(entries);
-        startScreen.Show();
+        if (startScreen != null) startScreen.Show();
     }
 
     /// <summary>
@@ -200,7 +225,7 @@ public class SceneBootstrapper : MonoBehaviour
     /// </summary>
     private void OnScoresFetched(LeaderboardEntry[] entries)
     {
-        leaderboardWidget.Refresh(entries);
+        if (leaderboardWidget != null) leaderboardWidget.Refresh(entries);
     }
 
     /// <summary>
@@ -210,6 +235,6 @@ public class SceneBootstrapper : MonoBehaviour
     private void OnScoresError(string err)
     {
         Debug.LogWarning("[SceneBootstrapper] Leaderboard error: " + err);
-        leaderboardWidget.Refresh(new LeaderboardEntry[0]);
+        if (leaderboardWidget != null) leaderboardWidget.Refresh(new LeaderboardEntry[0]);
     }
 }

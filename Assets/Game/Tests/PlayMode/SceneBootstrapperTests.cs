@@ -377,4 +377,56 @@ public class SceneBootstrapperTests
         Assert.IsFalse(_gameOverScreen.IsVisible);
         Assert.IsTrue(_startScreen.IsVisible);
     }
+    // -----------------------------------------------------------------------
+    // Null safety tests
+    // -----------------------------------------------------------------------
+
+    [UnityTest]
+    public IEnumerator Awake_DoesNotThrow_WhenReferencesNull()
+    {
+        // Create a SceneBootstrapper without wiring any references
+        var manager = new GameObject("GameManager_NoRefs");
+        var bootstrapper = manager.AddComponent<SceneBootstrapper>();
+        // Do NOT set any private fields - leave them all null
+
+        bool threw = false;
+        try
+        {
+            yield return null; // let Awake run
+        }
+        catch
+        {
+            threw = true;
+        }
+
+        Assert.IsFalse(threw, "SceneBootstrapper.Awake should not throw when all references are null");
+        UnityEngine.Object.Destroy(manager);
+    }
+
+    [UnityTest]
+    public IEnumerator Awake_OnlyHidesNonNullScreens()
+    {
+        // Create GameManager with SceneBootstrapper
+        var manager = new GameObject("GameManager_PartialRefs");
+        var bootstrapper = manager.AddComponent<SceneBootstrapper>();
+
+        // Create only StartScreen - leave gameScreen, gameOverScreen, initialsEntryOverlay null
+        var startScreenGo = new GameObject("StartScreen");
+        var startDoc = startScreenGo.AddComponent<UIDocument>();
+        var startScreen = startScreenGo.AddComponent<StartScreen>();
+        var lbRegion = new VisualElement();
+        lbRegion.name = "leaderboard-region";
+        startDoc.rootVisualElement.Add(lbRegion);
+
+        // Wire only startScreen
+        SetPrivateField(bootstrapper, "startScreen", startScreen);
+
+        yield return null; // let Awake run
+
+        Assert.IsTrue(startScreen.IsVisible, "StartScreen should be shown even with partial wiring");
+
+        UnityEngine.Object.Destroy(manager);
+        UnityEngine.Object.Destroy(startScreenGo);
+    }
+
 }
