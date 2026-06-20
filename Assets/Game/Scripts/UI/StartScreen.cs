@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 /// <summary>
@@ -49,7 +50,7 @@ public class StartScreen : BaseScreen
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        if ((Keyboard.current?.enterKey?.wasPressedThisFrame ?? false) || (Keyboard.current?.spaceKey?.wasPressedThisFrame ?? false))
         {
             OnStartRequested?.Invoke();
         }
