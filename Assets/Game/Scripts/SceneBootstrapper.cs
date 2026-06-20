@@ -242,4 +242,40 @@ public class SceneBootstrapper : MonoBehaviour
         Debug.LogWarning("[SceneBootstrapper] Leaderboard error: " + err);
         if (leaderboardWidget != null) leaderboardWidget.Refresh(new LeaderboardEntry[0]);
     }
+
+    // -----------------------------------------------------------------------
+    // QA Navigation Contract -- public methods called by reflection
+    // -----------------------------------------------------------------------
+
+    /// <summary>
+    /// QA entry point: begins gameplay.
+    /// Hides the start screen, shows the game screen, and starts the game controller.
+    /// </summary>
+    public void StartGame()
+    {
+        if (startScreen != null) startScreen.Hide();
+        if (gameScreen != null) gameScreen.Show();
+        if (gameplayController != null) gameplayController.StartGame();
+    }
+
+    /// <summary>
+    /// QA entry point: triggers game over state.
+    /// Uses GameplayController.TriggerGameOver to fire the game over flow with score 0.
+    /// </summary>
+    public void GoToGameOver()
+    {
+        if (gameplayController != null) gameplayController.TriggerGameOver(0);
+    }
+
+    /// <summary>
+    /// QA entry point: returns to the start screen.
+    /// Hides the game screen and game over screen, then shows the start screen.
+    /// </summary>
+    public void GoToStart()
+    {
+        if (gameScreen != null) gameScreen.Hide();
+        if (gameOverScreen != null) gameOverScreen.Hide();
+        if (initialsEntryOverlay != null) initialsEntryOverlay.Hide();
+        if (startScreen != null) startScreen.Show();
+    }
 }
