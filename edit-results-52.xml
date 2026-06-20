@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="133" result="Failed(Child)" total="133" passed="121" failed="12" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.2957635">
+  <test-suite type="TestSuite" id="1000" name="gamefactory_nes-style-tetris-web-browser-game-7651" fullname="gamefactory_nes-style-tetris-web-browser-game-7651" runstate="Runnable" testcasecount="133" result="Failed" site="Child" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.295764" total="133" passed="121" failed="12" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1012" name="com.onetimegames.coresystems.tests.dll" fullname="C:/Users/Zeke/Git/ai-game-factory/Tools/workspace/gamefactory_nes-style-tetris-web-browser-game-7651/Library/ScriptAssemblies/com.onetimegames.coresystems.tests.dll" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.019836" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="30712" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1013" name="OneTimeGames" fullname="OneTimeGames" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.019623" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1014" name="CoreSystems" fullname="OneTimeGames.CoreSystems" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.019521" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1015" name="Tests" fullname="OneTimeGames.CoreSystems.Tests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.019406" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1001" name="GameStateMachineTests" fullname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" classname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" runstate="Runnable" testcasecount="10" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.018819" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1005" name="CurrentState_ReturnsCorrectState" fullname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests.CurrentState_ReturnsCorrectState" methodname="CurrentState_ReturnsCorrectState" classname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" runstate="Runnable" seed="1273823965" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.007316" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="IsInState_ReturnsTrueOnlyForCurrentState" fullname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests.IsInState_ReturnsTrueOnlyForCurrentState" methodname="IsInState_ReturnsTrueOnlyForCurrentState" classname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" runstate="Runnable" seed="641703452" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000297" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1010" name="MultipleTransitions_MaintainsCorrectState" fullname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests.MultipleTransitions_MaintainsCorrectState" methodname="MultipleTransitions_MaintainsCorrectState" classname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" runstate="Runnable" seed="452444747" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000098" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1008" name="NullCallbacks_DoNotThrow" fullname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests.NullCallbacks_DoNotThrow" methodname="NullCallbacks_DoNotThrow" classname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" runstate="Runnable" seed="1320455531" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000087" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1011" name="RegisterState_CanReplaceExistingState" fullname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests.RegisterState_CanReplaceExistingState" methodname="RegisterState_CanReplaceExistingState" classname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" runstate="Runnable" seed="84903218" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000114" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1002" name="RegisterState_StoresCallbacks" fullname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests.RegisterState_StoresCallbacks" methodname="RegisterState_StoresCallbacks" classname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" runstate="Runnable" seed="1184866334" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000092" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1004" name="Tick_CallsOnTickOfCurrentState" fullname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests.Tick_CallsOnTickOfCurrentState" methodname="Tick_CallsOnTickOfCurrentState" classname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" runstate="Runnable" seed="976585238" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000603" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1003" name="TransitionTo_CallsExitThenEnter" fullname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests.TransitionTo_CallsExitThenEnter" methodname="TransitionTo_CallsExitThenEnter" classname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" runstate="Runnable" seed="429617908" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000838" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="TransitionTo_UnregisteredState_ThrowsException" fullname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests.TransitionTo_UnregisteredState_ThrowsException" methodname="TransitionTo_UnregisteredState_ThrowsException" classname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" runstate="Runnable" seed="168114848" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.001337" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1009" name="TransitionTo_WithoutInitialState_OnlyCallsEnter" fullname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests.TransitionTo_WithoutInitialState_OnlyCallsEnter" methodname="TransitionTo_WithoutInitialState_OnlyCallsEnter" classname="OneTimeGames.CoreSystems.Tests.GameStateMachineTests" runstate="Runnable" seed="864595875" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000202" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1145" name="GameTests.EditMode.dll" fullname="C:/Users/Zeke/Git/ai-game-factory/Tools/workspace/gamefactory_nes-style-tetris-web-browser-game-7651/Library/ScriptAssemblies/GameTests.EditMode.dll" runstate="Runnable" testcasecount="123" result="Failed" site="Child" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.271002" total="123" passed="111" failed="12" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="30712" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestFixture" id="1016" name="GameplayControllerTests" fullname="GameplayControllerTests" classname="GameplayControllerTests" runstate="Runnable" testcasecount="36" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.008180" total="36" passed="36" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1043" name="GameStateMachine_ChangeState_FiresEvent" fullname="GameplayControllerTests.GameStateMachine_ChangeState_FiresEvent" methodname="GameStateMachine_ChangeState_FiresEvent" classname="GameplayControllerTests" runstate="Runnable" seed="107050666" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000347" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1042" name="GameStateMachine_DefaultState_IsWaitingForPiece" fullname="GameplayControllerTests.GameStateMachine_DefaultState_IsWaitingForPiece" methodname="GameStateMachine_DefaultState_IsWaitingForPiece" classname="GameplayControllerTests" runstate="Runnable" seed="1913034465" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000070" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1044" name="GameStateMachine_NewStates_Exist" fullname="GameplayControllerTests.GameStateMachine_NewStates_Exist" methodname="GameStateMachine_NewStates_Exist" classname="GameplayControllerTests" runstate="Runnable" seed="218497726" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000085" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1036" name="Gravity_Level0_Is48FramesPerRow" fullname="GameplayControllerTests.Gravity_Level0_Is48FramesPerRow" methodname="Gravity_Level0_Is48FramesPerRow" classname="GameplayControllerTests" runstate="Runnable" seed="2013563824" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000155" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1037" name="Gravity_Level1_Is43FramesPerRow" fullname="GameplayControllerTests.Gravity_Level1_Is43FramesPerRow" methodname="Gravity_Level1_Is43FramesPerRow" classname="GameplayControllerTests" runstate="Runnable" seed="1054160835" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000043" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1039" name="Gravity_Level10_Is5FramesPerRow" fullname="GameplayControllerTests.Gravity_Level10_Is5FramesPerRow" methodname="Gravity_Level10_Is5FramesPerRow" classname="GameplayControllerTests" runstate="Runnable" seed="1529759663" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000033" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1040" name="Gravity_Level29_Is1FramePerRow" fullname="GameplayControllerTests.Gravity_Level29_Is1FramePerRow" methodname="Gravity_Level29_Is1FramePerRow" classname="GameplayControllerTests" runstate="Runnable" seed="1163911764" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000031" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1041" name="Gravity_Level30_ClampedToLevel29" fullname="GameplayControllerTests.Gravity_Level30_ClampedToLevel29" methodname="Gravity_Level30_ClampedToLevel29" classname="GameplayControllerTests" runstate="Runnable" seed="121725581" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000061" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1038" name="Gravity_Level9_Is6FramesPerRow" fullname="GameplayControllerTests.Gravity_Level9_Is6FramesPerRow" methodname="Gravity_Level9_Is6FramesPerRow" classname="GameplayControllerTests" runstate="Runnable" seed="2105479624" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000034" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1030" name="LevelProgression_0Lines_IsLevel0" fullname="GameplayControllerTests.LevelProgression_0Lines_IsLevel0" methodname="LevelProgression_0Lines_IsLevel0" classname="GameplayControllerTests" runstate="Runnable" seed="396788698" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000035" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1032" name="LevelProgression_10Lines_IsLevel1" fullname="GameplayControllerTests.LevelProgression_10Lines_IsLevel1" methodname="LevelProgression_10Lines_IsLevel1" classname="GameplayControllerTests" runstate="Runnable" seed="645218732" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000035" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1033" name="LevelProgression_19Lines_IsLevel1" fullname="GameplayControllerTests.LevelProgression_19Lines_IsLevel1" methodname="LevelProgression_19Lines_IsLevel1" classname="GameplayControllerTests" runstate="Runnable" seed="1831919991" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000032" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1034" name="LevelProgression_20Lines_IsLevel2" fullname="GameplayControllerTests.LevelProgression_20Lines_IsLevel2" methodname="LevelProgression_20Lines_IsLevel2" classname="GameplayControllerTests" runstate="Runnable" seed="2024083749" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000031" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1035" name="LevelProgression_50Lines_IsLevel5" fullname="GameplayControllerTests.LevelProgression_50Lines_IsLevel5" methodname="LevelProgression_50Lines_IsLevel5" classname="GameplayControllerTests" runstate="Runnable" seed="156767909" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000030" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1031" name="LevelProgression_9Lines_IsLevel0" fullname="GameplayControllerTests.LevelProgression_9Lines_IsLevel0" methodname="LevelProgression_9Lines_IsLevel0" classname="GameplayControllerTests" runstate="Runnable" seed="1131057038" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000030" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1018" name="PieceRandomizer_7Bag_ContainsAllTypes" fullname="GameplayControllerTests.PieceRandomizer_7Bag_ContainsAllTypes" methodname="PieceRandomizer_7Bag_ContainsAllTypes" classname="GameplayControllerTests" runstate="Runnable" seed="1013733010" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.001243" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1019" name="PieceRandomizer_7Bag_NoDuplicatesInFirstBag" fullname="GameplayControllerTests.PieceRandomizer_7Bag_NoDuplicatesInFirstBag" methodname="PieceRandomizer_7Bag_NoDuplicatesInFirstBag" classname="GameplayControllerTests" runstate="Runnable" seed="1858790547" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000663" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1017" name="PieceRandomizer_Next_ReturnsValidPieceType" fullname="GameplayControllerTests.PieceRandomizer_Next_ReturnsValidPieceType" methodname="PieceRandomizer_Next_ReturnsValidPieceType" classname="GameplayControllerTests" runstate="Runnable" seed="1469429455" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000150" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1021" name="PieceRandomizer_Peek_DoesNotConsume" fullname="GameplayControllerTests.PieceRandomizer_Peek_DoesNotConsume" methodname="PieceRandomizer_Peek_DoesNotConsume" classname="GameplayControllerTests" runstate="Runnable" seed="605711944" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000111" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1020" name="PieceRandomizer_Peek_ReturnsSameAsNext" fullname="GameplayControllerTests.PieceRandomizer_Peek_ReturnsSameAsNext" methodname="PieceRandomizer_Peek_ReturnsSameAsNext" classname="GameplayControllerTests" runstate="Runnable" seed="1411758288" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000059" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1022" name="PieceRandomizer_SecondBag_AfterFirstBagExhausted" fullname="GameplayControllerTests.PieceRandomizer_SecondBag_AfterFirstBagExhausted" methodname="PieceRandomizer_SecondBag_AfterFirstBagExhausted" classname="GameplayControllerTests" runstate="Runnable" seed="250370588" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000063" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1024" name="Scoring_DoubleLine_AtLevel0_Adds100" fullname="GameplayControllerTests.Scoring_DoubleLine_AtLevel0_Adds100" methodname="Scoring_DoubleLine_AtLevel0_Adds100" classname="GameplayControllerTests" runstate="Runnable" seed="6362915" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000078" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1023" name="Scoring_SingleLine_AtLevel0_Adds40" fullname="GameplayControllerTests.Scoring_SingleLine_AtLevel0_Adds40" methodname="Scoring_SingleLine_AtLevel0_Adds40" classname="GameplayControllerTests" runstate="Runnable" seed="505898024" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000044" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1028" name="Scoring_SingleLine_AtLevel9_Adds400" fullname="GameplayControllerTests.Scoring_SingleLine_AtLevel9_Adds400" methodname="Scoring_SingleLine_AtLevel9_Adds400" classname="GameplayControllerTests" runstate="Runnable" seed="1223406796" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000039" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1026" name="Scoring_Tetris_AtLevel0_Adds1200" fullname="GameplayControllerTests.Scoring_Tetris_AtLevel0_Adds1200" methodname="Scoring_Tetris_AtLevel0_Adds1200" classname="GameplayControllerTests" runstate="Runnable" seed="1379722088" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000037" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1027" name="Scoring_Tetris_AtLevel1_Adds2400" fullname="GameplayControllerTests.Scoring_Tetris_AtLevel1_Adds2400" methodname="Scoring_Tetris_AtLevel1_Adds2400" classname="GameplayControllerTests" runstate="Runnable" seed="262089447" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000036" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1025" name="Scoring_TripleLine_AtLevel0_Adds300" fullname="GameplayControllerTests.Scoring_TripleLine_AtLevel0_Adds300" methodname="Scoring_TripleLine_AtLevel0_Adds300" classname="GameplayControllerTests" runstate="Runnable" seed="1283912569" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000036" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1029" name="Scoring_ZeroLines_Returns0" fullname="GameplayControllerTests.Scoring_ZeroLines_Returns0" methodname="Scoring_ZeroLines_Returns0" classname="GameplayControllerTests" runstate="Runnable" seed="544259850" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000041" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1048" name="SimulatedGame_After10Lines_LevelBecomes1" fullname="GameplayControllerTests.SimulatedGame_After10Lines_LevelBecomes1" methodname="SimulatedGame_After10Lines_LevelBecomes1" classname="GameplayControllerTests" runstate="Runnable" seed="1917754173" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.001133" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1047" name="SimulatedGame_ClearingFourLines_AtLevel0_Adds1200" fullname="GameplayControllerTests.SimulatedGame_ClearingFourLines_AtLevel0_Adds1200" methodname="SimulatedGame_ClearingFourLines_AtLevel0_Adds1200" classname="GameplayControllerTests" runstate="Runnable" seed="1404083945" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000108" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1046" name="SimulatedGame_ClearingOneLine_AtLevel0_Adds40" fullname="GameplayControllerTests.SimulatedGame_ClearingOneLine_AtLevel0_Adds40" methodname="SimulatedGame_ClearingOneLine_AtLevel0_Adds40" classname="GameplayControllerTests" runstate="Runnable" seed="1120837430" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000090" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1051" name="SimulatedGame_ExtendedPlay_NoExceptions" fullname="GameplayControllerTests.SimulatedGame_ExtendedPlay_NoExceptions" methodname="SimulatedGame_ExtendedPlay_NoExceptions" classname="GameplayControllerTests" runstate="Runnable" seed="432612100" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000062" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1050" name="SimulatedGame_GameOver_FiresWithFinalScore" fullname="GameplayControllerTests.SimulatedGame_GameOver_FiresWithFinalScore" methodname="SimulatedGame_GameOver_FiresWithFinalScore" classname="GameplayControllerTests" runstate="Runnable" seed="1007290357" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000083" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1052" name="SimulatedGame_MultiplePieces_PlayContinues" fullname="GameplayControllerTests.SimulatedGame_MultiplePieces_PlayContinues" methodname="SimulatedGame_MultiplePieces_PlayContinues" classname="GameplayControllerTests" runstate="Runnable" seed="1414037782" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000595" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1045" name="SimulatedGame_StartGame_ResetsScoreAndLines" fullname="GameplayControllerTests.SimulatedGame_StartGame_ResetsScoreAndLines" methodname="SimulatedGame_StartGame_ResetsScoreAndLines" classname="GameplayControllerTests" runstate="Runnable" seed="448932314" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000102" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1049" name="SimulatedGame_StateChanges_FireCorrectly" fullname="GameplayControllerTests.SimulatedGame_StateChanges_FireCorrectly" methodname="SimulatedGame_StateChanges_FireCorrectly" classname="GameplayControllerTests" runstate="Runnable" seed="1590761259" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000067" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1053" name="InitialsEntryOverlayTests" fullname="InitialsEntryOverlayTests" classname="InitialsEntryOverlayTests" runstate="Runnable" testcasecount="16" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.002082" total="16" passed="16" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1058" name="CharacterSet_ContainsAllDigits" fullname="InitialsEntryOverlayTests.CharacterSet_ContainsAllDigits" methodname="CharacterSet_ContainsAllDigits" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1088055493" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000119" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1057" name="CharacterSet_ContainsAllLetters" fullname="InitialsEntryOverlayTests.CharacterSet_ContainsAllLetters" methodname="CharacterSet_ContainsAllLetters" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="624973339" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000131" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1056" name="CharacterSet_EndsWith9" fullname="InitialsEntryOverlayTests.CharacterSet_EndsWith9" methodname="CharacterSet_EndsWith9" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1670375370" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000108" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1054" name="CharacterSet_Has36Characters" fullname="InitialsEntryOverlayTests.CharacterSet_Has36Characters" methodname="CharacterSet_Has36Characters" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="878698086" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000048" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1055" name="CharacterSet_StartsWithA" fullname="InitialsEntryOverlayTests.CharacterSet_StartsWithA" methodname="CharacterSet_StartsWithA" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="216883479" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000042" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1063" name="CycleBackward_From0_GivesZ" fullname="InitialsEntryOverlayTests.CycleBackward_From0_GivesZ" methodname="CycleBackward_From0_GivesZ" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1492141245" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000059" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1062" name="CycleBackward_FromA_Gives9" fullname="InitialsEntryOverlayTests.CycleBackward_FromA_Gives9" methodname="CycleBackward_FromA_Gives9" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="555575351" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000068" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1064" name="CycleBackward_FromB_GivesA" fullname="InitialsEntryOverlayTests.CycleBackward_FromB_GivesA" methodname="CycleBackward_FromB_GivesA" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="184005059" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000052" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1061" name="CycleForward_From9_GivesA" fullname="InitialsEntryOverlayTests.CycleForward_From9_GivesA" methodname="CycleForward_From9_GivesA" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1171471746" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000048" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1059" name="CycleForward_FromA_GivesB" fullname="InitialsEntryOverlayTests.CycleForward_FromA_GivesB" methodname="CycleForward_FromA_GivesB" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1980888619" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000043" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1060" name="CycleForward_FromZ_Gives0" fullname="InitialsEntryOverlayTests.CycleForward_FromZ_Gives0" methodname="CycleForward_FromZ_Gives0" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="2021882504" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000041" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1067" name="DefaultInitials_AreAAA" fullname="InitialsEntryOverlayTests.DefaultInitials_AreAAA" methodname="DefaultInitials_AreAAA" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="1194624652" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000088" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1065" name="InitialsString_ConstructedCorrectly" fullname="InitialsEntryOverlayTests.InitialsString_ConstructedCorrectly" methodname="InitialsString_ConstructedCorrectly" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="446960383" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000045" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1066" name="InitialsString_WithDigits" fullname="InitialsEntryOverlayTests.InitialsString_WithDigits" methodname="InitialsString_WithDigits" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="856921953" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000039" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1068" name="SlotAdvancement_SequenceIsCorrect" fullname="InitialsEntryOverlayTests.SlotAdvancement_SequenceIsCorrect" methodname="SlotAdvancement_SequenceIsCorrect" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="93424148" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000055" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1069" name="SlotMoveBack_SequenceIsCorrect" fullname="InitialsEntryOverlayTests.SlotMoveBack_SequenceIsCorrect" methodname="SlotMoveBack_SequenceIsCorrect" classname="InitialsEntryOverlayTests" runstate="Runnable" seed="603860811" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000060" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1070" name="LeaderboardEntryTests" fullname="LeaderboardEntryTests" classname="LeaderboardEntryTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000881" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-case id="1072" name="Constructor_AcceptsShortName" fullname="LeaderboardEntryTests.Constructor_AcceptsShortName" methodname="Constructor_AcceptsShortName" classname="LeaderboardEntryTests" runstate="Runnable" seed="1372914231" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000089" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1071" name="Constructor_SetsNameAndScore" fullname="LeaderboardEntryTests.Constructor_SetsNameAndScore" methodname="Constructor_SetsNameAndScore" classname="LeaderboardEntryTests" runstate="Runnable" seed="1518028262" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000045" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1076" name="NullName_ProducesPlaceholderText" fullname="LeaderboardEntryTests.NullName_ProducesPlaceholderText" methodname="NullName_ProducesPlaceholderText" classname="LeaderboardEntryTests" runstate="Runnable" seed="317301448" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000063" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1074" name="Score_AllSevenDigits" fullname="LeaderboardEntryTests.Score_AllSevenDigits" methodname="Score_AllSevenDigits" classname="LeaderboardEntryTests" runstate="Runnable" seed="284525656" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000117" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1075" name="Score_ZeroDisplaysAsSevenZeros" fullname="LeaderboardEntryTests.Score_ZeroDisplaysAsSevenZeros" methodname="Score_ZeroDisplaysAsSevenZeros" classname="LeaderboardEntryTests" runstate="Runnable" seed="743944593" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000056" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1073" name="Score_ZeroPaddedToSevenDigits" fullname="LeaderboardEntryTests.Score_ZeroPaddedToSevenDigits" methodname="Score_ZeroPaddedToSevenDigits" classname="LeaderboardEntryTests" runstate="Runnable" seed="271477467" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000047" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1077" name="LeaderboardServiceTests" fullname="LeaderboardServiceTests" classname="LeaderboardServiceTests" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.246735" total="5" passed="4" failed="1" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1082" name="GetScores_CallbackBased_ErrorCallbackReceivesMessage" fullname="LeaderboardServiceTests.GetScores_CallbackBased_ErrorCallbackReceivesMessage" methodname="GetScores_CallbackBased_ErrorCallbackReceivesMessage" classname="LeaderboardServiceTests" runstate="Runnable" seed="260451733" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.137284" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <reason>
+            <message><![CDATA[Callback-based GetScores did not throw]]></message>
+          </reason>
+        </test-case>
+        <test-case id="1081" name="GetScores_CallbackBased_InvokesSuccessCallback" fullname="LeaderboardServiceTests.GetScores_CallbackBased_InvokesSuccessCallback" methodname="GetScores_CallbackBased_InvokesSuccessCallback" classname="LeaderboardServiceTests" runstate="Runnable" seed="1862581516" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.105848" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Either success or error callback should be invoked
+  Expected: True
+  But was:  False
+]]></message>
+            <stack-trace><![CDATA[at LeaderboardServiceTests.GetScores_CallbackBased_InvokesSuccessCallback () [0x0003f] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\LeaderboardServiceTests.cs:64
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1079" name="GetScores_SyncEntriesHaveValidData" fullname="LeaderboardServiceTests.GetScores_SyncEntriesHaveValidData" methodname="GetScores_SyncEntriesHaveValidData" classname="LeaderboardServiceTests" runstate="Runnable" seed="213170664" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000989" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1080" name="GetScores_SyncEntriesSortedDescending" fullname="LeaderboardServiceTests.GetScores_SyncEntriesSortedDescending" methodname="GetScores_SyncEntriesSortedDescending" classname="LeaderboardServiceTests" runstate="Runnable" seed="942080203" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000081" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1078" name="GetScores_SyncReturnsDefaultEntries" fullname="LeaderboardServiceTests.GetScores_SyncReturnsDefaultEntries" methodname="GetScores_SyncReturnsDefaultEntries" classname="LeaderboardServiceTests" runstate="Runnable" seed="1157707568" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000137" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1083" name="PieceMovementControllerTests" fullname="PieceMovementControllerTests" classname="PieceMovementControllerTests" runstate="Runnable" testcasecount="29" result="Failed" site="Child" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.006309" total="29" passed="22" failed="7" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1099" name="AutoRepeat_LeftHold_MovesImmediatelyOnFirstFrame" fullname="PieceMovementControllerTests.AutoRepeat_LeftHold_MovesImmediatelyOnFirstFrame" methodname="AutoRepeat_LeftHold_MovesImmediatelyOnFirstFrame" classname="PieceMovementControllerTests" runstate="Runnable" seed="2126292689" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000197" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1101" name="AutoRepeat_LeftHold_RepeatsEvery6Frames" fullname="PieceMovementControllerTests.AutoRepeat_LeftHold_RepeatsEvery6Frames" methodname="AutoRepeat_LeftHold_RepeatsEvery6Frames" classname="PieceMovementControllerTests" runstate="Runnable" seed="1985588679" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000135" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1100" name="AutoRepeat_LeftHold_Waits16FramesBeforeRepeat" fullname="PieceMovementControllerTests.AutoRepeat_LeftHold_Waits16FramesBeforeRepeat" methodname="AutoRepeat_LeftHold_Waits16FramesBeforeRepeat" classname="PieceMovementControllerTests" runstate="Runnable" seed="1655946160" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000122" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1103" name="AutoRepeat_ReleaseResetsCounter" fullname="PieceMovementControllerTests.AutoRepeat_ReleaseResetsCounter" methodname="AutoRepeat_ReleaseResetsCounter" classname="PieceMovementControllerTests" runstate="Runnable" seed="927670" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000111" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1102" name="AutoRepeat_RightHold_SameBehaviorAsLeft" fullname="PieceMovementControllerTests.AutoRepeat_RightHold_SameBehaviorAsLeft" methodname="AutoRepeat_RightHold_SameBehaviorAsLeft" classname="PieceMovementControllerTests" runstate="Runnable" seed="676759802" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000117" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1112" name="CurrentPiece_ReturnsSpawnedPiece" fullname="PieceMovementControllerTests.CurrentPiece_ReturnsSpawnedPiece" methodname="CurrentPiece_ReturnsSpawnedPiece" classname="PieceMovementControllerTests" runstate="Runnable" seed="98331201" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000085" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1089" name="Gravity_PieceFallsAtCorrectRate_ForHigherLevels" fullname="PieceMovementControllerTests.Gravity_PieceFallsAtCorrectRate_ForHigherLevels" methodname="Gravity_PieceFallsAtCorrectRate_ForHigherLevels" classname="PieceMovementControllerTests" runstate="Runnable" seed="56106270" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000101" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1090" name="Gravity_PieceFallsContinuously" fullname="PieceMovementControllerTests.Gravity_PieceFallsContinuously" methodname="Gravity_PieceFallsContinuously" classname="PieceMovementControllerTests" runstate="Runnable" seed="672964400" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000102" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1088" name="Gravity_PieceFallsOneRow_After48FramesAtLevel0" fullname="PieceMovementControllerTests.Gravity_PieceFallsOneRow_After48FramesAtLevel0" methodname="Gravity_PieceFallsOneRow_After48FramesAtLevel0" classname="PieceMovementControllerTests" runstate="Runnable" seed="1944776900" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000100" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1111" name="Integration_MoveWhileFalling" fullname="PieceMovementControllerTests.Integration_MoveWhileFalling" methodname="Integration_MoveWhileFalling" classname="PieceMovementControllerTests" runstate="Runnable" seed="647066248" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000126" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1110" name="Integration_SpawnFallLockCycle" fullname="PieceMovementControllerTests.Integration_SpawnFallLockCycle" methodname="Integration_SpawnFallLockCycle" classname="PieceMovementControllerTests" runstate="Runnable" seed="1085121005" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000183" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1093" name="Lock_NoArtificialDelay_AfterLanding" fullname="PieceMovementControllerTests.Lock_NoArtificialDelay_AfterLanding" methodname="Lock_NoArtificialDelay_AfterLanding" classname="PieceMovementControllerTests" runstate="Runnable" seed="1002783379" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000159" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1092" name="Lock_OnPieceLockedFiresWithCorrectState" fullname="PieceMovementControllerTests.Lock_OnPieceLockedFiresWithCorrectState" methodname="Lock_OnPieceLockedFiresWithCorrectState" classname="PieceMovementControllerTests" runstate="Runnable" seed="1373584482" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000206" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+            <stack-trace><![CDATA[at PieceMovementControllerTests.Lock_OnPieceLockedFiresWithCorrectState () [0x00080] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\PieceMovementControllerTests.cs:187
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1094" name="Lock_PieceCellsAreWrittenToGrid" fullname="PieceMovementControllerTests.Lock_PieceCellsAreWrittenToGrid" methodname="Lock_PieceCellsAreWrittenToGrid" classname="PieceMovementControllerTests" runstate="Runnable" seed="1680004114" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000217" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1091" name="Lock_PieceLocksOnNextGravityTick_AfterLanding" fullname="PieceMovementControllerTests.Lock_PieceLocksOnNextGravityTick_AfterLanding" methodname="Lock_PieceLocksOnNextGravityTick_AfterLanding" classname="PieceMovementControllerTests" runstate="Runnable" seed="1015916203" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000190" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Piece should have locked
+  Expected: True
+  But was:  False
+]]></message>
+            <stack-trace><![CDATA[at PieceMovementControllerTests.Lock_PieceLocksOnNextGravityTick_AfterLanding () [0x00085] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\PieceMovementControllerTests.cs:161
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1097" name="MoveLeft_BlockedByWall" fullname="PieceMovementControllerTests.MoveLeft_BlockedByWall" methodname="MoveLeft_BlockedByWall" classname="PieceMovementControllerTests" runstate="Runnable" seed="347331204" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000411" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Piece should stop at left wall
+  Expected: 0
+  But was:  2
+]]></message>
+            <stack-trace><![CDATA[at PieceMovementControllerTests.MoveLeft_BlockedByWall () [0x00028] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\PieceMovementControllerTests.cs:295
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1095" name="MoveLeft_PieceMovesOneColumn" fullname="PieceMovementControllerTests.MoveLeft_PieceMovesOneColumn" methodname="MoveLeft_PieceMovesOneColumn" classname="PieceMovementControllerTests" runstate="Runnable" seed="28526668" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000097" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1098" name="MoveRight_BlockedByWall" fullname="PieceMovementControllerTests.MoveRight_BlockedByWall" methodname="MoveRight_BlockedByWall" classname="PieceMovementControllerTests" runstate="Runnable" seed="1638043959" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000157" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Piece should stop at right wall
+  Expected: 8
+  But was:  6
+]]></message>
+            <stack-trace><![CDATA[at PieceMovementControllerTests.MoveRight_BlockedByWall () [0x00028] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\PieceMovementControllerTests.cs:310
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1096" name="MoveRight_PieceMovesOneColumn" fullname="PieceMovementControllerTests.MoveRight_PieceMovesOneColumn" methodname="MoveRight_PieceMovesOneColumn" classname="PieceMovementControllerTests" runstate="Runnable" seed="1300076379" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000083" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1105" name="Rotation_BlockedByWall_NoKick" fullname="PieceMovementControllerTests.Rotation_BlockedByWall_NoKick" methodname="Rotation_BlockedByWall_NoKick" classname="PieceMovementControllerTests" runstate="Runnable" seed="1153286781" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000092" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1104" name="Rotation_ChangesRotationState" fullname="PieceMovementControllerTests.Rotation_ChangesRotationState" methodname="Rotation_ChangesRotationState" classname="PieceMovementControllerTests" runstate="Runnable" seed="1257585681" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000137" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 2
+  But was:  1
+]]></message>
+            <stack-trace><![CDATA[at PieceMovementControllerTests.Rotation_ChangesRotationState () [0x0004a] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\PieceMovementControllerTests.cs:438
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1106" name="Rotation_NoAutoRepeat" fullname="PieceMovementControllerTests.Rotation_NoAutoRepeat" methodname="Rotation_NoAutoRepeat" classname="PieceMovementControllerTests" runstate="Runnable" seed="1037535120" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000140" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 2
+  But was:  1
+]]></message>
+            <stack-trace><![CDATA[at PieceMovementControllerTests.Rotation_NoAutoRepeat () [0x0006a] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\PieceMovementControllerTests.cs:471
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1108" name="SoftDrop_OverridesNormalGravityRate" fullname="PieceMovementControllerTests.SoftDrop_OverridesNormalGravityRate" methodname="SoftDrop_OverridesNormalGravityRate" classname="PieceMovementControllerTests" runstate="Runnable" seed="2054298539" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000085" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1107" name="SoftDrop_PieceFallsEveryFrame" fullname="PieceMovementControllerTests.SoftDrop_PieceFallsEveryFrame" methodname="SoftDrop_PieceFallsEveryFrame" classname="PieceMovementControllerTests" runstate="Runnable" seed="529455151" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000082" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1087" name="SpawnPiece_EveryType_SpawnsSuccessfullyOnClearField" fullname="PieceMovementControllerTests.SpawnPiece_EveryType_SpawnsSuccessfullyOnClearField" methodname="SpawnPiece_EveryType_SpawnsSuccessfullyOnClearField" classname="PieceMovementControllerTests" runstate="Runnable" seed="531724927" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000330" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  SpawnPiece(S) should not fail on clear field
+  Expected: False
+  But was:  True
+]]></message>
+            <stack-trace><![CDATA[at PieceMovementControllerTests.SpawnPiece_EveryType_SpawnsSuccessfullyOnClearField () [0x00058] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\PieceMovementControllerTests.cs:74
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1086" name="SpawnPiece_OnSpawnFailedFired_WhenSpawnPositionIsBlocked" fullname="PieceMovementControllerTests.SpawnPiece_OnSpawnFailedFired_WhenSpawnPositionIsBlocked" methodname="SpawnPiece_OnSpawnFailedFired_WhenSpawnPositionIsBlocked" classname="PieceMovementControllerTests" runstate="Runnable" seed="40966874" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000119" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1085" name="SpawnPiece_OnSpawnFailedNotFired_WhenSpawnIsClear" fullname="PieceMovementControllerTests.SpawnPiece_OnSpawnFailedNotFired_WhenSpawnIsClear" methodname="SpawnPiece_OnSpawnFailedNotFired_WhenSpawnIsClear" classname="PieceMovementControllerTests" runstate="Runnable" seed="1419511764" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000120" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1084" name="SpawnPiece_PlacesAtCorrectPosition" fullname="PieceMovementControllerTests.SpawnPiece_PlacesAtCorrectPosition" methodname="SpawnPiece_PlacesAtCorrectPosition" classname="PieceMovementControllerTests" runstate="Runnable" seed="1368494038" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000095" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1109" name="Tick_WithoutActivePiece_DoesNothing" fullname="PieceMovementControllerTests.Tick_WithoutActivePiece_DoesNothing" methodname="Tick_WithoutActivePiece_DoesNothing" classname="PieceMovementControllerTests" runstate="Runnable" seed="981360402" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000084" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+      </test-suite>
+      <test-suite type="TestFixture" id="1113" name="PlayfieldModelTests" fullname="PlayfieldModelTests" classname="PlayfieldModelTests" runstate="Runnable" testcasecount="31" result="Failed" site="Child" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.005554" total="31" passed="27" failed="4" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-case id="1143" name="CellCount_EveryType_HasFourCells" fullname="PlayfieldModelTests.CellCount_EveryType_HasFourCells" methodname="CellCount_EveryType_HasFourCells" classname="PlayfieldModelTests" runstate="Runnable" seed="1243027661" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000188" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1142" name="Clear_ResetsAllCellsToZero" fullname="PlayfieldModelTests.Clear_ResetsAllCellsToZero" methodname="Clear_ResetsAllCellsToZero" classname="PlayfieldModelTests" runstate="Runnable" seed="119358400" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000332" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1135" name="ClearLines_FourFullRows_ReturnsFour" fullname="PlayfieldModelTests.ClearLines_FourFullRows_ReturnsFour" methodname="ClearLines_FourFullRows_ReturnsFour" classname="PlayfieldModelTests" runstate="Runnable" seed="1226513679" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000206" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 4
+  But was:  5
+]]></message>
+            <stack-trace><![CDATA[at PlayfieldModelTests.ClearLines_FourFullRows_ReturnsFour () [0x00051] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\PlayfieldModelTests.cs:357
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1132" name="ClearLines_NoFullRows_ReturnsZero" fullname="PlayfieldModelTests.ClearLines_NoFullRows_ReturnsZero" methodname="ClearLines_NoFullRows_ReturnsZero" classname="PlayfieldModelTests" runstate="Runnable" seed="230912323" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000086" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1133" name="ClearLines_OneFullRow_ReturnsOne" fullname="PlayfieldModelTests.ClearLines_OneFullRow_ReturnsOne" methodname="ClearLines_OneFullRow_ReturnsOne" classname="PlayfieldModelTests" runstate="Runnable" seed="886787929" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000172" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 5
+  But was:  0
+]]></message>
+            <stack-trace><![CDATA[at PlayfieldModelTests.ClearLines_OneFullRow_ReturnsOne () [0x0007d] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\PlayfieldModelTests.cs:298
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1136" name="ClearLines_ScatteredRows_MultipleCleared" fullname="PlayfieldModelTests.ClearLines_ScatteredRows_MultipleCleared" methodname="ClearLines_ScatteredRows_MultipleCleared" classname="PlayfieldModelTests" runstate="Runnable" seed="1232374721" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000177" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1134" name="ClearLines_SingleRow_RowAboveShiftsDown" fullname="PlayfieldModelTests.ClearLines_SingleRow_RowAboveShiftsDown" methodname="ClearLines_SingleRow_RowAboveShiftsDown" classname="PlayfieldModelTests" runstate="Runnable" seed="503511696" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000196" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 1
+  But was:  2
+]]></message>
+            <stack-trace><![CDATA[at PlayfieldModelTests.ClearLines_SingleRow_RowAboveShiftsDown () [0x00053] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\PlayfieldModelTests.cs:320
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1114" name="FreshGrid_AllCellsAreEmpty" fullname="PlayfieldModelTests.FreshGrid_AllCellsAreEmpty" methodname="FreshGrid_AllCellsAreEmpty" classname="PlayfieldModelTests" runstate="Runnable" seed="495266983" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000438" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1121" name="IsInBounds_ColEqualToWidth_ReturnsFalse" fullname="PlayfieldModelTests.IsInBounds_ColEqualToWidth_ReturnsFalse" methodname="IsInBounds_ColEqualToWidth_ReturnsFalse" classname="PlayfieldModelTests" runstate="Runnable" seed="1451463926" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000090" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1122" name="IsInBounds_FarOutOfBounds_ReturnsFalse" fullname="PlayfieldModelTests.IsInBounds_FarOutOfBounds_ReturnsFalse" methodname="IsInBounds_FarOutOfBounds_ReturnsFalse" classname="PlayfieldModelTests" runstate="Runnable" seed="1606289402" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000049" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1120" name="IsInBounds_NegativeCol_ReturnsFalse" fullname="PlayfieldModelTests.IsInBounds_NegativeCol_ReturnsFalse" methodname="IsInBounds_NegativeCol_ReturnsFalse" classname="PlayfieldModelTests" runstate="Runnable" seed="1320087754" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000044" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1118" name="IsInBounds_NegativeRow_ReturnsFalse" fullname="PlayfieldModelTests.IsInBounds_NegativeRow_ReturnsFalse" methodname="IsInBounds_NegativeRow_ReturnsFalse" classname="PlayfieldModelTests" runstate="Runnable" seed="1046400386" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000048" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1119" name="IsInBounds_RowEqualToHeight_ReturnsFalse" fullname="PlayfieldModelTests.IsInBounds_RowEqualToHeight_ReturnsFalse" methodname="IsInBounds_RowEqualToHeight_ReturnsFalse" classname="PlayfieldModelTests" runstate="Runnable" seed="365287346" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000042" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1117" name="IsInBounds_ValidCoordinates_ReturnsTrue" fullname="PlayfieldModelTests.IsInBounds_ValidCoordinates_ReturnsTrue" methodname="IsInBounds_ValidCoordinates_ReturnsTrue" classname="PlayfieldModelTests" runstate="Runnable" seed="796662885" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000051" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1131" name="IsRowFull_AllNonZero_ReturnsTrue" fullname="PlayfieldModelTests.IsRowFull_AllNonZero_ReturnsTrue" methodname="IsRowFull_AllNonZero_ReturnsTrue" classname="PlayfieldModelTests" runstate="Runnable" seed="178516208" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000073" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1129" name="IsRowFull_EmptyRow_ReturnsFalse" fullname="PlayfieldModelTests.IsRowFull_EmptyRow_ReturnsFalse" methodname="IsRowFull_EmptyRow_ReturnsFalse" classname="PlayfieldModelTests" runstate="Runnable" seed="1425250994" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000045" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1130" name="IsRowFull_OneEmptyCell_ReturnsFalse" fullname="PlayfieldModelTests.IsRowFull_OneEmptyCell_ReturnsFalse" methodname="IsRowFull_OneEmptyCell_ReturnsFalse" classname="PlayfieldModelTests" runstate="Runnable" seed="1162473154" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000068" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1141" name="IsTopOut_AnyColumnInRow2_TriggersTrue" fullname="PlayfieldModelTests.IsTopOut_AnyColumnInRow2_TriggersTrue" methodname="IsTopOut_AnyColumnInRow2_TriggersTrue" classname="PlayfieldModelTests" runstate="Runnable" seed="1168193193" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000113" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1139" name="IsTopOut_CellInRow0_ReturnsFalse" fullname="PlayfieldModelTests.IsTopOut_CellInRow0_ReturnsFalse" methodname="IsTopOut_CellInRow0_ReturnsFalse" classname="PlayfieldModelTests" runstate="Runnable" seed="1216120867" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000063" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1140" name="IsTopOut_CellInRow1_ReturnsFalse" fullname="PlayfieldModelTests.IsTopOut_CellInRow1_ReturnsFalse" methodname="IsTopOut_CellInRow1_ReturnsFalse" classname="PlayfieldModelTests" runstate="Runnable" seed="863018477" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000050" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1138" name="IsTopOut_CellInRow2_ReturnsTrue" fullname="PlayfieldModelTests.IsTopOut_CellInRow2_ReturnsTrue" methodname="IsTopOut_CellInRow2_ReturnsTrue" classname="PlayfieldModelTests" runstate="Runnable" seed="1097736634" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000052" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1137" name="IsTopOut_FreshGrid_ReturnsFalse" fullname="PlayfieldModelTests.IsTopOut_FreshGrid_ReturnsFalse" methodname="IsTopOut_FreshGrid_ReturnsFalse" classname="PlayfieldModelTests" runstate="Runnable" seed="867015444" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000042" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1128" name="LockPiece_EachTypeUsesCorrectValue" fullname="PlayfieldModelTests.LockPiece_EachTypeUsesCorrectValue" methodname="LockPiece_EachTypeUsesCorrectValue" classname="PlayfieldModelTests" runstate="Runnable" seed="279737355" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000147" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1123" name="LockPiece_I_PointsCorrectCells" fullname="PlayfieldModelTests.LockPiece_I_PointsCorrectCells" methodname="LockPiece_I_PointsCorrectCells" classname="PlayfieldModelTests" runstate="Runnable" seed="1482119090" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000156" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1124" name="LockPiece_O_PointsCorrectCells" fullname="PlayfieldModelTests.LockPiece_O_PointsCorrectCells" methodname="LockPiece_O_PointsCorrectCells" classname="PlayfieldModelTests" runstate="Runnable" seed="1446654477" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000173" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1127" name="LockPiece_OnlyWritesWithinBounds" fullname="PlayfieldModelTests.LockPiece_OnlyWritesWithinBounds" methodname="LockPiece_OnlyWritesWithinBounds" classname="PlayfieldModelTests" runstate="Runnable" seed="925480377" result="Failed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000218" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <failure>
+            <message><![CDATA[  Expected: 0
+  But was:  1
+]]></message>
+            <stack-trace><![CDATA[at PlayfieldModelTests.LockPiece_OnlyWritesWithinBounds () [0x00038] in C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\Assets\Game\Tests\EditMode\PlayfieldModelTests.cs:198
+]]></stack-trace>
+          </failure>
+        </test-case>
+        <test-case id="1126" name="LockPiece_OverwritesExistingCells" fullname="PlayfieldModelTests.LockPiece_OverwritesExistingCells" methodname="LockPiece_OverwritesExistingCells" classname="PlayfieldModelTests" runstate="Runnable" seed="1177525112" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000097" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1125" name="LockPiece_T_PointsCorrectCells" fullname="PlayfieldModelTests.LockPiece_T_PointsCorrectCells" methodname="LockPiece_T_PointsCorrectCells" classname="PlayfieldModelTests" runstate="Runnable" seed="2005213175" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000115" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1144" name="PieceState_CanBeConstructed" fullname="PlayfieldModelTests.PieceState_CanBeConstructed" methodname="PieceState_CanBeConstructed" classname="PlayfieldModelTests" runstate="Runnable" seed="568518780" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000087" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1116" name="SetCell_NonEmptyAfterSet" fullname="PlayfieldModelTests.SetCell_NonEmptyAfterSet" methodname="SetCell_NonEmptyAfterSet" classname="PlayfieldModelTests" runstate="Runnable" seed="1544357764" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000062" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+        </test-case>
+        <test-case id="1115" name="SetCell_SetsCorrectValue" fullname="PlayfieldModelTests.SetCell_SetsCorrectValue" methodname="SetCell_SetsCorrectValue" classname="PlayfieldModelTests" runstate="Runnable" seed="1644168045" result="Passed" start-time="2026-06-20 00:45:46Z" end-time="2026-06-20 00:45:46Z" duration="0.000059" asserts="0">
+          <properties>
+            <property name="retryIteration" value="0" />
+            <property name="repeatIteration" value="0" />
+          </properties>
+          <output><![CDATA[Saving results to: C:\Users\Zeke\Git\ai-game-factory\Tools\workspace\gamefactory_nes-style-tetris-web-browser-game-7651\edit-results-52.xml
+]]></output>
+        </test-case>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
