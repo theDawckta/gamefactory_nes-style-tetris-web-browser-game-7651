@@ -19,8 +19,26 @@ public class GameOverScreen : BaseScreen
 
     private void Awake()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
-        _scoreLabel = root.Q<Label>("score-label");
+        var doc = GetComponent<UIDocument>();
+        if (doc != null && doc.rootVisualElement != null)
+        {
+            _scoreLabel = doc.rootVisualElement.Q<Label>("score-label");
+        }
+    }
+
+    /// <summary>
+    /// Called by BaseScreen.Show() after the screen is made visible.
+    /// Provides a lazy fallback for when Awake could not initialize.
+    /// </summary>
+    protected override void OnShow()
+    {
+        if (_scoreLabel != null) return;
+
+        var doc = GetComponent<UIDocument>();
+        if (doc != null && doc.rootVisualElement != null)
+        {
+            _scoreLabel = doc.rootVisualElement.Q<Label>("score-label");
+        }
     }
 
     /// <summary>
@@ -29,12 +47,22 @@ public class GameOverScreen : BaseScreen
     /// <param name="finalScore">The final score to display (zero-padded to 7 digits).</param>
     public void ShowWithScore(int finalScore)
     {
+        Show();
+
+        // Lazy fallback if Awake couldn't initialize
+        if (_scoreLabel == null)
+        {
+            var doc = GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
+            {
+                _scoreLabel = doc.rootVisualElement.Q<Label>("score-label");
+            }
+        }
+
         if (_scoreLabel != null)
         {
             _scoreLabel.text = "SCORE: " + finalScore.ToString("D7");
         }
-
-        Show();
     }
 
     private void Update()

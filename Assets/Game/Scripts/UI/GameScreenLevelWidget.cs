@@ -19,25 +19,15 @@ public class GameScreenLevelWidget : MonoBehaviour
     private void Awake()
     {
         var doc = GetComponent<UIDocument>();
-        if (doc == null)
-        {
-            Debug.LogError("[GameScreenLevelWidget] No UIDocument component found on this GameObject.");
+        if (doc == null || doc.rootVisualElement == null)
             return;
-        }
 
         _levelRegion = doc.rootVisualElement.Q<VisualElement>("level-region");
         if (_levelRegion == null)
-        {
-            Debug.LogError("[GameScreenLevelWidget] Could not find #level-region element.");
             return;
-        }
 
         // Find the value label by class "region-value" among children
         _valueLabel = _levelRegion.Children().OfType<Label>().FirstOrDefault(l => l.ClassListContains("region-value"));
-        if (_valueLabel == null)
-        {
-            Debug.LogError("[GameScreenLevelWidget] Could not find .region-value label in #level-region.");
-        }
     }
 
     /// <summary>
@@ -46,6 +36,20 @@ public class GameScreenLevelWidget : MonoBehaviour
     /// </summary>
     public void UpdateLevel(int level)
     {
+        // Lazy fallback: if Awake could not find the region, try again now
+        if (_valueLabel == null)
+        {
+            var doc = GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
+            {
+                _levelRegion = doc.rootVisualElement.Q<VisualElement>("level-region");
+                if (_levelRegion != null)
+                {
+                    _valueLabel = _levelRegion.Children().OfType<Label>().FirstOrDefault(l => l.ClassListContains("region-value"));
+                }
+            }
+        }
+
         if (_valueLabel != null)
         {
             _valueLabel.text = level.ToString("D2");

@@ -64,18 +64,12 @@ public class GameScreenNextWidget : MonoBehaviour
     private void Awake()
     {
         var doc = GetComponent<UIDocument>();
-        if (doc == null)
-        {
-            Debug.LogError("[GameScreenNextWidget] No UIDocument component found on this GameObject.");
+        if (doc == null || doc.rootVisualElement == null)
             return;
-        }
 
         _nextRegion = doc.rootVisualElement.Q<VisualElement>("next-region");
         if (_nextRegion == null)
-        {
-            Debug.LogError("[GameScreenNextWidget] Could not find #next-region element.");
             return;
-        }
 
         CreateGrid();
     }
@@ -138,6 +132,20 @@ public class GameScreenNextWidget : MonoBehaviour
     /// <param name="nextPiece">The piece type to display in the preview.</param>
     public void UpdateNextPiece(PieceType nextPiece)
     {
+        // Lazy fallback: if Awake could not create the grid, try now
+        if (_gridImages == null)
+        {
+            var doc = GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
+            {
+                _nextRegion = doc.rootVisualElement.Q<VisualElement>("next-region");
+                if (_nextRegion != null)
+                {
+                    CreateGrid();
+                }
+            }
+        }
+
         if (_gridImages == null)
             return;
 

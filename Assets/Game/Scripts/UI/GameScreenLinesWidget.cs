@@ -19,25 +19,15 @@ public class GameScreenLinesWidget : MonoBehaviour
     private void Awake()
     {
         var doc = GetComponent<UIDocument>();
-        if (doc == null)
-        {
-            Debug.LogError("[GameScreenLinesWidget] No UIDocument component found on this GameObject.");
+        if (doc == null || doc.rootVisualElement == null)
             return;
-        }
 
         _linesRegion = doc.rootVisualElement.Q<VisualElement>("lines-region");
         if (_linesRegion == null)
-        {
-            Debug.LogError("[GameScreenLinesWidget] Could not find #lines-region element.");
             return;
-        }
 
         // Find the value label by class "region-value" among children
         _valueLabel = _linesRegion.Children().OfType<Label>().FirstOrDefault(l => l.ClassListContains("region-value"));
-        if (_valueLabel == null)
-        {
-            Debug.LogError("[GameScreenLinesWidget] Could not find .region-value label in #lines-region.");
-        }
     }
 
     /// <summary>
@@ -46,6 +36,20 @@ public class GameScreenLinesWidget : MonoBehaviour
     /// </summary>
     public void UpdateLines(int lines)
     {
+        // Lazy fallback: if Awake could not find the region, try again now
+        if (_valueLabel == null)
+        {
+            var doc = GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
+            {
+                _linesRegion = doc.rootVisualElement.Q<VisualElement>("lines-region");
+                if (_linesRegion != null)
+                {
+                    _valueLabel = _linesRegion.Children().OfType<Label>().FirstOrDefault(l => l.ClassListContains("region-value"));
+                }
+            }
+        }
+
         if (_valueLabel != null)
         {
             _valueLabel.text = lines.ToString("D3");

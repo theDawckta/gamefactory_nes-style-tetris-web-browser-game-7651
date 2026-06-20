@@ -32,12 +32,36 @@ public class GameScreen : BaseScreen
 
     private void Awake()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        var doc = GetComponent<UIDocument>();
+        if (doc != null && doc.rootVisualElement != null)
+        {
+            var root = doc.rootVisualElement;
 
-        _scoreRegion = root.Q<VisualElement>("score-region");
-        _levelRegion = root.Q<VisualElement>("level-region");
-        _linesRegion = root.Q<VisualElement>("lines-region");
-        _nextRegion = root.Q<VisualElement>("next-region");
+            _scoreRegion = root.Q<VisualElement>("score-region");
+            _levelRegion = root.Q<VisualElement>("level-region");
+            _linesRegion = root.Q<VisualElement>("lines-region");
+            _nextRegion = root.Q<VisualElement>("next-region");
+        }
+    }
+
+    /// <summary>
+    /// Called by BaseScreen.Show() after the screen is made visible.
+    /// Provides a lazy fallback for when Awake could not initialize (e.g. GameObject was inactive).
+    /// </summary>
+    protected override void OnShow()
+    {
+        if (_scoreRegion != null) return; // Already initialized in Awake
+
+        var doc = GetComponent<UIDocument>();
+        if (doc != null && doc.rootVisualElement != null)
+        {
+            var root = doc.rootVisualElement;
+
+            _scoreRegion = root.Q<VisualElement>("score-region");
+            _levelRegion = root.Q<VisualElement>("level-region");
+            _linesRegion = root.Q<VisualElement>("lines-region");
+            _nextRegion = root.Q<VisualElement>("next-region");
+        }
     }
 
     /// <summary>

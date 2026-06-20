@@ -19,25 +19,15 @@ public class GameScreenScoreWidget : MonoBehaviour
     private void Awake()
     {
         var doc = GetComponent<UIDocument>();
-        if (doc == null)
-        {
-            Debug.LogError("[GameScreenScoreWidget] No UIDocument component found on this GameObject.");
+        if (doc == null || doc.rootVisualElement == null)
             return;
-        }
 
         _scoreRegion = doc.rootVisualElement.Q<VisualElement>("score-region");
         if (_scoreRegion == null)
-        {
-            Debug.LogError("[GameScreenScoreWidget] Could not find #score-region element.");
             return;
-        }
 
         // Find the value label by class "region-value" among children
         _valueLabel = _scoreRegion.Children().OfType<Label>().FirstOrDefault(l => l.ClassListContains("region-value"));
-        if (_valueLabel == null)
-        {
-            Debug.LogError("[GameScreenScoreWidget] Could not find .region-value label in #score-region.");
-        }
     }
 
     /// <summary>
@@ -46,6 +36,20 @@ public class GameScreenScoreWidget : MonoBehaviour
     /// </summary>
     public void UpdateScore(int score)
     {
+        // Lazy fallback: if Awake could not find the region, try again now
+        if (_valueLabel == null)
+        {
+            var doc = GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
+            {
+                _scoreRegion = doc.rootVisualElement.Q<VisualElement>("score-region");
+                if (_scoreRegion != null)
+                {
+                    _valueLabel = _scoreRegion.Children().OfType<Label>().FirstOrDefault(l => l.ClassListContains("region-value"));
+                }
+            }
+        }
+
         if (_valueLabel != null)
         {
             _valueLabel.text = score.ToString("D7");

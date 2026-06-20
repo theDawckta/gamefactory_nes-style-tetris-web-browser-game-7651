@@ -15,9 +15,8 @@ public class StartScreenLeaderboardWidget : MonoBehaviour
 
     private void Awake()
     {
-        // Cache reference to leaderboard region once the visual tree is available
         var doc = GetComponent<UIDocument>();
-        if (doc != null)
+        if (doc != null && doc.rootVisualElement != null)
         {
             _region = doc.rootVisualElement.Q<VisualElement>("leaderboard-region");
         }
@@ -30,6 +29,16 @@ public class StartScreenLeaderboardWidget : MonoBehaviour
     /// </summary>
     public void Refresh(LeaderboardEntry[] entries)
     {
+        // Lazy fallback: if Awake could not find the region, try again now
+        if (_region == null)
+        {
+            var doc = GetComponent<UIDocument>();
+            if (doc != null && doc.rootVisualElement != null)
+            {
+                _region = doc.rootVisualElement.Q<VisualElement>("leaderboard-region");
+            }
+        }
+
         if (_region == null)
         {
             Debug.LogError("[StartScreenLeaderboardWidget] Could not find #leaderboard-region element.");
