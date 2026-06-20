@@ -60,12 +60,12 @@ public static class AssembleMainScene
             Debug.Log("[AssembleMainScene] Created new scene: " + ScenePath);
         }
 	
-        // 6. Remove any existing camera
-        var cam = UnityEngine.Object.FindAnyObjectByType<Camera>();
-        if (cam != null)
+        // 6. Destroy ALL root GameObjects so each run starts from scratch (idempotency).
+        foreach (var existingGo in scene.GetRootGameObjects())
         {
-            UnityEngine.Object.DestroyImmediate(cam.gameObject);
+            UnityEngine.Object.DestroyImmediate(existingGo);
         }
+        Debug.Log("[AssembleMainScene] Cleared scene root objects");
 	
         // 7. Create MainCamera
         Camera mainCamera = CreateCamera();
