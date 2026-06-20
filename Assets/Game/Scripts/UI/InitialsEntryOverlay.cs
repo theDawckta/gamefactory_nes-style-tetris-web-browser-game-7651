@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 /// <summary>
@@ -82,19 +83,19 @@ public class InitialsEntryOverlay : BaseScreen
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Keyboard.current?.rightArrowKey?.wasPressedThisFrame ?? false)
         {
             CycleCharacter(1);
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Keyboard.current?.leftArrowKey?.wasPressedThisFrame ?? false)
         {
             CycleCharacter(-1);
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Keyboard.current?.downArrowKey?.wasPressedThisFrame ?? false)
         {
             ConfirmSlot();
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Keyboard.current?.upArrowKey?.wasPressedThisFrame ?? false)
         {
             MoveBack();
         }

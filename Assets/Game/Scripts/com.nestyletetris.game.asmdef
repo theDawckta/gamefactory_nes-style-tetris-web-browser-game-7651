@@ -2,7 +2,8 @@
     "name": "com.nestyletetris.game",
     "rootNamespace": "",
     "references": [
-        "com.onetimegames.coresystems"
+        "com.onetimegames.coresystems",
+        "Unity.InputSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

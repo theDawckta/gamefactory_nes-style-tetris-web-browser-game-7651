@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Central coordinator for a single Tetris game session.
@@ -195,11 +196,11 @@ public class GameplayController : MonoBehaviour
     /// </summary>
     private void ProcessPlayingState()
     {
-        // Read input using Unity Legacy Input Manager
-        bool leftHeld = Input.GetKey(KeyCode.LeftArrow);
-        bool rightHeld = Input.GetKey(KeyCode.RightArrow);
-        bool rotatePressed = Input.GetKeyDown(KeyCode.UpArrow);
-        bool softDropHeld = Input.GetKey(KeyCode.DownArrow);
+        // Read input using Input System
+        bool leftHeld = Keyboard.current?.leftArrowKey?.isPressed ?? false;
+        bool rightHeld = Keyboard.current?.rightArrowKey?.isPressed ?? false;
+        bool rotatePressed = Keyboard.current?.upArrowKey?.wasPressedThisFrame ?? false;
+        bool softDropHeld = Keyboard.current?.downArrowKey?.isPressed ?? false;
 
         int level = CurrentLevel;
         _pieceController.Tick(level, leftHeld, rightHeld, rotatePressed, softDropHeld);
