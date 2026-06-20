@@ -1,6 +1,6 @@
 {
     "name": "QAIntegrationTests",
-    "references": [],
+    "references": ["com.nestyletetris.game"],
     "optionalUnityReferences": [
         "TestAssemblies"
     ],
