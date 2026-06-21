@@ -149,4 +149,21 @@ public class GameplayControllerTests
         Assert.AreEqual(0, _controller.TotalLinesCleared);
         Assert.AreEqual(0, _controller.CurrentLevel);
     }
+
+    [UnityTest]
+    public IEnumerator StopGame_PreventsOnGameOverFromFiring()
+    {
+        yield return null;
+        _controller.StartGame();
+
+        int gameOverCount = 0;
+        _controller.OnGameOver += _ => gameOverCount++;
+
+        _controller.StopGame();
+
+        for (int i = 0; i < 200; i++)
+            _controller.Tick();
+
+        Assert.AreEqual(0, gameOverCount, "StopGame should halt the game loop so OnGameOver does not fire");
+    }
 }
