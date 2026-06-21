@@ -108,3 +108,7 @@ InitTestScene*.unity*
 # Windows reserved device name -- cannot be indexed by git
 nul
 **/nul
+
+# Leaderboard server
+/server/node_modules/
+/server/scores.json
