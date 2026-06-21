@@ -68,6 +68,21 @@ public class GameScreenNextWidgetTests
     }
 
     [UnityTest]
+    public IEnumerator PopulateRegion_CellsHaveExplicitSize()
+    {
+        _go.SetActive(true);
+        yield return null;
+        var nextRegion = new VisualElement();
+        _widget.PopulateRegion(nextRegion);
+        var images = nextRegion.Query<Image>().ToList();
+        foreach (var img in images)
+        {
+            Assert.IsTrue(img.style.width.value.value > 0, "Cell must have explicit non-zero width");
+            Assert.IsTrue(img.style.height.value.value > 0, "Cell must have explicit non-zero height");
+        }
+    }
+
+    [UnityTest]
     public IEnumerator PopulateRegion_HeaderLabel_IsNext()
     {
         _go.SetActive(true);
