@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "com.gamelovers.mcp-unity": "https://github.com/CoderGamester/mcp-unity.git#cce8b57de9cb69633deb222c9162dad539a52b87",
+    "com.onetimegames.coreassets": "https://github.com/theDawckta/ai-game-factory.git?path=/CoreAssets",
+    "com.onetimegames.coresystems": "https://github.com/theDawckta/ai-game-factory.git?path=/CoreSystems",
+    "com.unity.inputsystem": "1.11.2",
+    "com.unity.test-framework": "1.4.5",
+    "com.unity.textmeshpro": "4.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0"
+  }
+}
