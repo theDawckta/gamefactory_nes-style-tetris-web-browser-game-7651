@@ -278,4 +278,38 @@ public class SceneBootstrapperTests
         _bootstrapper.GoToStart();
         Assert.IsFalse(_initialsOverlay.IsVisible, "InitialsEntryOverlay should be hidden after GoToStart");
     }
+
+    [UnityTest]
+    public IEnumerator InitialsEntry_ConfirmSubmit_HidesOverlay()
+    {
+        _bootGo.SetActive(true);
+        yield return null;
+
+        _bootstrapper.StartGame();
+
+        // Fill row 1 cols 1-9 so the running controller will game-over at ~96 frames if StopGame is not called
+        for (int c = 1; c <= 9; c++)
+            _gameplayController.Playfield.SetCell(1, c, 1);
+
+        _initialsOverlay.ShowForScore(100);
+
+        // Submit initials (four AdvanceSlot calls simulate SOFT_DROP on CONFIRM)
+        _initialsOverlay.AdvanceSlot();
+        _initialsOverlay.AdvanceSlot();
+        _initialsOverlay.AdvanceSlot();
+        _initialsOverlay.AdvanceSlot();
+
+        // Track any OnGameOver events that fire after submit -- there must be none
+        int postSubmitGameOverCount = 0;
+        _gameplayController.OnGameOver += _ => postSubmitGameOverCount++;
+
+        // Wait enough frames for a still-running controller to game-over (~96 frames at level 0)
+        for (int i = 0; i < 200; i++)
+            yield return null;
+
+        Assert.AreEqual(0, postSubmitGameOverCount,
+            "GameplayController must not fire OnGameOver after submit -- StopGame was not called in OnInitialsSubmitted");
+        Assert.IsFalse(_initialsOverlay.IsVisible,
+            "InitialsEntryOverlay should remain hidden after submit");
+    }
 }
