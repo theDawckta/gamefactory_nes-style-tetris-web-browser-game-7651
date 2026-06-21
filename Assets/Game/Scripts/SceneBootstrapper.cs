@@ -81,7 +81,7 @@ public class SceneBootstrapper : MonoBehaviour
 
     private void CheckQualification(int score, LeaderboardEntry[] entries)
     {
-        if (entries == null || entries.Length < 5 || score > entries[entries.Length - 1].score)
+        if (score > 0 && (entries == null || entries.Length < 5 || score > entries[entries.Length - 1].score))
             initialsEntryOverlay?.ShowForScore(score);
     }
 
