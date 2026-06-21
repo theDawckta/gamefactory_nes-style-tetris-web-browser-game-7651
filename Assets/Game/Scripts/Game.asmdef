@@ -1,6 +1,6 @@
 {
     "name": "Game",
-    "references": ["com.onetimegames.coresystems"],
+    "references": ["com.onetimegames.coresystems", "Unity.InputSystem"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
