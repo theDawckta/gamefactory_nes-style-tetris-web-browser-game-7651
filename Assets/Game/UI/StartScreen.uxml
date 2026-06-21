@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="StartScreen.uss" />
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="logo-region" style="flex-grow: 1; width: 100%; align-items: center; justify-content: center;" />
+        <ui:VisualElement name="leaderboard-region" style="flex-grow: 2; width: 100%; align-items: center;" />
+        <ui:VisualElement name="prompt-region" style="flex-grow: 1; width: 100%; align-items: center; justify-content: center;" />
+    </ui:VisualElement>
+</ui:UXML>
