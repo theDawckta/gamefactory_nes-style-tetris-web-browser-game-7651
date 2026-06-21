@@ -44,6 +44,8 @@ public class GameScreenNextWidget : MonoBehaviour
             for (int col = 0; col < 4; col++)
             {
                 var cell = new Image();
+                cell.style.width = 18f;
+                cell.style.height = 18f;
                 if (_blockSprites != null && _blockSprites.Length > 0)
                     cell.sprite = _blockSprites[0];
                 _cells[row * 4 + col] = cell;
