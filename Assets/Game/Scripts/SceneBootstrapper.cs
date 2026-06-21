@@ -95,6 +95,7 @@ public class SceneBootstrapper : MonoBehaviour
 
     private void OnInitialsSubmitted(string name, int score)
     {
+        gameplayController?.StopGame();
         leaderboardService?.PostScore(name, score, OnScoresPosted, OnScoresError);
         gameOverScreen?.Hide();
         initialsEntryOverlay?.Hide();

@@ -292,4 +292,39 @@ public class SceneBootstrapperTests
         Assert.IsFalse(_initialsOverlay.IsVisible,
             "InitialsEntryOverlay must not appear for score 0 even when leaderboard has fewer than 5 entries");
     }
+
+    [UnityTest]
+    public IEnumerator InitialsEntry_ConfirmSubmit_HidesOverlay()
+    {
+        _bootGo.SetActive(true);
+        yield return null;
+
+        _bootstrapper.StartGame();
+
+        // Fill grid row 1, cols 1-9 so the active piece (spawned at row 0, col 3) cannot fall.
+        // On frame ~48 it lands, frame ~96 it locks; the next spawn attempt at row 0 then fails
+        // (first piece's locked cells block it), firing OnGameOver -- but only if StopGame() was
+        // not called first.
+        for (int c = 1; c <= 9; c++)
+            _gameplayController.Playfield.SetCell(1, c, 1);
+
+        int gameOverAfterSubmit = 0;
+        _gameplayController.OnGameOver += _ => gameOverAfterSubmit++;
+
+        _initialsOverlay.ShowForScore(100);
+
+        // AdvanceSlot: slot 0->1, 1->2, 2->3 (confirm), 3->Submit
+        _initialsOverlay.AdvanceSlot();
+        _initialsOverlay.AdvanceSlot();
+        _initialsOverlay.AdvanceSlot();
+        _initialsOverlay.AdvanceSlot();
+
+        for (int i = 0; i < 200; i++)
+            yield return null;
+
+        Assert.AreEqual(0, gameOverAfterSubmit,
+            "OnGameOver must not fire after initials submit -- StopGame() not called before submit");
+        Assert.IsFalse(_initialsOverlay.IsVisible,
+            "InitialsEntryOverlay must remain hidden after submit");
+    }
 }
