@@ -1,0 +1,50 @@
+:root {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    flex-direction: row;
+}
+
+#next-region {
+    width: 20%;
+    height: 100%;
+    background-color: rgba(10, 10, 20, 0.85);
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px;
+}
+
+.playfield-spacer {
+    flex-grow: 1;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.stats-panel {
+    width: 20%;
+    height: 100%;
+    background-color: rgba(10, 10, 20, 0.85);
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+}
+
+#score-region {
+    width: 90%;
+    margin-bottom: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+#level-region {
+    width: 90%;
+    margin-bottom: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+#lines-region {
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+}

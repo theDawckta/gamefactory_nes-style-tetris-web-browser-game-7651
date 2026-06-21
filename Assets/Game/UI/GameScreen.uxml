@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="GameScreen.uss" />
+    <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement name="next-region" />
+        <ui:VisualElement class="playfield-spacer" />
+        <ui:VisualElement class="stats-panel">
+            <ui:VisualElement name="score-region" />
+            <ui:VisualElement name="level-region" />
+            <ui:VisualElement name="lines-region" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
