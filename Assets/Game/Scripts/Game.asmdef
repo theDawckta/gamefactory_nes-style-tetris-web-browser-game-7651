@@ -1,6 +1,6 @@
 {
     "name": "Game",
-    "references": [],
+    "references": ["com.onetimegames.coresystems"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
