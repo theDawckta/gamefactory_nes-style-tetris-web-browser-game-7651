@@ -1,6 +1,7 @@
 using System;
 using OneTimeGames.CoreSystems;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.Gameplay
 {
@@ -60,10 +61,21 @@ namespace Game.Gameplay
 
         public void Tick()
         {
-            _leftHeld = Input.GetKey(KeyCode.LeftArrow);
-            _rightHeld = Input.GetKey(KeyCode.RightArrow);
-            _rotatePressed = Input.GetKeyDown(KeyCode.UpArrow);
-            _softDropHeld = Input.GetKey(KeyCode.DownArrow);
+            var kb = Keyboard.current;
+            if (kb != null)
+            {
+                _leftHeld = kb.leftArrowKey.isPressed;
+                _rightHeld = kb.rightArrowKey.isPressed;
+                _rotatePressed = kb.upArrowKey.wasPressedThisFrame;
+                _softDropHeld = kb.downArrowKey.isPressed;
+            }
+            else
+            {
+                _leftHeld = false;
+                _rightHeld = false;
+                _rotatePressed = false;
+                _softDropHeld = false;
+            }
             _stateMachine.Tick();
         }
 
