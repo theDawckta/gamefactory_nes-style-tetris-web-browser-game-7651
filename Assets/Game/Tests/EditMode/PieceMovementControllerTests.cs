@@ -27,7 +27,7 @@ public class PieceMovementControllerTests
 
         var piece = _controller.CurrentPiece;
         Assert.AreEqual(PieceType.T, piece.Type);
-        Assert.AreEqual(0, piece.Row);
+        Assert.AreEqual(1, piece.Row);
         Assert.AreEqual(GameRules.PLAYFIELD_WIDTH / 2 - 1, piece.Col);
         Assert.AreEqual(0, piece.Rotation);
     }
@@ -47,10 +47,10 @@ public class PieceMovementControllerTests
     [Test]
     public void SpawnPiece_OnSpawnFailedFired_WhenSpawnPositionIsBlocked()
     {
-        // Block the spawn position for an I-piece (horizontal at row 0, col 4)
+        // Block the spawn position for an I-piece (horizontal at row 1, col 4)
         // I-piece rot 0: cells at (0,0), (0,-1), (0,1), (0,2) relative to anchor
-        // Anchor at row 0, col 4 -> cells at (0,4), (0,3), (0,5), (0,6)
-        _model.SetCell(0, 4, 1);
+        // Anchor at row 1, col 4 -> cells at (1,4), (1,3), (1,5), (1,6)
+        _model.SetCell(1, 4, 1);
 
         bool spawnFailed = false;
         _controller.OnSpawnFailed += () => { spawnFailed = true; };
@@ -214,9 +214,9 @@ public class PieceMovementControllerTests
 
         Assert.IsTrue(locked, "Piece should have locked");
 
-        // The piece falls from row 0 to row 19 (since floor is at row 21)
+        // The piece falls from row 1 to row 19 (since floor is at row 21)
         // O-piece is 2 cells tall, so it can go to row 19 (cells at 19,20)
-        // 19 moves + 1 landing tick + 1 lock tick = 21 ticks worth of gravity
+        // 18 moves + 1 landing tick + 1 lock tick = 20 ticks worth of gravity
         int expectedTicks = 21 * GameRules.GetFramesPerRow(0);
         // Allow small tolerance for piece geometry
         Assert.LessOrEqual(totalTicks, expectedTicks + GameRules.GetFramesPerRow(0),

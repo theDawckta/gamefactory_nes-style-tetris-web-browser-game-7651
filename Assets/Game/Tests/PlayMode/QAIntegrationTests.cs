@@ -31,6 +31,34 @@ public class QAIntegrationTests
     }
 
     // -----------------------------------------------------------------------
+    // QA journey pre-condition: start screen visible on load
+    // -----------------------------------------------------------------------
+
+    [UnityTest]
+    public IEnumerator StartScreen_IsVisible_OnLoad()
+    {
+        // Verifies journey step 1 pre-condition: when the scene loads the
+        // controller must be in Idle state so SceneBootstrapper can show the
+        // start screen unobstructed. OnGameOver must NOT fire before the player
+        // explicitly starts a game.
+        yield return null; // Let Awake run
+
+        bool gameOverFired = false;
+        _gameplayController.OnGameOver += (score) => { gameOverFired = true; };
+
+        // Run several Update frames in Idle state -- no game over should fire
+        for (int i = 0; i < 10; i++)
+        {
+            yield return null;
+        }
+
+        Assert.IsFalse(gameOverFired, "OnGameOver must not fire before StartGame() -- controller must initialize to Idle, not GameOver");
+        Assert.AreEqual(0, _gameplayController.CurrentScore, "Score must be 0 on initial load");
+        Assert.AreEqual(0, _gameplayController.TotalLinesCleared, "Lines cleared must be 0 on initial load");
+        Assert.AreEqual(0, _gameplayController.CurrentLevel, "Level must be 0 on initial load");
+    }
+
+    // -----------------------------------------------------------------------
     // Integration: Initial state verification
     // -----------------------------------------------------------------------
 

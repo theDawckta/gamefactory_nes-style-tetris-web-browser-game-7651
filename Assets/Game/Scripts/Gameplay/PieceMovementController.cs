@@ -50,13 +50,14 @@ public class PieceMovementController
 
     /// <summary>
     /// Spawns a new piece at the standard NES spawn position
-    /// (row 0, center column, rotation 0).
+    /// (row 1, center column, rotation 0). Row 1 keeps all piece offsets within
+    /// the valid grid range; pieces with -1 row offsets (S, Z, J, L) need row >= 1.
     /// Raises OnSpawnFailed if the spawn position is blocked.
     /// </summary>
     public void SpawnPiece(PieceType type)
     {
         _currentPiece.Type = type;
-        _currentPiece.Row = 0;
+        _currentPiece.Row = 1;
         _currentPiece.Col = GameRules.PLAYFIELD_WIDTH / 2 - 1;
         _currentPiece.Rotation = 0;
 

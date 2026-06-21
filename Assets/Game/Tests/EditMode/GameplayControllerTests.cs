@@ -7,6 +7,32 @@ using System.Linq;
 public class GameplayControllerTests
 {
     // =========================================================================
+    // PieceMovementController spawn tests
+    // =========================================================================
+
+    [Test]
+    public void PieceMovementController_SpawnPiece_SucceedsForAllPieceTypes()
+    {
+        // Verifies that every piece type can be placed at the initial spawn
+        // position on a clear board. Pieces with negative row offsets (S, Z, J, L)
+        // previously failed when spawned at row 0; the fix is row 1.
+        var playfield = new PlayfieldModel();
+        var stateMachine = new GameStateMachine();
+        var controller = new PieceMovementController(playfield, stateMachine);
+
+        bool spawnFailed = false;
+        controller.OnSpawnFailed += () => { spawnFailed = true; };
+
+        foreach (PieceType type in Enum.GetValues(typeof(PieceType)))
+        {
+            spawnFailed = false;
+            playfield.Clear();
+            controller.SpawnPiece(type);
+            Assert.IsFalse(spawnFailed, $"Piece type {type} failed to spawn on a clear board -- spawn position is out of bounds");
+        }
+    }
+
+    // =========================================================================
     // PieceRandomizer tests
     // =========================================================================
 
