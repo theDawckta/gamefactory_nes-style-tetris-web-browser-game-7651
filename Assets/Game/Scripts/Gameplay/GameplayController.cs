@@ -88,6 +88,15 @@ public class GameplayController : MonoBehaviour
         get { return _playfield; }
     }
 
+    /// <summary>
+    /// The current state of the game state machine.
+    /// Idle before StartGame is called; Spawning/Playing/LineClear during play; GameOver when ended.
+    /// </summary>
+    public GameStateMachine.GameState CurrentGameState
+    {
+        get { return _stateMachine.CurrentState; }
+    }
+
     // -----------------------------------------------------------------------
     // Unity lifecycle
     // -----------------------------------------------------------------------

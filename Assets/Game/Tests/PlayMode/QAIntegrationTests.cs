@@ -41,10 +41,10 @@ public class QAIntegrationTests
         // controller must be in Idle state so SceneBootstrapper can show the
         // start screen unobstructed. OnGameOver must NOT fire before the player
         // explicitly starts a game.
-        yield return null; // Let Awake run
-
         bool gameOverFired = false;
         _gameplayController.OnGameOver += (score) => { gameOverFired = true; };
+
+        yield return null; // Let Awake run
 
         // Run several Update frames in Idle state -- no game over should fire
         for (int i = 0; i < 10; i++)
@@ -52,6 +52,10 @@ public class QAIntegrationTests
             yield return null;
         }
 
+        Assert.AreEqual(
+            GameStateMachine.GameState.Idle,
+            _gameplayController.CurrentGameState,
+            "GameStateMachine must initialize to Idle -- initializing to GameOver prevents the start screen from showing");
         Assert.IsFalse(gameOverFired, "OnGameOver must not fire before StartGame() -- controller must initialize to Idle, not GameOver");
         Assert.AreEqual(0, _gameplayController.CurrentScore, "Score must be 0 on initial load");
         Assert.AreEqual(0, _gameplayController.TotalLinesCleared, "Lines cleared must be 0 on initial load");
