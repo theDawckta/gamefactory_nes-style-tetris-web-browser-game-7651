@@ -278,4 +278,18 @@ public class SceneBootstrapperTests
         _bootstrapper.GoToStart();
         Assert.IsFalse(_initialsOverlay.IsVisible, "InitialsEntryOverlay should be hidden after GoToStart");
     }
+
+    [UnityTest]
+    public IEnumerator GameOver_NonQualifying_InitialsOverlay_StaysHidden()
+    {
+        _bootGo.SetActive(true);
+        yield return null;
+        // Invoke CheckQualification directly with score 0 and an empty leaderboard (fewer than 5 entries).
+        // Before the fix, entries.Length < 5 caused score 0 to always qualify, showing the overlay.
+        var method = typeof(SceneBootstrapper).GetMethod("CheckQualification",
+            BindingFlags.NonPublic | BindingFlags.Instance);
+        method.Invoke(_bootstrapper, new object[] { 0, new LeaderboardEntry[0] });
+        Assert.IsFalse(_initialsOverlay.IsVisible,
+            "InitialsEntryOverlay must not appear for score 0 even when leaderboard has fewer than 5 entries");
+    }
 }
