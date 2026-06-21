@@ -5,6 +5,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: rgb(255, 255, 255);
+}
+
+.unity-label {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    -unity-text-align: middle-center;
 }
 
 #gameover-label-region {
@@ -14,6 +21,12 @@
     justify-content: center;
 }
 
+#gameover-label-region .unity-label {
+    font-size: 48px;
+    color: rgb(255, 60, 60);
+    -unity-text-align: middle-center;
+}
+
 #score-region {
     flex-grow: 1;
     width: 100%;
@@ -21,9 +34,21 @@
     justify-content: center;
 }
 
+#score-region .unity-label {
+    font-size: 24px;
+    color: rgb(255, 200, 0);
+    -unity-text-align: middle-center;
+}
+
 #prompt-region {
     flex-grow: 1;
     width: 100%;
     align-items: center;
     justify-content: center;
+}
+
+#prompt-region .unity-label {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    -unity-text-align: middle-center;
 }
