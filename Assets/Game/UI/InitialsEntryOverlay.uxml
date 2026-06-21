@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="InitialsEntryOverlay.uss" />
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:Label name="title-label" text="ENTER YOUR INITIALS" />
+        <ui:VisualElement name="chars-region">
+            <ui:Label name="char-0" text="A" />
+            <ui:Label name="char-1" text="A" />
+            <ui:Label name="char-2" text="A" />
+        </ui:VisualElement>
+        <ui:VisualElement name="confirm-region">
+            <ui:Label name="confirm-label" text="CONFIRM" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
