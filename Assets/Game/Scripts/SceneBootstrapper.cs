@@ -43,11 +43,13 @@ public class SceneBootstrapper : MonoBehaviour
 
     public void GoToGameOver()
     {
+        gameplayController?.StopGame();
         OnGameOver(0);
     }
 
     public void GoToStart()
     {
+        gameplayController?.StopGame();
         OnContinueRequested();
     }
 
@@ -85,6 +87,7 @@ public class SceneBootstrapper : MonoBehaviour
 
     private void OnContinueRequested()
     {
+        initialsEntryOverlay?.Hide();
         gameOverScreen?.Hide();
         startScreen?.Show();
         leaderboardService?.GetScores(OnScoresFetched, OnScoresError);

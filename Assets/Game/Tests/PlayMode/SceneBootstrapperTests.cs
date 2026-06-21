@@ -252,4 +252,30 @@ public class SceneBootstrapperTests
         yield return null;
         Assert.DoesNotThrow(() => _bootstrapper.StartGame());
     }
+
+    [UnityTest]
+    public IEnumerator Continue_FromGameOver_ShowsStartScreen()
+    {
+        _bootGo.SetActive(true);
+        yield return null;
+        _bootstrapper.StartGame();
+        _bootstrapper.GoToGameOver();
+        _bootstrapper.GoToStart();
+        for (int i = 0; i < 10; i++)
+            yield return null;
+        Assert.IsTrue(_startScreen.IsVisible, "StartScreen should be visible after GoToStart");
+        Assert.IsFalse(_gameOverScreen.IsVisible, "GameOverScreen should be hidden after GoToStart");
+    }
+
+    [UnityTest]
+    public IEnumerator GameOver_NonQualifying_InitialsOverlayNotShown()
+    {
+        _bootGo.SetActive(true);
+        yield return null;
+        _bootstrapper.GoToGameOver();
+        // Simulate overlay being shown (as happens when score qualifies for the leaderboard)
+        _initialsOverlay.ShowForScore(0);
+        _bootstrapper.GoToStart();
+        Assert.IsFalse(_initialsOverlay.IsVisible, "InitialsEntryOverlay should be hidden after GoToStart");
+    }
 }

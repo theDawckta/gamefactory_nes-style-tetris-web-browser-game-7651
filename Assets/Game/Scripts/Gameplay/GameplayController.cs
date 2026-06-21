@@ -59,6 +59,11 @@ namespace Game.Gameplay
             TransitionToState("Spawning");
         }
 
+        public void StopGame()
+        {
+            _stateMachine.TransitionTo("Idle");
+        }
+
         public void Tick()
         {
             var kb = Keyboard.current;
