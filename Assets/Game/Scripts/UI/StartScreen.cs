@@ -1,6 +1,7 @@
 using System;
 using Game.Gameplay;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StartScreen : BaseScreen
 {
@@ -29,7 +30,9 @@ public class StartScreen : BaseScreen
     private void Update()
     {
         if (!IsVisible) return;
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        var kb = Keyboard.current;
+        if (kb == null) return;
+        if (kb.enterKey.wasPressedThisFrame || kb.spaceKey.wasPressedThisFrame)
             OnStartRequested?.Invoke();
     }
 }
