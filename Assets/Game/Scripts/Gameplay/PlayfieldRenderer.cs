@@ -47,16 +47,27 @@ namespace Game.Gameplay
                 return;
             }
 
-            float ppu = 1f / CellSize;
+            // 8×8 pixel texture: 1-pixel dark border on every edge so adjacent blocks
+            // of the same piece look like separate cells rather than a solid blob.
+            const int texSize = 8;
+            float ppu = texSize / CellSize; // sprite occupies exactly 1 cell in world space
             _effectiveSprites = new Sprite[8];
-            _effectiveSprites[0] = null; // empty cell — no sprite = transparent
+            _effectiveSprites[0] = null;
             for (int i = 1; i < 8; i++)
             {
-                var tex = new Texture2D(1, 1, TextureFormat.ARGB32, false);
-                tex.SetPixel(0, 0, NesColors[i]);
-                tex.Apply();
+                Color main = NesColors[i];
+                Color border = new Color(main.r * 0.35f, main.g * 0.35f, main.b * 0.35f);
+
+                var tex = new Texture2D(texSize, texSize, TextureFormat.ARGB32, false);
                 tex.filterMode = FilterMode.Point;
-                _effectiveSprites[i] = Sprite.Create(tex, new Rect(0, 0, 1, 1), Vector2.one * 0.5f, ppu);
+                for (int px = 0; px < texSize; px++)
+                    for (int py = 0; py < texSize; py++)
+                    {
+                        bool onBorder = px == 0 || px == texSize - 1 || py == 0 || py == texSize - 1;
+                        tex.SetPixel(px, py, onBorder ? border : main);
+                    }
+                tex.Apply();
+                _effectiveSprites[i] = Sprite.Create(tex, new Rect(0, 0, texSize, texSize), Vector2.one * 0.5f, ppu);
             }
         }
 

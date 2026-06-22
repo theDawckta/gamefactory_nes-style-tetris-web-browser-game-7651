@@ -23,7 +23,7 @@ namespace GameTests.EditMode
         {
             _controller.SpawnPiece(PieceType.I);
             int level = 0;
-            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS - 1;
+            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS;
             int framesPerRow = GameRules.GetFramesPerRow(level); // 48
 
             for (int i = 0; i < framesPerRow - 1; i++)
@@ -39,7 +39,7 @@ namespace GameTests.EditMode
         public void SoftDrop_AdvancesPieceOneRowPerFrame()
         {
             _controller.SpawnPiece(PieceType.I);
-            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS - 1;
+            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS;
 
             _controller.Tick(0, false, false, false, softDropHeld: true);
             Assert.AreEqual(spawnRow + 1, _controller.CurrentPiece.Row, "Piece should advance one row per frame with soft drop");
@@ -52,7 +52,7 @@ namespace GameTests.EditMode
         public void PieceLands_LocksOnNextGravityTick_NotBefore()
         {
             // Block the row below spawn to force immediate landing (I piece R0 occupies cols 3-6 at spawn row)
-            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS - 1;
+            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS;
             for (int c = 3; c <= 6; c++)
                 _model.SetCell(spawnRow + 1, c, 1);
 
@@ -72,7 +72,7 @@ namespace GameTests.EditMode
         [Test]
         public void OnPieceLocked_FiresWithCorrectPieceState()
         {
-            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS - 1;
+            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS;
             for (int c = 3; c <= 6; c++)
                 _model.SetCell(spawnRow + 1, c, 1);
 
@@ -92,7 +92,7 @@ namespace GameTests.EditMode
         [Test]
         public void OnSpawnFailed_FiresWhenSpawnPositionIsBlocked()
         {
-            _model.SetCell(GameRules.PLAYFIELD_BUFFER_ROWS - 1, 3, 1); // block one of the I-piece spawn cells
+            _model.SetCell(GameRules.PLAYFIELD_BUFFER_ROWS, 3, 1); // block one of the I-piece spawn cells
 
             bool spawnFailed = false;
             _controller.OnSpawnFailed += () => spawnFailed = true;

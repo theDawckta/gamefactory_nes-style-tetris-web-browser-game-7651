@@ -28,7 +28,7 @@ namespace Game.Gameplay
 
         public void SpawnPiece(PieceType type)
         {
-            var candidate = new PieceState { Type = type, Row = GameRules.PLAYFIELD_BUFFER_ROWS - 1, Col = 3, Rotation = 0 };
+            var candidate = new PieceState { Type = type, Row = GameRules.PLAYFIELD_BUFFER_ROWS, Col = 3, Rotation = 0 };
 
             if (!CanPlace(candidate))
             {
