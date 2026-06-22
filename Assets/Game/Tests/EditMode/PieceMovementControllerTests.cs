@@ -23,35 +23,38 @@ namespace GameTests.EditMode
         {
             _controller.SpawnPiece(PieceType.I);
             int level = 0;
+            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS - 1;
             int framesPerRow = GameRules.GetFramesPerRow(level); // 48
 
             for (int i = 0; i < framesPerRow - 1; i++)
                 _controller.Tick(level, false, false, false, false);
 
-            Assert.AreEqual(0, _controller.CurrentPiece.Row, "Piece should not have moved before framesPerRow ticks");
+            Assert.AreEqual(spawnRow, _controller.CurrentPiece.Row, "Piece should not have moved before framesPerRow ticks");
 
             _controller.Tick(level, false, false, false, false);
-            Assert.AreEqual(1, _controller.CurrentPiece.Row, "Piece should advance one row after framesPerRow ticks");
+            Assert.AreEqual(spawnRow + 1, _controller.CurrentPiece.Row, "Piece should advance one row after framesPerRow ticks");
         }
 
         [Test]
         public void SoftDrop_AdvancesPieceOneRowPerFrame()
         {
             _controller.SpawnPiece(PieceType.I);
+            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS - 1;
 
             _controller.Tick(0, false, false, false, softDropHeld: true);
-            Assert.AreEqual(1, _controller.CurrentPiece.Row, "Piece should advance one row per frame with soft drop");
+            Assert.AreEqual(spawnRow + 1, _controller.CurrentPiece.Row, "Piece should advance one row per frame with soft drop");
 
             _controller.Tick(0, false, false, false, softDropHeld: true);
-            Assert.AreEqual(2, _controller.CurrentPiece.Row, "Piece should advance a second row on the next soft drop frame");
+            Assert.AreEqual(spawnRow + 2, _controller.CurrentPiece.Row, "Piece should advance a second row on the next soft drop frame");
         }
 
         [Test]
         public void PieceLands_LocksOnNextGravityTick_NotBefore()
         {
-            // Block the row below spawn to force immediate landing (I piece R0 occupies cols 3-6 at row 0)
+            // Block the row below spawn to force immediate landing (I piece R0 occupies cols 3-6 at spawn row)
+            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS - 1;
             for (int c = 3; c <= 6; c++)
-                _model.SetCell(1, c, 1);
+                _model.SetCell(spawnRow + 1, c, 1);
 
             bool locked = false;
             _controller.OnPieceLocked += _ => locked = true;
@@ -60,7 +63,7 @@ namespace GameTests.EditMode
             // Level 29: framesPerRow=1 -- gravity fires every tick
             _controller.Tick(29, false, false, false, false);
             Assert.IsFalse(locked, "Piece must not lock on the same tick it lands");
-            Assert.AreEqual(0, _controller.CurrentPiece.Row, "Piece row should stay 0 after blocked gravity");
+            Assert.AreEqual(spawnRow, _controller.CurrentPiece.Row, "Piece row should stay at spawn row after blocked gravity");
 
             _controller.Tick(29, false, false, false, false);
             Assert.IsTrue(locked, "Piece must lock on the very next gravity tick after landing");
@@ -69,8 +72,9 @@ namespace GameTests.EditMode
         [Test]
         public void OnPieceLocked_FiresWithCorrectPieceState()
         {
+            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS - 1;
             for (int c = 3; c <= 6; c++)
-                _model.SetCell(1, c, 1);
+                _model.SetCell(spawnRow + 1, c, 1);
 
             PieceState lockedState = default;
             _controller.OnPieceLocked += ps => lockedState = ps;
@@ -80,7 +84,7 @@ namespace GameTests.EditMode
             _controller.Tick(29, false, false, false, false); // lock
 
             Assert.AreEqual(PieceType.I, lockedState.Type);
-            Assert.AreEqual(0, lockedState.Row);
+            Assert.AreEqual(spawnRow, lockedState.Row);
             Assert.AreEqual(3, lockedState.Col);
             Assert.AreEqual(0, lockedState.Rotation);
         }
@@ -88,7 +92,7 @@ namespace GameTests.EditMode
         [Test]
         public void OnSpawnFailed_FiresWhenSpawnPositionIsBlocked()
         {
-            _model.SetCell(0, 3, 1); // block one of the I-piece spawn cells
+            _model.SetCell(GameRules.PLAYFIELD_BUFFER_ROWS - 1, 3, 1); // block one of the I-piece spawn cells
 
             bool spawnFailed = false;
             _controller.OnSpawnFailed += () => spawnFailed = true;

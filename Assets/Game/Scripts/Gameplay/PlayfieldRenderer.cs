@@ -14,12 +14,50 @@ namespace Game.Gameplay
         public SpriteRenderer WellBorder { get; private set; }
 
         private Vector2 _gridOrigin;
+        private Sprite[] _effectiveSprites;
+
+        // NES Tetris palette: index 0=empty, 1-7 map to piece types I,O,T,S,Z,J,L
+        private static readonly Color[] NesColors =
+        {
+            Color.clear,
+            new Color(0.00f, 0.73f, 1.00f), // I  — cyan
+            new Color(1.00f, 0.89f, 0.00f), // O  — yellow
+            new Color(0.67f, 0.00f, 1.00f), // T  — purple
+            new Color(0.00f, 0.80f, 0.00f), // S  — green
+            new Color(1.00f, 0.07f, 0.07f), // Z  — red
+            new Color(0.00f, 0.00f, 0.80f), // J  — blue
+            new Color(1.00f, 0.50f, 0.00f), // L  — orange
+        };
 
         private void Awake()
         {
+            // InitializeSprites deferred to first Render() so BlockSprites can be
+            // assigned after construction (e.g., from Inspector or PlayMode tests)
             ComputeGridOrigin();
             CreateGrid();
             CreateWellBorder();
+        }
+
+        private void InitializeSprites()
+        {
+            // Use BlockSprites only when all 8 slots are populated with non-null sprites
+            if (BlockSprites != null && BlockSprites.Length >= 8 && BlockSprites[1] != null)
+            {
+                _effectiveSprites = BlockSprites;
+                return;
+            }
+
+            float ppu = 1f / CellSize;
+            _effectiveSprites = new Sprite[8];
+            _effectiveSprites[0] = null; // empty cell — no sprite = transparent
+            for (int i = 1; i < 8; i++)
+            {
+                var tex = new Texture2D(1, 1, TextureFormat.ARGB32, false);
+                tex.SetPixel(0, 0, NesColors[i]);
+                tex.Apply();
+                tex.filterMode = FilterMode.Point;
+                _effectiveSprites[i] = Sprite.Create(tex, new Rect(0, 0, 1, 1), Vector2.one * 0.5f, ppu);
+            }
         }
 
         // Computes the local-space position of the top-left grid cell so the well
@@ -81,6 +119,7 @@ namespace Game.Gameplay
         public void Render()
         {
             if (Cells == null || GameplayController == null) return;
+            if (_effectiveSprites == null) InitializeSprites();
 
             var playfield = GameplayController.Playfield;
 
@@ -90,8 +129,8 @@ namespace Game.Gameplay
                 for (int col = 0; col < GameRules.PLAYFIELD_WIDTH; col++)
                 {
                     int cellValue = playfield.GetCell(modelRow, col);
-                    if (BlockSprites != null && cellValue < BlockSprites.Length)
-                        Cells[visRow, col].sprite = BlockSprites[cellValue];
+                    if (_effectiveSprites != null && cellValue < _effectiveSprites.Length)
+                        Cells[visRow, col].sprite = _effectiveSprites[cellValue];
                 }
             }
 
@@ -109,8 +148,8 @@ namespace Game.Gameplay
                     col >= 0 && col < GameRules.PLAYFIELD_WIDTH)
                 {
                     int spriteIndex = typeIndex + 1;
-                    if (BlockSprites != null && spriteIndex < BlockSprites.Length)
-                        Cells[visRow, col].sprite = BlockSprites[spriteIndex];
+                    if (_effectiveSprites != null && spriteIndex < _effectiveSprites.Length)
+                        Cells[visRow, col].sprite = _effectiveSprites[spriteIndex];
                 }
             }
         }

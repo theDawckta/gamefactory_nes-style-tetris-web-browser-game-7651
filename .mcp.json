@@ -4,7 +4,8 @@
       "command": "node",
       "args": [
         "Library/PackageCache/com.gamelovers.mcp-unity@cce8b57de9cb/Server~/build/index.js"
-      ]
+      ],
+      "timeout": 60
     }
   }
 }
