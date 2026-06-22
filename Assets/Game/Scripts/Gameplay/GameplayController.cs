@@ -30,6 +30,11 @@ namespace Game.Gameplay
 
         public event Action OnStateChanged;
         public event Action<int> OnGameOver;
+        public event Action OnPieceMoved;
+        public event Action<PieceState> OnPieceLocked;
+        public event Action<int> OnLinesCleared;
+
+        public string CurrentState => _stateMachine.CurrentState;
 
         private void Awake()
         {
@@ -40,6 +45,7 @@ namespace Game.Gameplay
 
             _pieceController.OnPieceLocked += HandlePieceLocked;
             _pieceController.OnSpawnFailed += HandleSpawnFailed;
+            _pieceController.OnPieceMoved += () => OnPieceMoved?.Invoke();
 
             _stateMachine.RegisterState("Idle", null, null, null);
             _stateMachine.RegisterState("Spawning", EnterSpawning, null, null);
@@ -110,6 +116,7 @@ namespace Game.Gameplay
 
         private void HandlePieceLocked(PieceState piece)
         {
+            OnPieceLocked?.Invoke(piece);
             TransitionToState("LineClear");
         }
 
@@ -125,6 +132,8 @@ namespace Game.Gameplay
             int linesCleared = _playfield.ClearLines();
             _totalLinesCleared += linesCleared;
             _currentScore += GameRules.CalculateScore(linesCleared, levelBeforeClear);
+            if (linesCleared > 0)
+                OnLinesCleared?.Invoke(linesCleared);
             TransitionToState("Spawning");
         }
 

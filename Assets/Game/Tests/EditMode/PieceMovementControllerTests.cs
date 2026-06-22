@@ -246,5 +246,87 @@ namespace GameTests.EditMode
             Assert.AreEqual(startRow, _controller.CurrentPiece.Row, "Row must not change on blocked rotation (no wall kick)");
             Assert.AreEqual(startCol, _controller.CurrentPiece.Col, "Col must not change on blocked rotation (no wall kick)");
         }
+
+        [Test]
+        public void OnPieceMoved_Fires_OnSuccessfulLeftMove()
+        {
+            _controller.SpawnPiece(PieceType.I);
+            bool fired = false;
+            _controller.OnPieceMoved += () => fired = true;
+
+            _controller.Tick(0, leftHeld: true, false, false, false);
+
+            Assert.IsTrue(fired, "OnPieceMoved should fire when piece moves left");
+        }
+
+        [Test]
+        public void OnPieceMoved_Fires_OnSuccessfulRightMove()
+        {
+            _controller.SpawnPiece(PieceType.I);
+            bool fired = false;
+            _controller.OnPieceMoved += () => fired = true;
+
+            _controller.Tick(0, false, rightHeld: true, false, false);
+
+            Assert.IsTrue(fired, "OnPieceMoved should fire when piece moves right");
+        }
+
+        [Test]
+        public void OnPieceMoved_Fires_OnSuccessfulRotation()
+        {
+            _controller.SpawnPiece(PieceType.I);
+            bool fired = false;
+            _controller.OnPieceMoved += () => fired = true;
+
+            _controller.Tick(0, false, false, rotatePressed: true, false);
+
+            Assert.IsTrue(fired, "OnPieceMoved should fire when piece rotates successfully");
+        }
+
+        [Test]
+        public void OnPieceMoved_DoesNotFire_OnGravityDrop()
+        {
+            _controller.SpawnPiece(PieceType.I);
+            bool fired = false;
+            _controller.OnPieceMoved += () => fired = true;
+
+            // Only vertical gravity -- no lateral input
+            int framesPerRow = GameRules.GetFramesPerRow(0);
+            for (int i = 0; i < framesPerRow; i++)
+                _controller.Tick(0, false, false, false, false);
+
+            Assert.IsFalse(fired, "OnPieceMoved must not fire on gravity (vertical) drop");
+        }
+
+        [Test]
+        public void OnPieceMoved_DoesNotFire_OnBlockedMove()
+        {
+            // Block column 2 so left move from column 3 fails
+            int spawnRow = GameRules.PLAYFIELD_BUFFER_ROWS;
+            for (int r = spawnRow - 1; r <= spawnRow + 2; r++)
+                _model.SetCell(r, 2, 1);
+
+            _controller.SpawnPiece(PieceType.I);
+            bool fired = false;
+            _controller.OnPieceMoved += () => fired = true;
+
+            _controller.Tick(0, leftHeld: true, false, false, false);
+
+            Assert.IsFalse(fired, "OnPieceMoved must not fire when lateral move is blocked");
+        }
+
+        [Test]
+        public void OnPieceMoved_DoesNotFire_OnBlockedRotation()
+        {
+            // Block (2,3) to prevent I-piece rotation
+            _model.SetCell(2, 3, 1);
+            _controller.SpawnPiece(PieceType.I);
+            bool fired = false;
+            _controller.OnPieceMoved += () => fired = true;
+
+            _controller.Tick(0, false, false, rotatePressed: true, false);
+
+            Assert.IsFalse(fired, "OnPieceMoved must not fire when rotation is blocked");
+        }
     }
 }
