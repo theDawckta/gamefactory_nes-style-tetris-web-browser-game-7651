@@ -35,7 +35,7 @@ namespace Game.Gameplay
         {
             _playfield = new PlayfieldModel();
             _stateMachine = new GameStateMachine();
-            _pieceController = new PieceMovementController(_playfield, new GameStateMachine());
+            _pieceController = new PieceMovementController(_playfield, _stateMachine);
             _randomizer = new PieceRandomizer();
 
             _pieceController.OnPieceLocked += HandlePieceLocked;

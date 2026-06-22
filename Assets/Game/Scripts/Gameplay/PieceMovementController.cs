@@ -136,6 +136,8 @@ namespace Game.Gameplay
                 return false;
 
             _currentPiece = candidate;
+            if (_landed && CanFall())
+                _landed = false;
             return true;
         }
 
@@ -150,7 +152,23 @@ namespace Game.Gameplay
             };
 
             if (CanPlace(candidate))
+            {
                 _currentPiece = candidate;
+                if (_landed && CanFall())
+                    _landed = false;
+            }
+        }
+
+        private bool CanFall()
+        {
+            var candidate = new PieceState
+            {
+                Type = _currentPiece.Type,
+                Row = _currentPiece.Row + 1,
+                Col = _currentPiece.Col,
+                Rotation = _currentPiece.Rotation
+            };
+            return CanPlace(candidate);
         }
 
         private void LockPiece()
