@@ -7,6 +7,7 @@ namespace Game.Gameplay
     {
         public event Action<PieceState> OnPieceLocked;
         public event Action OnSpawnFailed;
+        public event Action OnPieceMoved;
 
         private readonly PlayfieldModel _model;
         private readonly GameStateMachine _stateMachine;
@@ -138,6 +139,8 @@ namespace Game.Gameplay
             _currentPiece = candidate;
             if (_landed && CanFall())
                 _landed = false;
+            if (colDelta != 0)
+                OnPieceMoved?.Invoke();
             return true;
         }
 
@@ -156,6 +159,7 @@ namespace Game.Gameplay
                 _currentPiece = candidate;
                 if (_landed && CanFall())
                     _landed = false;
+                OnPieceMoved?.Invoke();
             }
         }
 

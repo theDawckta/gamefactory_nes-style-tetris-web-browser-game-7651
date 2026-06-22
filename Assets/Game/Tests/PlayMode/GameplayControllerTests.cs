@@ -103,15 +103,17 @@ public class GameplayControllerTests
 
         _controller.StartGame();
 
-        // Fill row 1, cols 1-9 (not col 0 so it is never a full row and never cleared).
-        // This blocks all piece types from moving into row 1 on the first gravity tick.
+        // Fill row 3, cols 1-9 (not col 0 so it is never a full row and never cleared).
+        // Row 3 is immediately below the spawn row (row 2), so gravity on the first tick
+        // tries to move the piece to row 3, finds it blocked, and the piece lands.
         // The active piece is already spawned (not in the grid yet), so this prefill
         // does not interfere with the initial spawn check.
         for (int c = 1; c <= 9; c++)
-            _controller.Playfield.SetCell(1, c, 1);
+            _controller.Playfield.SetCell(3, c, 1);
 
-        // Wait enough frames for gravity to land the piece (48 frames at level 0)
-        // and then lock it (48 more frames). 200 frames is well above the 96 needed.
+        // After 48 frames the piece lands (gravity blocked at row 3).
+        // After 48 more frames it locks at row 2. The next spawn at row 2 finds
+        // the locked cells and fails -> OnGameOver fires. 200 frames is enough.
         for (int i = 0; i < 200; i++)
             yield return null;
 
@@ -165,5 +167,68 @@ public class GameplayControllerTests
             _controller.Tick();
 
         Assert.AreEqual(0, gameOverCount, "StopGame should halt the game loop so OnGameOver does not fire");
+    }
+
+    [UnityTest]
+    public IEnumerator OnPieceLocked_Fires_WhenPieceLocks()
+    {
+        yield return null;
+        _controller.StartGame();
+
+        int lockedCount = 0;
+        _controller.OnPieceLocked += _ => lockedCount++;
+
+        // Block row 3 (just below spawn row 2) so the piece lands immediately.
+        // Gravity: piece at row 2 tries row 3, blocked -> _landed. Next gravity tick: lock.
+        // At level 0 (48 frames/row): land at ~48 ticks, lock at ~96 ticks.
+        for (int c = 1; c <= 9; c++)
+            _controller.Playfield.SetCell(3, c, 1);
+
+        for (int i = 0; i < 200; i++)
+            _controller.Tick();
+
+        Assert.Greater(lockedCount, 0, "OnPieceLocked should fire when a piece locks into the playfield");
+    }
+
+    [UnityTest]
+    public IEnumerator OnLinesCleared_Fires_WithCorrectCount_WhenLineCompleted()
+    {
+        yield return null;
+        _controller.StartGame();
+
+        int clearedLines = -1;
+        _controller.OnLinesCleared += count => clearedLines = count;
+
+        // Pre-fill row 21 (bottom) completely. When the first piece falls and locks at
+        // row 20 (blocked by row 21), ClearLines finds row 21 full and fires OnLinesCleared(1).
+        // Piece needs ~864 ticks to reach row 20 at level 0; 2000 ticks is enough.
+        for (int c = 0; c < GameRules.PLAYFIELD_WIDTH; c++)
+            _controller.Playfield.SetCell(GameRules.PLAYFIELD_TOTAL_HEIGHT - 1, c, 1);
+
+        for (int i = 0; i < 2000; i++)
+            _controller.Tick();
+
+        Assert.AreEqual(1, clearedLines, "OnLinesCleared should fire with 1 when exactly one pre-filled line is cleared");
+    }
+
+    [UnityTest]
+    public IEnumerator CurrentState_ReturnsCorrectState_AfterStartGame()
+    {
+        yield return null;
+        _controller.StartGame();
+
+        string state = _controller.CurrentState;
+        Assert.IsTrue(state == "Playing" || state == "Spawning" || state == "LineClear",
+            "CurrentState should reflect an active gameplay state after StartGame");
+    }
+
+    [UnityTest]
+    public IEnumerator CurrentState_ReturnsIdle_AfterStopGame()
+    {
+        yield return null;
+        _controller.StartGame();
+        _controller.StopGame();
+
+        Assert.AreEqual("Idle", _controller.CurrentState, "CurrentState should be Idle after StopGame");
     }
 }
