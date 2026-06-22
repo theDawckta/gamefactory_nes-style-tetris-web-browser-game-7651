@@ -13,10 +13,34 @@ namespace Game.Gameplay
         public SpriteRenderer[,] Cells { get; private set; }
         public SpriteRenderer WellBorder { get; private set; }
 
+        private Vector2 _gridOrigin;
+
         private void Awake()
         {
+            ComputeGridOrigin();
             CreateGrid();
             CreateWellBorder();
+        }
+
+        // Computes the local-space position of the top-left grid cell so the well
+        // is centered on Camera.main. OriginOffset fine-tunes from that center.
+        private void ComputeGridOrigin()
+        {
+            Vector2 camLocal;
+            if (Camera.main != null)
+            {
+                Vector3 camWorld = Camera.main.transform.position;
+                Vector3 camLocalPos = transform.InverseTransformPoint(camWorld);
+                camLocal = new Vector2(camLocalPos.x, camLocalPos.y);
+            }
+            else
+            {
+                camLocal = Vector2.zero;
+            }
+
+            float halfW = (GameRules.PLAYFIELD_WIDTH - 1) * CellSize * 0.5f;
+            float halfH = (GameRules.PLAYFIELD_VISIBLE_HEIGHT - 1) * CellSize * 0.5f;
+            _gridOrigin = new Vector2(camLocal.x - halfW, camLocal.y + halfH) + OriginOffset;
         }
 
         private void Update()
@@ -34,8 +58,8 @@ namespace Game.Gameplay
                 {
                     var cellGo = new GameObject($"Cell_{modelRow}_{col}");
                     cellGo.transform.SetParent(transform);
-                    float x = OriginOffset.x + col * CellSize;
-                    float y = OriginOffset.y - visRow * CellSize;
+                    float x = _gridOrigin.x + col * CellSize;
+                    float y = _gridOrigin.y - visRow * CellSize;
                     cellGo.transform.localPosition = new Vector3(x, y, 0f);
                     Cells[visRow, col] = cellGo.AddComponent<SpriteRenderer>();
                 }
@@ -46,8 +70,8 @@ namespace Game.Gameplay
         {
             var borderGo = new GameObject("WellBorder");
             borderGo.transform.SetParent(transform);
-            float centerX = OriginOffset.x + (GameRules.PLAYFIELD_WIDTH - 1) * CellSize * 0.5f;
-            float centerY = OriginOffset.y - (GameRules.PLAYFIELD_VISIBLE_HEIGHT - 1) * CellSize * 0.5f;
+            float centerX = _gridOrigin.x + (GameRules.PLAYFIELD_WIDTH - 1) * CellSize * 0.5f;
+            float centerY = _gridOrigin.y - (GameRules.PLAYFIELD_VISIBLE_HEIGHT - 1) * CellSize * 0.5f;
             borderGo.transform.localPosition = new Vector3(centerX, centerY, 0f);
             WellBorder = borderGo.AddComponent<SpriteRenderer>();
             WellBorder.sprite = WellBorderSprite;

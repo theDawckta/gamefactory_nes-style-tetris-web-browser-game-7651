@@ -83,24 +83,35 @@ public class PlayfieldRendererTests
     }
 
     [UnityTest]
-    public IEnumerator Awake_CellPositions_MatchDefaultCellSizeAndOrigin()
+    public IEnumerator Awake_CellPositions_SpacedByCellSizeXRightYDown()
     {
         yield return null;
-        // Default: CellSize=0.5, OriginOffset=(0,0)
-        // Cell[0,0]: x=0, y=0
+        // Verify spacing, not absolute position (absolute depends on camera center)
         var pos00 = _renderer.Cells[0, 0].transform.localPosition;
-        Assert.That(pos00.x, Is.EqualTo(0f).Within(0.001f));
-        Assert.That(pos00.y, Is.EqualTo(0f).Within(0.001f));
-
-        // Cell[0,1]: x=0.5, y=0
         var pos01 = _renderer.Cells[0, 1].transform.localPosition;
-        Assert.That(pos01.x, Is.EqualTo(0.5f).Within(0.001f));
-        Assert.That(pos01.y, Is.EqualTo(0f).Within(0.001f));
-
-        // Cell[1,0]: x=0, y=-0.5
         var pos10 = _renderer.Cells[1, 0].transform.localPosition;
-        Assert.That(pos10.x, Is.EqualTo(0f).Within(0.001f));
-        Assert.That(pos10.y, Is.EqualTo(-0.5f).Within(0.001f));
+
+        Assert.That(pos01.x - pos00.x, Is.EqualTo(_renderer.CellSize).Within(0.001f), "Column step must increase X by CellSize");
+        Assert.That(pos01.y, Is.EqualTo(pos00.y).Within(0.001f), "Column step must not change Y");
+        Assert.That(pos10.x, Is.EqualTo(pos00.x).Within(0.001f), "Row step must not change X");
+        Assert.That(pos00.y - pos10.y, Is.EqualTo(_renderer.CellSize).Within(0.001f), "Row step must decrease Y by CellSize");
+    }
+
+    [UnityTest]
+    public IEnumerator Awake_CellPositions_GridCenteredOnCamera()
+    {
+        yield return null;
+        // The well center should sit at Camera.main's position (or transform origin if no camera)
+        Vector2 expectedCenter = Camera.main != null
+            ? new Vector2(Camera.main.transform.position.x, Camera.main.transform.position.y)
+            : Vector2.zero;
+
+        var topLeft  = _renderer.Cells[0, 0].transform.localPosition;
+        var botRight = _renderer.Cells[GameRules.PLAYFIELD_VISIBLE_HEIGHT - 1, GameRules.PLAYFIELD_WIDTH - 1].transform.localPosition;
+        var actualCenter = new Vector2((topLeft.x + botRight.x) * 0.5f, (topLeft.y + botRight.y) * 0.5f);
+
+        Assert.That(actualCenter.x, Is.EqualTo(expectedCenter.x).Within(0.001f), "Grid must be horizontally centered on camera");
+        Assert.That(actualCenter.y, Is.EqualTo(expectedCenter.y).Within(0.001f), "Grid must be vertically centered on camera");
     }
 
     [UnityTest]
